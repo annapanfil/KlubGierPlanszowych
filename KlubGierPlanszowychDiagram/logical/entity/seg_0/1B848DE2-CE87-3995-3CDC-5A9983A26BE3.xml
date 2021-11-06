@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="AEDAFA05-C436-C3E2-5A10-0530656D98B1" name="Członek">
-<createdBy>nikod</createdBy>
-<createdTime>2021-10-18 15:08:05 UTC</createdTime>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="1B848DE2-CE87-3995-3CDC-5A9983A26BE3" name="Miejsce_w_turnieju">
+<createdBy>anna</createdBy>
+<createdTime>2021-11-06 18:23:49 UTC</createdTime>
 <ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
 <engineerTo>
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
@@ -14,10 +14,21 @@
 <maxVolumes>9999999</maxVolumes>
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
+<shortName>Miejsce</shortName>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="Imię" id="181FFCE1-760A-B1CB-0CC8-6245BE50B098">
-<createdBy>nikod</createdBy>
-<createdTime>2021-10-18 15:08:19 UTC</createdTime>
+<Attribute name="Numer miejsca" id="27F02530-D886-F3AE-7844-D42B58BFB4F8">
+<createdBy>anna</createdBy>
+<createdTime>2021-11-06 18:28:16 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nagroda" id="93F676CC-E9BB-6D3E-1396-B8794813324A">
+<createdBy>anna</createdBy>
+<createdTime>2021-11-06 18:24:51 UTC</createdTime>
 <ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
 <engineerTo>
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
@@ -26,38 +37,31 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Nazwiko" id="602E8F06-8D0B-4697-5577-7AD4E2760F6B">
-<createdBy>nikod</createdBy>
-<createdTime>2021-10-18 15:08:24 UTC</createdTime>
+<Attribute name="Id_uczestnika" id="BF404C25-F2C9-E40B-00B1-6529163E450E">
+<createdBy>anna</createdBy>
+<createdTime>2021-11-06 18:31:09 UTC</createdTime>
+<generatorID>98FD0BEE-9EA0-EFFB-812A-E17049207D82</generatorID>
 <ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
 <engineerTo>
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
 </engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Wiek" id="EBD67792-D93F-3D0D-548C-4294397B3251">
-<createdBy>nikod</createdBy>
-<createdTime>2021-10-18 15:08:28 UTC</createdTime>
-<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
-<engineerTo>
-<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Pesel" id="09CB3FAE-140A-9B07-F7D4-143E3B3ACE1E">
-<createdBy>nikod</createdBy>
-<createdTime>2021-10-18 15:08:43 UTC</createdTime>
-<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
-<engineerTo>
-<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
+<referedAttribute>930D5C3B-CAD8-398F-E0E3-05975BDD9738</referedAttribute>
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="B00ABB8E-9690-9D97-3F5D-01BE8025DA75" name="Miejsce_w_turnieju PK">
+<createdBy>anna</createdBy>
+<createdTime>2021-11-06 18:31:20 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>BF404C25-F2C9-E40B-00B1-6529163E450E</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
 </Entity>

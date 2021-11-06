@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D4C8DEF4-5ACF-6A5D-5AD4-D8C510B47E8E" name="Planszowa">
-<createdBy>nikod</createdBy>
-<createdTime>2021-10-18 15:10:58 UTC</createdTime>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="B0418EFA-FB52-7C8D-79DB-0FF9A291DB1C" name="Uczestnik">
+<createdBy>anna</createdBy>
+<createdTime>2021-11-06 18:25:21 UTC</createdTime>
 <ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
 <engineerTo>
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
@@ -11,14 +11,23 @@
 <fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
 <growthPercent>0</growthPercent>
 <growthType>Year</growthType>
-<hierarchicalParent>D064688B-2A66-D919-59E6-D4AAD9C4FA05</hierarchicalParent>
 <maxVolumes>9999999</maxVolumes>
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="Waga" id="8FFD2F3C-BB3C-6172-66B7-40D33B168761">
-<createdBy>nikod</createdBy>
-<createdTime>2021-10-18 15:11:19 UTC</createdTime>
+<Attribute name="Id_uczestnika" id="930D5C3B-CAD8-398F-E0E3-05975BDD9738">
+<createdBy>anna</createdBy>
+<createdTime>2021-11-06 18:26:11 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Imię" id="B06C3436-3EAE-5A94-7C55-B76F009311DA">
+<createdBy>anna</createdBy>
+<createdTime>2021-11-06 18:25:45 UTC</createdTime>
 <ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
 <engineerTo>
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
@@ -27,20 +36,9 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Cena" id="F5B25C6D-9A6A-75AC-EAC7-976685A9A8BD">
-<createdBy>nikod</createdBy>
-<createdTime>2021-10-18 15:11:23 UTC</createdTime>
-<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
-<engineerTo>
-<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Rodzaj" id="8E046FC6-54AC-5FA3-FA6C-A5B03CDB2C1C">
-<createdBy>nikod</createdBy>
-<createdTime>2021-10-18 15:11:29 UTC</createdTime>
+<Attribute name="Nazwisko" id="08B970AD-CC2E-A490-BF62-51C0EC707FE4">
+<createdBy>anna</createdBy>
+<createdTime>2021-11-06 18:26:06 UTC</createdTime>
 <ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
 <engineerTo>
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
@@ -50,4 +48,18 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="186F4844-36C8-6149-AFA5-F7C733328001" name="uczestnik PK">
+<createdBy>anna</createdBy>
+<createdTime>2021-11-06 18:26:26 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>930D5C3B-CAD8-398F-E0E3-05975BDD9738</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
 </Entity>
