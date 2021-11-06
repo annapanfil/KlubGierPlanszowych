@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="E16BE183-DBD9-CD15-6FDC-F28A13733E4A">
+<createdBy>nikod</createdBy>
+<createdTime>2021-10-18 15:02:27 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</BusinessInfoDesign>

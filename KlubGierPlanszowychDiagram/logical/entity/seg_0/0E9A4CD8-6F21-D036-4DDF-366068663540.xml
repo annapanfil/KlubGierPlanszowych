@@ -1,0 +1,30 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="0E9A4CD8-6F21-D036-4DDF-366068663540" name="Sekcja">
+<createdBy>nikod</createdBy>
+<createdTime>2021-10-18 15:08:52 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Nazwa" id="7D60F23D-C21C-80AF-48EA-585B66C0B18B">
+<createdBy>nikod</createdBy>
+<createdTime>2021-10-18 15:09:20 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

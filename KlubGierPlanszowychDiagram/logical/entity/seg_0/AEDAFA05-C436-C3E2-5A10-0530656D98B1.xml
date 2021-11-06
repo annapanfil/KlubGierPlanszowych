@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="AEDAFA05-C436-C3E2-5A10-0530656D98B1" name="Członek">
+<createdBy>nikod</createdBy>
+<createdTime>2021-10-18 15:08:05 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Imię" id="181FFCE1-760A-B1CB-0CC8-6245BE50B098">
+<createdBy>nikod</createdBy>
+<createdTime>2021-10-18 15:08:19 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nazwiko" id="602E8F06-8D0B-4697-5577-7AD4E2760F6B">
+<createdBy>nikod</createdBy>
+<createdTime>2021-10-18 15:08:24 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Wiek" id="EBD67792-D93F-3D0D-548C-4294397B3251">
+<createdBy>nikod</createdBy>
+<createdTime>2021-10-18 15:08:28 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Pesel" id="09CB3FAE-140A-9B07-F7D4-143E3B3ACE1E">
+<createdBy>nikod</createdBy>
+<createdTime>2021-10-18 15:08:43 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

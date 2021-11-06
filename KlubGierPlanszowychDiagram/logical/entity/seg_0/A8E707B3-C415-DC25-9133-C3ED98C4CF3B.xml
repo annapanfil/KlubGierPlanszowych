@@ -1,0 +1,42 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="A8E707B3-C415-DC25-9133-C3ED98C4CF3B" name="Komputerowa">
+<createdBy>nikod</createdBy>
+<createdTime>2021-10-18 15:11:36 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<hierarchicalParent>D064688B-2A66-D919-59E6-D4AAD9C4FA05</hierarchicalParent>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Cena" id="2941464B-B79B-3D8F-59EA-20D50CC636BB">
+<createdBy>nikod</createdBy>
+<createdTime>2021-10-18 15:11:49 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Platforma" id="138E0C82-027B-976C-7B0D-A3EE0A248555">
+<createdBy>nikod</createdBy>
+<createdTime>2021-10-18 15:11:56 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

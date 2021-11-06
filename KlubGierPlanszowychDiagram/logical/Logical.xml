@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="2FE9F3E0-21D3-CEB1-F815-3C04094A2DB5" mainViewID="58C1B1E2-80B6-B3CB-914F-725B2B482392">
+<createdBy>nikod</createdBy>
+<createdTime>2021-10-18 15:02:27 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

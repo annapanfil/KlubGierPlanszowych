@@ -1,0 +1,41 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4C41F14B-3302-233C-D4B3-100EEE972111" name="Turniej">
+<createdBy>nikod</createdBy>
+<createdTime>2021-10-18 15:17:05 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="Gra" id="8509DEE8-C05C-E763-D73E-8C40EF584201">
+<createdBy>nikod</createdBy>
+<createdTime>2021-10-18 15:17:17 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nagroda" id="300F6DC4-35F6-03CF-815F-2F7B206437C5">
+<createdBy>nikod</createdBy>
+<createdTime>2021-10-18 15:17:27 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

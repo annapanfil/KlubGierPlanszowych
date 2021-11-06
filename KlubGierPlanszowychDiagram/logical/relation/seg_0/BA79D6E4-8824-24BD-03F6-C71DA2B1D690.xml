@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_1" directorySegmentName="seg_0" id="BA79D6E4-8824-24BD-03F6-C71DA2B1D690">
+<createdBy>nikod</createdBy>
+<createdTime>2021-10-18 15:22:53 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>AEDAFA05-C436-C3E2-5A10-0530656D98B1</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>0E9A4CD8-6F21-D036-4DDF-366068663540</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>
