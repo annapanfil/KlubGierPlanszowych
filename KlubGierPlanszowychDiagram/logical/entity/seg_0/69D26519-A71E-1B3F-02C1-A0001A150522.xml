@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="C4D2C1CB-332B-AEBF-81E5-A3221D8A4BF3" name="Zrzutka">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="69D26519-A71E-1B3F-02C1-A0001A150522" name="należy">
 <createdBy>nikod</createdBy>
-<createdTime>2021-10-18 15:20:19 UTC</createdTime>
+<createdTime>2021-11-08 14:57:04 UTC</createdTime>
 <ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
 <engineerTo>
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
@@ -15,9 +15,9 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="ID_zrzutki" id="562B5AB6-9F02-D18E-6A6C-AC5C7474DE73">
+<Attribute name="data dołączenia" id="716DF3C8-DBDF-8E1C-3E2E-610AC542024E">
 <createdBy>nikod</createdBy>
-<createdTime>2021-11-08 14:45:01 UTC</createdTime>
+<createdTime>2021-11-08 14:57:31 UTC</createdTime>
 <ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
 <engineerTo>
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
@@ -25,30 +25,22 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Cel" id="7B624084-3A97-F657-7D8E-1BE747A47ED9">
+<Attribute name="Pesel" id="EE575946-E02D-5D12-C3DE-ED98063DD57A">
 <createdBy>nikod</createdBy>
-<createdTime>2021-10-18 15:21:14 UTC</createdTime>
+<createdTime>2021-11-08 14:57:55 UTC</createdTime>
+<generatorID>15E94015-E6E9-8EC3-8772-650B1B9A5054</generatorID>
 <ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
 <engineerTo>
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
 </engineerTo>
+<referedAttribute>09CB3FAE-140A-9B07-F7D4-143E3B3ACE1E</referedAttribute>
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Cenę" id="06E5F943-B707-C99B-5350-69930D6FE6C6">
+<Attribute name="Nazwa" id="D2E446CB-5333-44EB-1020-D33A76074BAC">
 <createdBy>nikod</createdBy>
-<createdTime>2021-10-18 15:21:24 UTC</createdTime>
-<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
-<engineerTo>
-<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
-</engineerTo>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Nazwa" id="5673B64D-B960-FCA7-A77D-59249C1D5D32">
-<createdBy>nikod</createdBy>
-<createdTime>2021-11-08 14:36:17 UTC</createdTime>
-<generatorID>16810FEB-7BCE-7D22-F47D-40CACAB40D7F</generatorID>
+<createdTime>2021-11-08 14:57:59 UTC</createdTime>
+<generatorID>DDE0EE28-C4B9-59DC-70F3-2BB485DF26E0</generatorID>
 <ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
 <engineerTo>
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
@@ -57,28 +49,19 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Data rozpoczecia" id="5BD896C2-B23B-51B5-1D08-5AC56815A59E">
-<createdBy>nikod</createdBy>
-<createdTime>2021-11-08 14:45:32 UTC</createdTime>
-<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
-<engineerTo>
-<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
-</engineerTo>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="6FFB75A2-6063-2743-C486-D2DAF59F6E48" name="Zrzutka PK">
+<identifier id="B1F09AFE-7D55-72E9-5E63-879B4B568693" name="należy PK">
 <createdBy>nikod</createdBy>
-<createdTime>2021-11-08 14:45:18 UTC</createdTime>
+<createdTime>2021-11-08 14:57:55 UTC</createdTime>
 <ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
 <engineerTo>
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>562B5AB6-9F02-D18E-6A6C-AC5C7474DE73</attributeRef>
+<attributeRef>EE575946-E02D-5D12-C3DE-ED98063DD57A</attributeRef>
+<attributeRef>D2E446CB-5333-44EB-1020-D33A76074BAC</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

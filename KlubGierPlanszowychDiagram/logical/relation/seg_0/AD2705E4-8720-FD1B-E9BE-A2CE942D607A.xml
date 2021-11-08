@@ -1,20 +1,19 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_14" directorySegmentName="seg_0" id="8C8DF543-DBC8-02AC-4C4F-54DF08D36F53">
-<createdBy>anna</createdBy>
-<createdTime>2021-11-06 18:29:05 UTC</createdTime>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_23" directorySegmentName="seg_0" id="AD2705E4-8720-FD1B-E9BE-A2CE942D607A">
+<createdBy>nikod</createdBy>
+<createdTime>2021-11-08 14:40:45 UTC</createdTime>
 <ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
 <engineerTo>
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
 </engineerTo>
-<sourcePk>A11C9041-2F37-1766-6C07-B289EB094C61</sourcePk>
+<sourcePk>5746C6B5-F298-7458-64CA-F48ED320DA7F</sourcePk>
 <identifying>true</identifying>
-<nameOnTarget>bierze udział w</nameOnTarget>
 <optionalSource>true</optionalSource>
 <optionalTarget>false</optionalTarget>
 <sourceCardinality>1</sourceCardinality>
-<sourceEntity>4C41F14B-3302-233C-D4B3-100EEE972111</sourceEntity>
+<sourceEntity>E05DFCE0-D587-58C2-742B-4C3A380212E0</sourceEntity>
 <targetCardinalityString>*</targetCardinalityString>
-<targetEntity>B0418EFA-FB52-7C8D-79DB-0FF9A291DB1C</targetEntity>
+<targetEntity>AE080B92-8020-1B9D-FB63-AF404B9A239E</targetEntity>
 <transferable>true</transferable>
 <deleteRule>NO ACTION</deleteRule>
 </Relation>

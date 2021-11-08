@@ -15,9 +15,53 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_gry" id="67842F69-5151-E343-1C9B-2155DF698BC7">
+<createdBy>nikod</createdBy>
+<createdTime>2021-11-08 14:35:18 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 <Attribute name="Nazwa" id="82815102-73A4-2865-396C-2C27A7475BD8">
 <createdBy>nikod</createdBy>
 <createdTime>2021-10-18 15:09:50 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nazwa1" id="1A6AECF5-EA79-750F-6181-388B8A84DD5F">
+<createdBy>nikod</createdBy>
+<createdTime>2021-11-08 14:36:17 UTC</createdTime>
+<generatorID>A9747878-DBD8-A21A-6B9A-0BE791860BE4</generatorID>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<referedAttribute>7D60F23D-C21C-80AF-48EA-585B66C0B18B</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nazwa2" id="38617D17-1E62-7765-E22E-42B6AC0C2006">
+<createdBy>nikod</createdBy>
+<createdTime>2021-11-08 14:44:38 UTC</createdTime>
+<generatorID>EE024C44-7E61-80F9-2881-683D1217A3A0</generatorID>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<referedAttribute>CDA56A9D-9923-47DA-96A5-6FFC78F0AEE1</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Cena" id="A9FB9812-4159-FE05-29CE-E61D02D338F2">
+<createdBy>nikod</createdBy>
+<createdTime>2021-11-08 14:50:21 UTC</createdTime>
 <ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
 <engineerTo>
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
@@ -27,4 +71,18 @@
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="D9193A37-40DB-15EC-6D00-A0E98C1FE41A" name="Gry PK">
+<createdBy>nikod</createdBy>
+<createdTime>2021-11-08 14:35:27 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>67842F69-5151-E343-1C9B-2155DF698BC7</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
 </Entity>

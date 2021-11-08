@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="AEDAFA05-C436-C3E2-5A10-0530656D98B1" name="Członek">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="AE616030-C999-7AFE-FAF5-4A4718DA931A" name="gra użyta">
 <createdBy>nikod</createdBy>
-<createdTime>2021-10-18 15:08:05 UTC</createdTime>
+<createdTime>2021-11-08 14:42:45 UTC</createdTime>
 <ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
 <engineerTo>
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
@@ -15,58 +15,43 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="Pesel" id="09CB3FAE-140A-9B07-F7D4-143E3B3ACE1E">
+<Attribute name="ID_gry" id="6237033C-3648-4FD5-2691-9F3728F09881">
 <createdBy>nikod</createdBy>
-<createdTime>2021-10-18 15:08:43 UTC</createdTime>
+<createdTime>2021-11-08 14:43:14 UTC</createdTime>
+<generatorID>5FDAC4BE-BDF1-726E-0375-98B06D118683</generatorID>
 <ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
 <engineerTo>
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
 </engineerTo>
+<referedAttribute>67842F69-5151-E343-1C9B-2155DF698BC7</referedAttribute>
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Imię" id="181FFCE1-760A-B1CB-0CC8-6245BE50B098">
+<Attribute name="Nazwa" id="7606C10E-63E3-9587-1A96-C72EE846A492">
 <createdBy>nikod</createdBy>
-<createdTime>2021-10-18 15:08:19 UTC</createdTime>
+<createdTime>2021-11-08 14:43:18 UTC</createdTime>
+<generatorID>279F4E59-2E1B-30BB-A19D-B40323A9AB3A</generatorID>
 <ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
 <engineerTo>
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
 </engineerTo>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Nazwiko" id="602E8F06-8D0B-4697-5577-7AD4E2760F6B">
-<createdBy>nikod</createdBy>
-<createdTime>2021-10-18 15:08:24 UTC</createdTime>
-<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
-<engineerTo>
-<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
-</engineerTo>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Wiek" id="EBD67792-D93F-3D0D-548C-4294397B3251">
-<createdBy>nikod</createdBy>
-<createdTime>2021-10-18 15:08:28 UTC</createdTime>
-<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
-<engineerTo>
-<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
-</engineerTo>
+<referedAttribute>5B50C2FF-CDBA-20F7-22AA-334867AAFC4B</referedAttribute>
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="019EBC8C-ED0F-DE18-7133-8632DB869E8F" name="Członek PK">
+<identifier id="5D53E45D-0A3C-C6F9-C531-F33C5B7D520E" name="gra użyta PK">
 <createdBy>nikod</createdBy>
-<createdTime>2021-11-08 14:36:22 UTC</createdTime>
+<createdTime>2021-11-08 14:43:14 UTC</createdTime>
 <ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
 <engineerTo>
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>09CB3FAE-140A-9B07-F7D4-143E3B3ACE1E</attributeRef>
+<attributeRef>6237033C-3648-4FD5-2691-9F3728F09881</attributeRef>
+<attributeRef>7606C10E-63E3-9587-1A96-C72EE846A492</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

@@ -32,7 +32,6 @@
 <engineerTo>
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
 </engineerTo>
-<nullsAllowed>true</nullsAllowed>
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
@@ -43,7 +42,18 @@
 <engineerTo>
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
 </engineerTo>
-<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nazwa" id="614026A9-8A37-A93E-3D5D-335E312D66C0">
+<createdBy>nikod</createdBy>
+<createdTime>2021-11-08 14:42:14 UTC</createdTime>
+<generatorID>8C8DF543-DBC8-02AC-4C4F-54DF08D36F53</generatorID>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<referedAttribute>5B50C2FF-CDBA-20F7-22AA-334867AAFC4B</referedAttribute>
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
@@ -59,6 +69,7 @@
 <pk>true</pk>
 <usedAttributes>
 <attributeRef>930D5C3B-CAD8-398F-E0E3-05975BDD9738</attributeRef>
+<attributeRef>614026A9-8A37-A93E-3D5D-335E312D66C0</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

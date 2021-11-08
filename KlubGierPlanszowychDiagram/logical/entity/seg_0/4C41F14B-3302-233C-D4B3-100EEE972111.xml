@@ -22,18 +22,6 @@
 <engineerTo>
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
 </engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Gra" id="8509DEE8-C05C-E763-D73E-8C40EF584201">
-<createdBy>nikod</createdBy>
-<createdTime>2021-10-18 15:17:17 UTC</createdTime>
-<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
-<engineerTo>
-<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
@@ -44,7 +32,6 @@
 <engineerTo>
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
 </engineerTo>
-<nullsAllowed>true</nullsAllowed>
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
@@ -58,6 +45,9 @@
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
 </engineerTo>
 <pk>true</pk>
+<usedAttributes>
+<attributeRef>5B50C2FF-CDBA-20F7-22AA-334867AAFC4B</attributeRef>
+</usedAttributes>
 </identifier>
 </identifiers>
 </Entity>

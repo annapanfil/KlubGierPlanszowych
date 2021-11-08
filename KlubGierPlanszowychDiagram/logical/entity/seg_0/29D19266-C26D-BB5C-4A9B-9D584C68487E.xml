@@ -1,7 +1,7 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
-<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="E05DFCE0-D587-58C2-742B-4C3A380212E0" name="Sponsorzy">
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="29D19266-C26D-BB5C-4A9B-9D584C68487E" name="Platforma">
 <createdBy>nikod</createdBy>
-<createdTime>2021-10-18 15:18:00 UTC</createdTime>
+<createdTime>2021-11-08 14:10:10 UTC</createdTime>
 <ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
 <engineerTo>
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
@@ -15,9 +15,9 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="Nazwa" id="AD702556-8E96-9290-B58C-9ABE104515C9">
+<Attribute name="Nazwa" id="154FEAB9-9FAF-8D30-F931-3B85161E5391">
 <createdBy>nikod</createdBy>
-<createdTime>2021-10-18 15:18:07 UTC</createdTime>
+<createdTime>2021-11-08 14:44:42 UTC</createdTime>
 <ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
 <engineerTo>
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
@@ -27,16 +27,16 @@
 </Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
-<identifier id="5746C6B5-F298-7458-64CA-F48ED320DA7F" name="Sponsorzy PK">
+<identifier id="FE97EE50-798E-2753-CF55-B39AAA6FA5EF" name="Platforma PK">
 <createdBy>nikod</createdBy>
-<createdTime>2021-11-08 14:41:48 UTC</createdTime>
+<createdTime>2021-11-08 14:44:49 UTC</createdTime>
 <ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
 <engineerTo>
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
 </engineerTo>
 <pk>true</pk>
 <usedAttributes>
-<attributeRef>AD702556-8E96-9290-B58C-9ABE104515C9</attributeRef>
+<attributeRef>154FEAB9-9FAF-8D30-F931-3B85161E5391</attributeRef>
 </usedAttributes>
 </identifier>
 </identifiers>

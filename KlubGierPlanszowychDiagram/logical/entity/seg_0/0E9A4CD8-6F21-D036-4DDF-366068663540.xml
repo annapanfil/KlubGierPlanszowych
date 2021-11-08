@@ -22,9 +22,22 @@
 <engineerTo>
 <item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
 </engineerTo>
-<nullsAllowed>true</nullsAllowed>
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
 </attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="93AAE182-9B91-19F2-9D88-EE428DF7818A" name="Sekcja PK">
+<createdBy>nikod</createdBy>
+<createdTime>2021-11-08 14:36:15 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>7D60F23D-C21C-80AF-48EA-585B66C0B18B</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
 </Entity>

@@ -27,27 +27,5 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="Cena" id="F5B25C6D-9A6A-75AC-EAC7-976685A9A8BD">
-<createdBy>nikod</createdBy>
-<createdTime>2021-10-18 15:11:23 UTC</createdTime>
-<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
-<engineerTo>
-<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
-<Attribute name="Rodzaj" id="8E046FC6-54AC-5FA3-FA6C-A5B03CDB2C1C">
-<createdBy>nikod</createdBy>
-<createdTime>2021-10-18 15:11:29 UTC</createdTime>
-<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
-<engineerTo>
-<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
-</engineerTo>
-<nullsAllowed>true</nullsAllowed>
-<use>0</use>
-<ownDataTypeParameters>,,</ownDataTypeParameters>
-</Attribute>
 </attributes>
 </Entity>
