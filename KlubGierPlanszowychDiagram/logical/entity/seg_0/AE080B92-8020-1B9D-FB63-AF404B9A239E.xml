@@ -15,7 +15,7 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="kwota" id="AEBE5EC5-8C80-C253-6E0A-79843A19C9AB">
+<Attribute name="Kwota" id="AEBE5EC5-8C80-C253-6E0A-79843A19C9AB">
 <createdBy>nikod</createdBy>
 <createdTime>2021-11-08 14:40:23 UTC</createdTime>
 <ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_30" directorySegmentName="seg_0" id="EE29DA1F-4FD6-8DC2-44AE-A5D362D586C5">
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 20:06:46 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<targetPk>FE97EE50-798E-2753-CF55-B39AAA6FA5EF</targetPk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>A8E707B3-C415-DC25-9133-C3ED98C4CF3B</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>29D19266-C26D-BB5C-4A9B-9D584C68487E</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

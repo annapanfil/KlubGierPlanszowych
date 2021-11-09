@@ -1,7 +1,6 @@
--- Dodałam sztuczne klucze, żeby ułatwić joiny. Nie wiem tylko, czy wtedy nie tracimy identyfikacji
 -- [1] https://solutioncenter.apexsql.com/sql-database-refactoring-techniques-replacing-a-natural-key-with-a-surrogate-key/
 
--- Czy adresy (i ogólnie varchary) są dobrymi kluczami? Na razie je zostawiłam
+-- Czy adresy (i ogólnie varchary) są dobrymi kluczami?
 --[2] https://www.mssqltips.com/sqlservertip/5431/surrogate-key-vs-natural-key-differences-and-when-to-use-in-sql-server/
 
 CREATE TABLE Czlonkowie (
@@ -95,12 +94,10 @@ CREATE TABLE Wydawcy(
   nazwa VARCHAR(100) PRIMARY KEY
 );
 
-
 CREATE TABLE Platformy(
   nazwa VARCHAR(50) PRIMARY KEY
 );
 
---wzorowane na lab Koszlajda transformacja pojazdy
 CREATE TABLE Gry(
   id_gry NUMBER(7) PRIMARY KEY,
   nazwa VARCHAR(100) NOT NULL,
@@ -109,7 +106,8 @@ CREATE TABLE Gry(
 );
 
 CREATE TABLE Gry_komputerowe(
-  id_gry NUMBER(7) REFERENCES Gry(id_gry) NOT NULL
+  id_gry NUMBER(7) REFERENCES Gry(id_gry) NOT NULL,
+  platforma VARCHAR(50) REFERENCES Platformy(nazwa) NOT NULL
 );
 
 CREATE TABLE Gry_planszowe(
@@ -117,13 +115,6 @@ CREATE TABLE Gry_planszowe(
   waga NUMBER(5,2),
   min_liczba_graczy NUMBER(2),
   max_liczba_graczy NUMBER(2)
-);
-
---TODO: ograniczyć do gier komputerowych
-CREATE TABLE Gry_platformy(
-  id_gry NUMBER(7) REFERENCES Gry(id_gry) NOT NULL,
-  platforma VARCHAR(50) REFERENCES Platformy(nazwa) NOT NULL,
-  PRIMARY KEY (id_gry, platforma)
 );
 
 CREATE TABLE Gry_uzywanie(

@@ -15,7 +15,7 @@
 <minVolumes>0</minVolumes>
 <normalForm>Third</normalForm>
 <attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
-<Attribute name="data dołączenia" id="716DF3C8-DBDF-8E1C-3E2E-610AC542024E">
+<Attribute name="Data dołączenia" id="716DF3C8-DBDF-8E1C-3E2E-610AC542024E">
 <createdBy>nikod</createdBy>
 <createdTime>2021-11-08 14:57:31 UTC</createdTime>
 <ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
@@ -49,7 +49,7 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
-<Attribute name="funkcja" id="C8E8A1EB-60CE-AD81-18EC-EF45C6494BC3">
+<Attribute name="Funkcja" id="C8E8A1EB-60CE-AD81-18EC-EF45C6494BC3">
 <createdBy>anna</createdBy>
 <createdTime>2021-11-09 19:36:38 UTC</createdTime>
 <ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
