@@ -1,0 +1,104 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="1E819CCF-DF6E-6467-70C3-018F98A913EB" name="Czlonkowie_w_sekcjach">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<importedID>08E54295-A6E7-94AC-5B8A-D9012B9D6A22</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="pesel_czlonka" id="7C77D14D-942B-07ED-793D-C55E96D056A3">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<importedID>CAB4DD75-FAD6-C66B-733E-7CB5AADF04BE</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>FB21C734-381B-CFB1-CA56-EA3FE804A211</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4050AF93-D71D-8766-3C10-33CE981582FF" referredColumn="446EC0FD-7BB0-E16D-002A-213FFBF952B7"/>
+</associations>
+</Column>
+<Column name="nazwa_sekcji" id="3E46415F-1AD6-E611-CB9C-9B13D8F781A9">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<importedID>C6F0C899-E703-6A4E-0FFD-61AAE72AA337</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>A432388D-7BA3-CF36-8489-5721245535F5</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4928BD25-DD24-A891-5B43-0E389A404865" referredColumn="8AB7E619-0DB5-764D-D777-481D9DC2BB55"/>
+</associations>
+</Column>
+<Column name="data_dolaczenia" id="3AFA80C4-8D82-620E-DF6F-9901C3BAA187">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<importedID>A4181DAA-F73D-7245-F7A1-DD4A3BCD0808</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>B7EB70A6-FC48-3E9D-4939-BF20E7EA2674</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="funkcja" id="D056976D-03D2-F740-DD0F-044674DA3592">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<importedID>32D67058-CE37-7AFD-26A9-5E6228C73DA9</importedID>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>A432388D-7BA3-CF36-8489-5721245535F5</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F1652B9B-D211-839B-A3CC-84FD4A51D906" name="Czlonkowie_w_sekcjach_PK">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<importedID>9D123586-C049-9F9C-416E-679F3B336D7B</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7C77D14D-942B-07ED-793D-C55E96D056A3"/>
+<colUsage columnID="3E46415F-1AD6-E611-CB9C-9B13D8F781A9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="7A153808-ADC9-FDBA-6CE5-DC54821A0E0E" name="Czlonkowie_w_sekcjach_Czlonkowie_FK">
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7C77D14D-942B-07ED-793D-C55E96D056A3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="CCF354A2-43C6-A5AB-9B07-489968699B5D" name="Czlonkowie_w_sekcjach_Sekcje_FK">
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3E46415F-1AD6-E611-CB9C-9B13D8F781A9"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

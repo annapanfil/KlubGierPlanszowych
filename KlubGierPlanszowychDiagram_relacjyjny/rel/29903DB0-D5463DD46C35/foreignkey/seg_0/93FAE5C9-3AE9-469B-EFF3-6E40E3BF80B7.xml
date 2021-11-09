@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="93FAE5C9-3AE9-469B-EFF3-6E40E3BF80B7" containerWithKeyObject="184BF671-C7E3-7D21-0C84-B2E069073F05" localFKIndex="7D808617-05AD-3F7B-04B5-AFB572310C68" name="Gry_planszowe_Gry_FK">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<importedID>E776F51C-9C16-E067-1D4B-DAC72417E583</importedID>
+<referredTableLongName>Gry</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>AC519FDD-132C-A0E6-3FCC-1966417874EC</referredTableID>
+<keyObject>C335542D-7785-7897-8F9C-44BD56C703A5</keyObject>
+<referredKeyID>C335542D-7785-7897-8F9C-44BD56C703A5</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_gry</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

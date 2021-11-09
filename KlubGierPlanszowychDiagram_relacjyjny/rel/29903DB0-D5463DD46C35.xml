@@ -1,0 +1,15 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<relationalModel class="oracle.dbtools.crest.model.design.relational.RelationalDesign" name="Relational_1" id="29903DB0-31DC-587C-76DB-D5463DD46C35" mainViewID="222DB457-ED78-E448-F32F-2C15B375BB51">
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:25:33 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+<selectedRDBMSSite>32076570-2523-435C-2E92-BF29817DFF70</selectedRDBMSSite>
+<importDDLFileStamps>
+<importDDLFileStamp class="oracle.dbtools.crest.imports.DDLFileStamp">
+<fileName>skrypt_tworzacy_tabele.sql</fileName>
+<pathName>/mnt/projekty/studia/rok_3/KlubGierPlanszowych</pathName>
+<dbType>9</dbType>
+</importDDLFileStamp>
+</importDDLFileStamps>
+</relationalModel>

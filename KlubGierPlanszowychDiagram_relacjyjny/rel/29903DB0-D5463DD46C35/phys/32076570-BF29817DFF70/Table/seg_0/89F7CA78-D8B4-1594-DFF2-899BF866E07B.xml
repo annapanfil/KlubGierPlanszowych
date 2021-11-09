@@ -1,0 +1,31 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="Sekcje" directorySegmentName="seg_0" id="89F7CA78-D8B4-1594-DFF2-899BF866E07B">
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="data_utworzenia" id="87FE09CB-6AD4-D652-6388-2FE61474A54D">
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="nazwa" id="8AB7E619-0DB5-764D-D777-481D9DC2BB55">
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="Sekcje_PK" id="803C2DFA-47E1-2893-4474-7D9CF1E22C78">
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

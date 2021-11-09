@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3DD13302-5888-3DF9-C06E-BC7C662247DE" name="Miejsce_w_turnieju">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<importedID>17643106-071C-F3ED-57A4-31934EBAF7AF</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="numer_miejsca" id="F95E4562-8D95-00EB-D168-FDAE00C365C9">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<importedID>3582179A-3C65-121D-D1FE-31C364582F7C</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>CB6CD1AD-CBC5-330D-4424-6659ECF7460D</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="turniej" id="E90DE0C5-26C3-0E47-0160-F001A8DA09B3">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<importedID>F9B9EB1B-8C9B-669A-85B7-C74BB50A35CC</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>5812E863-9FEB-F5EE-AB89-270455A2B657</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E3FE6A5D-A709-CE0E-E38F-EFFBB6DB7FF0" referredColumn="A0EE8304-FBE6-1D09-EDFC-CFCF40366CFD"/>
+</associations>
+</Column>
+<Column name="uczestnik" id="F3854C36-9E5F-1F72-6EC4-36CB12F38507">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<importedID>C1F998B1-FCC8-5B8B-D6B1-F92494F73A10</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>91C36576-6CED-B4B8-FE59-A6339F8C2150</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="584133A6-928B-7D1F-B304-080BA51EC421" referredColumn="041D211D-A219-01F7-3633-D314941B91FE"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FC37D837-CF32-33C1-D46A-2BE199FA8E2F" name="Miejsce_w_turnieju_PK">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<importedID>B62316C2-1564-242A-3B91-8D874DD1C46E</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F95E4562-8D95-00EB-D168-FDAE00C365C9"/>
+<colUsage columnID="E90DE0C5-26C3-0E47-0160-F001A8DA09B3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D853DAD5-ADAE-F099-8563-ABBFD7851B30" name="Miejsce_w_turnieju_Turnieje_FK">
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E90DE0C5-26C3-0E47-0160-F001A8DA09B3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D40A446F-CF13-9E77-E761-3694467AD73E" name="Miejsce_w_turnieju_Uczestnicy_turniejow_FK">
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F3854C36-9E5F-1F72-6EC4-36CB12F38507"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

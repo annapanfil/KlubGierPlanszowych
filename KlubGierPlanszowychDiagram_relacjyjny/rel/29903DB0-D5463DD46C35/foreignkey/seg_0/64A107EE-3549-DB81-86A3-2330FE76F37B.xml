@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="64A107EE-3549-DB81-86A3-2330FE76F37B" containerWithKeyObject="BC502BB2-2CFD-E122-7FF7-DE78ADB336BB" localFKIndex="6C3CC95B-B45E-316F-D58A-BC89DAE39F11" name="Sponsorowanie_Sponsorzy_FK">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<importedID>E6512D29-BF15-F03A-E09D-9A5C22F4E34E</importedID>
+<referredTableLongName>Sponsorzy</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>5A95FCBD-FF26-E1AD-8AEF-361A0429C579</referredTableID>
+<keyObject>A868B2A7-78E2-EF24-2872-D661D9A747B0</keyObject>
+<referredKeyID>A868B2A7-78E2-EF24-2872-D661D9A747B0</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>nazwa</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

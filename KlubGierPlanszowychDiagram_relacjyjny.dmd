@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="KlubGierPlanszowychDiagram_relacjyjny" id="4579B9EF-98B0-962A-2286-BEECB95315A1" version="3.5">
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:25:30 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>4579B9EF-98B0-962A-2286-BEECB95315A1</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="5484A973-87D7-DA11-F1FE-3BBAD4952797">
+<designStoragePath>/skrypt_tworzacy_tabele</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>

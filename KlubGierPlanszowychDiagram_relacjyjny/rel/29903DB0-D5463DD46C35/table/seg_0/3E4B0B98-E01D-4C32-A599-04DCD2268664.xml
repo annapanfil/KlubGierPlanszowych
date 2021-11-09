@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="3E4B0B98-E01D-4C32-A599-04DCD2268664" name="Spotkania">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<importedID>8DD7866B-5CC9-972A-9243-620DF8CA488E</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="termin" id="D2481536-0E71-E5FE-8E9C-C7B9858A519E">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<importedID>1B19A181-BE79-7114-E4C0-8A253DA69976</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>B7EB70A6-FC48-3E9D-4939-BF20E7EA2674</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="sekcja" id="66CCFE02-F87B-8907-294F-066AC87E3271">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<importedID>9DED4AA1-D40C-C3B5-9457-74A6770BA1F0</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>A432388D-7BA3-CF36-8489-5721245535F5</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1A171A09-AC4E-46CF-FDD2-2A225E77ABF9" referredColumn="8AB7E619-0DB5-764D-D777-481D9DC2BB55"/>
+</associations>
+</Column>
+<Column name="adres" id="7202D97E-40F2-AB99-2F7F-D20EBDB0032B">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<importedID>34395865-03E9-29C2-00E8-00762854CAB3</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>E9E09AA9-0DE0-500C-2195-CF1CC05321FE</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="8CC0ECDA-E8B7-009F-25AF-F61D75980195" referredColumn="4CFDD3C5-E150-6A14-3B77-68C82719F306"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="E06C679D-C263-9066-67D4-8ED504922283" name="Spotkania_PK">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<importedID>50A5BD20-25E8-4F4E-8261-63D826928DDA</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="66CCFE02-F87B-8907-294F-066AC87E3271"/>
+<colUsage columnID="7202D97E-40F2-AB99-2F7F-D20EBDB0032B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B4AF0679-D115-EF31-7F98-62DC8175312A" name="Spotkania_Placowki_FK">
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7202D97E-40F2-AB99-2F7F-D20EBDB0032B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9FD0F5D7-80E8-FD2A-19C8-96B848849DFC" name="Spotkania_Sekcje_FK">
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:27:57 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="66CCFE02-F87B-8907-294F-066AC87E3271"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
