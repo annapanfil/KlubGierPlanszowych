@@ -36,7 +36,7 @@
 </OView>
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="69D26519-A71E-1B3F-02C1-A0001A150522" otype="Entity" vid="9461D2EB-8532-0AC4-BEDB-1CC8CD33F04F">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<bounds x="355" y="259" width="109" height="37"/>
+<bounds x="355" y="241" width="109" height="55"/>
 </OView>
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="90EB2B04-234E-1E57-8EB3-D1612CB29ABB" otype="Entity" vid="FC419331-87A7-5378-5273-ECB296FC4DBF">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
@@ -80,7 +80,7 @@
 </OView>
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="D4C8DEF4-5ACF-6A5D-5AD4-D8C510B47E8E" otype="Entity" vid="B801E183-FF8F-4BCB-6019-5D96A87EC787">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
-<bounds x="840" y="510" width="150" height="48"/>
+<bounds x="840" y="510" width="150" height="61"/>
 </OView>
 <OView class="oracle.dbtools.crest.swingui.logical.TVEntity" oid="E05DFCE0-D587-58C2-742B-4C3A380212E0" otype="Entity" vid="AAB94CDD-3799-D06E-A98E-7BF37DA8170D">
 <hideElementsInCurrentOnly>false</hideElementsInCurrentOnly>
@@ -106,8 +106,8 @@
 <backgroundColor>-16777216</backgroundColor>
 <lineWidth>1</lineWidth>
 <points>
-<point x="301" y="276"/>
-<point x="355" y="276"/>
+<point x="301" y="268"/>
+<point x="355" y="268"/>
 </points>
 </Connector>
 <Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="16810FEB-7BCE-7D22-F47D-40CACAB40D7F" otype="Relation" vid_source="2991C545-1209-A43B-475C-77E1C8DEADA7" vid_target="2E718C61-4D24-0993-AD76-89C8C6E49F62">
@@ -233,8 +233,8 @@
 <backgroundColor>-16777216</backgroundColor>
 <lineWidth>1</lineWidth>
 <points>
-<point x="500" y="278"/>
-<point x="464" y="278"/>
+<point x="500" y="268"/>
+<point x="464" y="268"/>
 </points>
 </Connector>
 <Connector class="oracle.dbtools.crest.swingui.logical.TVRelation" oid="E7BFD0DB-A403-8304-A2B3-0D7A1AC8F192" otype="Relation" vid_source="2991C545-1209-A43B-475C-77E1C8DEADA7" vid_target="BCD434C9-9A9B-949C-B1D5-36374F0E148E">

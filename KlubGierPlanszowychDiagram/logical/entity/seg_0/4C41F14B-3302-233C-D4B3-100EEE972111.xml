@@ -35,6 +35,30 @@
 <use>0</use>
 <ownDataTypeParameters>,,</ownDataTypeParameters>
 </Attribute>
+<Attribute name="Nazwa1" id="033E9ADB-7CAF-519B-5417-F7F793ACC1A0">
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:32:48 UTC</createdTime>
+<generatorID>95E1FEFF-3E6F-E3C0-CE5B-4E66CA429C83</generatorID>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<referedAttribute>63686D63-54E8-6C49-C499-900C7610318C</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Nazwa2" id="2F2ED46D-B463-F5E5-885B-CB1BDAB4416B">
+<createdBy>anna</createdBy>
+<createdTime>2021-11-09 19:32:48 UTC</createdTime>
+<generatorID>95E1FEFF-3E6F-E3C0-CE5B-4E66CA429C83</generatorID>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<engineerTo>
+<item key="359C3A8E-78DA-E3C9-0749-000B38DFC60E" value="true"/>
+</engineerTo>
+<referedAttribute>E3FC8283-80BB-8884-C5B7-17581C076980</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
 </attributes>
 <identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
 <identifier id="A11C9041-2F37-1766-6C07-B289EB094C61" name="Turniej PK">
