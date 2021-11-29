@@ -2,6 +2,8 @@
 
 -- Czy adresy (i ogólnie varchary) są dobrymi kluczami?
 --[2] https://www.mssqltips.com/sqlservertip/5431/surrogate-key-vs-natural-key-differences-and-when-to-use-in-sql-server/
+--------------------------------------------------------------------------------
+-- TABELE
 
 CREATE TABLE Czlonkowie (
   pesel VARCHAR(11) PRIMARY KEY,
@@ -122,3 +124,39 @@ CREATE TABLE Gry_uzywanie(
   turniej VARCHAR(100) REFERENCES Turnieje(id_turnieju) NOT NULL,
   PRIMARY KEY(id_gry, turniej)
 );
+
+-------------------------------------------------------------------------------
+-- SEKWENCJE
+CREATE SEQUENCE id_zrzutki START WITH 0 INCREMENT BY 1 MAXVALUE 9999999;
+CREATE SEQUENCE id_eventu START WITH 0 INCREMENT BY 1 MAXVALUE 9999999;
+CREATE SEQUENCE id_turnieju START WITH 0 INCREMENT BY 1 MAXVALUE 9999999;
+CREATE SEQUENCE id_uczestnika START WITH 0 INCREMENT BY 1 MAXVALUE 9999999;
+CREATE SEQUENCE id_gry START WITH 0 INCREMENT BY 1 MAXVALUE 9999999;
+--------------------------------------------------------------------------------
+-- FUNKCJE
+CREATE OR REPLACE FUNCTION kwota_na_event(
+  vid_eventu IN NUMBER
+) -- zwraca sumę kwot od sponsorów
+DECLARE
+  vKwota NUMBER;
+BEGIN
+  SELECT SUM(kwota) INTO vKwota
+  FROM Sponsorowanie
+  WHERE event = vid_eventu;
+  RETURN kwota;
+END kwota_na_event;
+
+
+CREATE OR REPLACE PROCEDURE data_ur_z_peselu
+(vPesel IN VARCHAR2)
+AS -- wstawia do tabeli członkowie datę urodzenia na podstawie podanego peselu
+    vDate DATE;
+BEGIN
+    IF CAST(substr(vPesel, 3, 2) AS NUMBER) >= 21 THEN
+       vDate := to_date( '20' || substr(vPesel, 1, 2) || cast(substr(vPesel, 3, 2) AS NUMBER)-20 || substr(vPesel, 5, 2), 'yyyyMMdd');
+       UPDATE Czlonkowie SET data_ur = vDate WHERE pesel = vPesel;
+    ELSE
+        vDate := to_date( '19' || substr(vPesel, 1, 6), 'yyyyMMdd');
+        UPDATE Czlonkowie SET data_ur = vDate WHERE pesel = vPesel;
+    END IF;
+END data_ur_z_peselu;
