@@ -160,3 +160,11 @@ BEGIN
         UPDATE Czlonkowie SET data_ur = vDate WHERE pesel = vPesel;
     END IF;
 END data_ur_z_peselu;
+
+--------------------------------------------------------------------
+-- INDEKSY
+CREATE INDEX miejsca_cena
+ON Miejsca(cena_wynajmu);
+
+CREATE INDEX czlonkowie_nazwiska
+ON Czlonkowie (nazwisko);
