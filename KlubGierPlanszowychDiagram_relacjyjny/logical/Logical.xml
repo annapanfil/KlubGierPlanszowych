@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="8C53BB65-F168-FD06-976B-A2CD422E9AEA" mainViewID="03F26EC8-F4A7-84D1-F1B8-EFB76AF2792A">
-<createdBy>anna</createdBy>
-<createdTime>2021-11-09 19:25:30 UTC</createdTime>
-<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
-<shouldBeOpen>false</shouldBeOpen>
-</LogicalDesign>

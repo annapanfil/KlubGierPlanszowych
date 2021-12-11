@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="B5049D24-4A24-8F05-EE70-2D797AF87DA5" containerWithKeyObject="6FAD1E61-62B1-76CC-01E7-AE3AE4629D31" localFKIndex="C54F16EF-2AEF-C4A6-F36B-3650602D2DE8" name="Miejsce_w_turnieju_Uczestnicy_turniejow_FK">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<importedID>B088351C-2210-86CA-29B2-AFA5122C07D3</importedID>
+<referredTableLongName>Uczestnicy_turniejow</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>F3A57A08-9AC0-8C75-886D-0A7EE5BB77FE</referredTableID>
+<keyObject>98F1A84E-CB4C-62C2-DE38-091BAD5D3D7C</keyObject>
+<referredKeyID>98F1A84E-CB4C-62C2-DE38-091BAD5D3D7C</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_uczestnika</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

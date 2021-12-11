@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev12c class="oracle.dbtools.crest.model.design.storage.oracle.v12c.TableProxyOraclev12c" name="Gry" directorySegmentName="seg_0" id="41F3E0C4-E890-BE14-2BB4-E51ECE2F7C88">
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="cena" id="30A1A27B-EC8A-3D6E-33FE-E000CD66C00E">
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="id_gry" id="47881CD4-8CE0-02E3-DBFA-0F165C4489BF">
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="nazwa" id="A30EF79C-3EDD-697A-EC59-13D63D959350">
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="wydawca" id="C95DF8DF-7F37-E2B3-1333-0B1B0B249270">
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="Gry_Wydawcy_FK" id="7BE4621C-4A13-4DFE-A443-36D238C80A84">
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="Gry_PK" id="25606888-946C-9CCF-DD32-F445395BA096">
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev12c>

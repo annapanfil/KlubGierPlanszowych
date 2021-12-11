@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="3E19750A-7FA7-A86A-62DC-305E888EE0B9" containerWithKeyObject="203EDFBF-C0E9-4243-B02E-7A0F35BD5F19" localFKIndex="A9B3EE85-0CA7-88FB-9A43-BFBB12F4A35B" name="Eventy_Miejsca_FK">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<importedID>3582B06D-7141-490F-FFBD-A522B6C0C1F4</importedID>
+<referredTableLongName>Miejsca</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>5669177E-2A67-6726-6461-FEED6F6B5CA4</referredTableID>
+<keyObject>C447815C-FF54-B60C-300A-ECC5E1BBC8DB</keyObject>
+<referredKeyID>C447815C-FF54-B60C-300A-ECC5E1BBC8DB</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>adres</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

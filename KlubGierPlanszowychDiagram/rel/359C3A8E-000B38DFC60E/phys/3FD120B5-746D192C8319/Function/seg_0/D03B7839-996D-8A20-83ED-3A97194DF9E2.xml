@@ -1,0 +1,41 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FunctionOracle class="oracle.dbtools.crest.model.design.storage.oracle.FunctionOracle" name="kwota_na_event" directorySegmentName="seg_0" id="D03B7839-996D-8A20-83ED-3A97194DF9E2">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:12 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<source>CREATE OR REPLACE FUNCTION kwota_na_event(
+  vid_eventu IN NUMBER
+) -- zwraca sumę kwot od sponsorów
+DECLARE
+  vKwota NUMBER;
+BEGIN
+  SELECT SUM(kwota) INTO vKwota
+  FROM Sponsorowanie
+  WHERE event = vid_eventu;
+  RETURN kwota;
+END kwota_na_event;
+
+
+CREATE OR REPLACE PROCEDURE data_ur_z_peselu
+(vPesel IN VARCHAR2)
+AS -- wstawia do tabeli członkowie datę urodzenia na podstawie podanego peselu
+    vDate DATE;
+BEGIN
+    IF CAST(substr(vPesel, 3, 2) AS NUMBER) &gt;= 21 THEN
+       vDate := to_date( &apos;20&apos; || substr(vPesel, 1, 2) || cast(substr(vPesel, 3, 2) AS NUMBER)-20 || substr(vPesel, 5, 2), &apos;yyyyMMdd&apos;);
+       UPDATE Czlonkowie SET data_ur = vDate WHERE pesel = vPesel;
+    ELSE
+        vDate := to_date( &apos;19&apos; || substr(vPesel, 1, 6), &apos;yyyyMMdd&apos;);
+        UPDATE Czlonkowie SET data_ur = vDate WHERE pesel = vPesel;
+    END IF;
+END data_ur_z_peselu;
+
+--------------------------------------------------------------------
+-- INDEKSY
+CREATE INDEX miejsca_cena
+ON Miejsca(cena_wynajmu);
+
+CREATE INDEX czlonkowie_nazwiska
+ON Czlonkowie (nazwisko);</source>
+</FunctionOracle>

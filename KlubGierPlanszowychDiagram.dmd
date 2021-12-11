@@ -5,4 +5,9 @@
 <ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
 <capitalNames>false</capitalNames>
 <designId>BF17591D-6AFC-C563-02A7-E74AB6041B6B</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="69D1B3D1-99B4-7E22-CF83-A02D86794ABA">
+<designStoragePath>/skrypt_tworzacy_tabele</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
 </OSDM_Design>

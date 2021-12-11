@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6FAD1E61-62B1-76CC-01E7-AE3AE4629D31" name="Miejsce_w_turnieju">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<importedID>A59E24D1-BFEB-AA7B-C9EF-67678D029461</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="numer_miejsca" id="578A4BAF-0382-F83D-051A-4DAE1408A508">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<importedID>628A4DCF-AB91-3EF9-8CA1-886E617BF788</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>B9515BBC-FC1E-D1BD-5B5B-B040A2CBBD8F</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="turniej" id="3E01BA03-FE71-2BCA-78C3-6A68C7CA54D4">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<importedID>EEA2E98E-7F9B-D3B4-B7D5-E037D2907D86</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>343752BB-7E01-F36E-E91A-FFC73857FD8F</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="05DFB5BF-D70E-EEE4-7307-6E001457ECDA" referredColumn="62E069AC-9D7C-5EB7-573F-A5A423B58DBB"/>
+</associations>
+</Column>
+<Column name="uczestnik" id="4D256970-6502-0527-D5F4-104D528B1A0E">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<importedID>EAA66F8C-B43E-CD36-B5A8-7BB0F0096555</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>96A9B520-DFE9-2D6B-77E8-6791DDD2B185</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="B5049D24-4A24-8F05-EE70-2D797AF87DA5" referredColumn="F4CB09B1-2CA0-706A-05D0-37BA92FF013C"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="27FCAA2D-2C86-3F05-FF98-766153ACCE58" name="Miejsce_w_turnieju_PK">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<importedID>90E5F66D-7992-6775-0E28-1A6ADDA5E2AE</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="578A4BAF-0382-F83D-051A-4DAE1408A508"/>
+<colUsage columnID="3E01BA03-FE71-2BCA-78C3-6A68C7CA54D4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B6733C9B-2C58-C121-EC25-71D400E9BC0D" name="Miejsce_w_turnieju_Turnieje_FK">
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3E01BA03-FE71-2BCA-78C3-6A68C7CA54D4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C54F16EF-2AEF-C4A6-F36B-3650602D2DE8" name="Miejsce_w_turnieju_Uczestnicy_turniejow_FK">
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4D256970-6502-0527-D5F4-104D528B1A0E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

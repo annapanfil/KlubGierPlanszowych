@@ -1,7 +1,0 @@
-<?xml version = '1.0' encoding = 'UTF-8'?>
-<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="08769C94-2021-3AF4-6BA0-A392CE0D9441">
-<createdBy>anna</createdBy>
-<createdTime>2021-11-09 19:25:31 UTC</createdTime>
-<ownerDesignName>KlubGierPlanszowychDiagram_relacjyjny</ownerDesignName>
-<shouldBeOpen>false</shouldBeOpen>
-</ProcessModel>

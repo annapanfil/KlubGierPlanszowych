@@ -1,0 +1,65 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="31CAC191-D4EA-6917-1868-67A8EA0A9A21" name="Gry_komputerowe">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<importedID>D5578AD0-98C6-17EE-7103-40928FBF6E6F</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_gry" id="0978AA1B-837A-E00D-50EC-7A0A2E62B307">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<importedID>50F3DC05-A4A0-DB9C-1231-30AB580A7B8D</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>343752BB-7E01-F36E-E91A-FFC73857FD8F</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A85116A9-E4F6-7AC6-C73B-5468C5B16E0F" referredColumn="47881CD4-8CE0-02E3-DBFA-0F165C4489BF"/>
+</associations>
+</Column>
+<Column name="platforma" id="F763F1DA-0755-BA93-95A2-9AD55A4B1293">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<importedID>1D0B2904-9C49-6DB6-9627-C1B443024297</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>A720F26F-DEB9-EB85-8A75-04BBD546C248</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="A211E31C-0C54-798B-122C-0E728D188DAA" referredColumn="0488C2D1-3119-14D5-CE66-1D89171175A9"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="16210332-25C6-D329-9E6E-3A4082B90D37" name="Gry_komputerowe_Gry_FK">
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0978AA1B-837A-E00D-50EC-7A0A2E62B307"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="EE5869CC-60A7-BD91-C5C3-02032632CA84" name="Gry_komputerowe_Platformy_FK">
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F763F1DA-0755-BA93-95A2-9AD55A4B1293"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

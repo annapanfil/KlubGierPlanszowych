@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="723AA03B-5E21-3997-0765-3CA033E9F953" name="Sponsorowanie">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<importedID>2E898667-8EC8-209B-9E52-554B0FD0A6D7</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="kwota" id="ADBF52AC-7BC7-E707-6A7C-EC11CF4FA27C">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<importedID>DFAB3644-9A86-A900-F1A2-54E69C4FB4F4</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>33DF946A-CD71-E7F3-C655-D652EB901A2C</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="sponsor" id="AF512C6C-ABAB-2D37-C3EB-826778C41BB8">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<importedID>E3EA1EB9-ED7D-F1DD-7F4D-E622472B929D</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>6D5CE8DC-2197-8C58-8811-F543D552AABE</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="00E30AEB-EF8C-961A-2CAA-C614D8BB70D1" referredColumn="96B8ADD8-E44E-B64E-4B66-64D2BB8F1DEC"/>
+</associations>
+</Column>
+<Column name="event" id="BCFD13F4-C7B5-057F-F101-E026C8A9C420">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<importedID>5BB1F315-7957-1C72-B2C4-5F33DEE67533</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>343752BB-7E01-F36E-E91A-FFC73857FD8F</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="3933C3D4-9F70-0D85-FF3F-A5440561676F" referredColumn="01C8FD91-05C9-1149-AE1D-6D0116F196A8"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="36E0AA90-4A58-4C7B-DEF1-2192C905B93D" name="Sponsorowanie_PK">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<importedID>9DB8A762-66BE-D83F-4077-8DDBAE8EFBE0</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AF512C6C-ABAB-2D37-C3EB-826778C41BB8"/>
+<colUsage columnID="BCFD13F4-C7B5-057F-F101-E026C8A9C420"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DDF152E0-D4D9-9DA4-4028-948BA6BF95D7" name="Sponsorowanie_Eventy_FK">
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="BCFD13F4-C7B5-057F-F101-E026C8A9C420"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5B647502-5B05-526A-72B7-882D69DAC9B1" name="Sponsorowanie_Sponsorzy_FK">
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AF512C6C-ABAB-2D37-C3EB-826778C41BB8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

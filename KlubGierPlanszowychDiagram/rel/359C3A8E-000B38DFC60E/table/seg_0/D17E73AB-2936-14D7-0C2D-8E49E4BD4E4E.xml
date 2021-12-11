@@ -1,0 +1,79 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D17E73AB-2936-14D7-0C2D-8E49E4BD4E4E" name="Gry_uzywanie">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<importedID>D20C77A1-79C1-9AA1-2616-D4D9B3D4A311</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_egzemplarza" id="C83C976C-3D07-AD5A-4E47-C8E08951EB84">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<importedID>70837A03-45AF-4991-072C-0299BF270F17</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>343752BB-7E01-F36E-E91A-FFC73857FD8F</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5F937735-2FB0-039B-ECB8-A1A2A50FD676" referredColumn="0ECDA0D8-8720-3BAE-4F4C-DB61F60752CF"/>
+</associations>
+</Column>
+<Column name="turniej" id="124E175A-FABB-A911-C846-6971AEE7CA7B">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<importedID>585EF222-4FDB-50B9-B4FC-0CA18F4BB8A2</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<domain>343752BB-7E01-F36E-E91A-FFC73857FD8F</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6F4D75DC-ECDE-5C02-FC73-F5F078CA96CE" referredColumn="62E069AC-9D7C-5EB7-573F-A5A423B58DBB"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="FFF52311-3CFB-00E4-4048-F217F4B1D3E6" name="Gry_uzywanie_PK">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<importedID>518C749C-792F-30E8-2BE6-DF39F84B9D1B</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C83C976C-3D07-AD5A-4E47-C8E08951EB84"/>
+<colUsage columnID="124E175A-FABB-A911-C846-6971AEE7CA7B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E2786A52-9B9E-62D0-6E1F-667846E27262" name="Gry_uzywanie_Egzemplarz_FK">
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C83C976C-3D07-AD5A-4E47-C8E08951EB84"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1883E53B-F7FA-85ED-A6E1-5DB0E4AEE1BF" name="Gry_uzywanie_Turnieje_FK">
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="124E175A-FABB-A911-C846-6971AEE7CA7B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

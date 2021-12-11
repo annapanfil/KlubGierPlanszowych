@@ -1,7 +1,3 @@
--- [1] https://solutioncenter.apexsql.com/sql-database-refactoring-techniques-replacing-a-natural-key-with-a-surrogate-key/
-
--- Czy adresy (i ogólnie varchary) są dobrymi kluczami?
---[2] https://www.mssqltips.com/sqlservertip/5431/surrogate-key-vs-natural-key-differences-and-when-to-use-in-sql-server/
 --------------------------------------------------------------------------------
 -- TABELE
 
@@ -9,7 +5,7 @@ CREATE TABLE Czlonkowie (
   pesel VARCHAR(11) PRIMARY KEY,
   imie VARCHAR(50) NOT NULL,
   nazwisko VARCHAR(50) NOT NULL,
-  data_urodzenia DATE NOT NULL --zmieniłam, bo wiek by trzeba aktualizować
+  data_urodzenia DATE NOT NULL
 );
 
 CREATE TABLE Sekcje(
@@ -35,14 +31,6 @@ CREATE TABLE Spotkania(
   sekcja VARCHAR(50) REFERENCES Sekcje(nazwa) NOT NULL,
   adres VARCHAR(100) REFERENCES Placowki(adres) NOT NULL,
   PRIMARY KEY (sekcja, adres)
-);
-
-CREATE TABLE Zrzutki(
-  id_zrzutki NUMBER(7) PRIMARY KEY,
-  cel VARCHAR(150) NOT NULL,
-  cena NUMBER(8,2) NOT NULL,
-  data_rozpoczecia DATE NOT NULL,
-  sekcja VARCHAR(50) REFERENCES Sekcje(nazwa)
 );
 
 CREATE TABLE Miejsca(
@@ -100,6 +88,12 @@ CREATE TABLE Platformy(
   nazwa VARCHAR(50) PRIMARY KEY
 );
 
+CREATE TABLE Egzemplarz(
+  id_egzemplarza NUMBER(7) PRIMARY KEY,
+  id_gry NUMBER(7) REFERENCES Gry(id_gry)
+  sekcja VARCHAR(50) REFERENCES Sekcje(nazwa)
+);
+
 CREATE TABLE Gry(
   id_gry NUMBER(7) PRIMARY KEY,
   nazwa VARCHAR(100) NOT NULL,
@@ -120,9 +114,9 @@ CREATE TABLE Gry_planszowe(
 );
 
 CREATE TABLE Gry_uzywanie(
-  id_gry NUMBER(7) REFERENCES Gry(id_gry) NOT NULL,
+  id_egzemplarza NUMBER(7) REFERENCES Egzemplarz(id_egzemplarza) NOT NULL,
   turniej VARCHAR(100) REFERENCES Turnieje(id_turnieju) NOT NULL,
-  PRIMARY KEY(id_gry, turniej)
+  PRIMARY KEY(id_egzemplarza, turniej)
 );
 
 -------------------------------------------------------------------------------

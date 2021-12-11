@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="3A6BBE96-DCC5-8CB0-B285-0B2265B31467" containerWithKeyObject="F3A57A08-9AC0-8C75-886D-0A7EE5BB77FE" localFKIndex="D82004B2-F760-FD77-977A-F8FC9D1A735E" name="Uczestnicy_turniejow_Turnieje_FK">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<importedID>1FBF5B85-1193-D6F3-B612-B9CA2EC9526B</importedID>
+<referredTableLongName>Turnieje</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>2FF171DD-051C-DB33-5F42-B9D7A7EEB758</referredTableID>
+<keyObject>16FD8462-3945-453A-979C-0921DE375C97</keyObject>
+<referredKeyID>16FD8462-3945-453A-979C-0921DE375C97</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_turnieju</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

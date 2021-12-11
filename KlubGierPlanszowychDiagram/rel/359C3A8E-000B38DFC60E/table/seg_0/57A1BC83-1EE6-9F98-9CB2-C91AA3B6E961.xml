@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="57A1BC83-1EE6-9F98-9CB2-C91AA3B6E961" name="Spotkania">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<importedID>855A25F5-D597-8AEE-7BE5-2336301634CF</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="termin" id="CE2522FB-0888-4050-A83F-E8FF14CE9BA1">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<importedID>724B3696-B4F8-241B-5A83-349DAE974C61</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<domain>F3F01CC2-8E6E-7E25-1BF2-9D29BE539111</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="sekcja" id="45791F1B-8D61-B0F0-0E05-1B6B30E7AD01">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<importedID>EE097646-F44A-9482-15D2-EA5C7E2E5A86</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>A720F26F-DEB9-EB85-8A75-04BBD546C248</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="69883E04-1C23-880C-7B79-DA83854DE8FB" referredColumn="547E422E-A16C-11CA-DA6B-B8D98E1F9A07"/>
+</associations>
+</Column>
+<Column name="adres" id="1C4C81A5-D917-D6E2-A213-177B313C0354">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<importedID>A4D0D22B-909B-1CA6-8E74-5156209B8B07</importedID>
+<use>0</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<domain>6D5CE8DC-2197-8C58-8811-F543D552AABE</domain>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="26C533FA-0AA2-2049-DBE1-A0F72857845B" referredColumn="78246922-EC4D-B696-1645-1A6D7461544B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="6A515C05-6502-BC6A-3058-5C0D44D5493F" name="Spotkania_PK">
+<sourceDDLFile>skrypt_tworzacy_tabele.sql</sourceDDLFile>
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<importedID>AAA12653-05BE-18C9-B59D-ECA03E32CE6C</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="45791F1B-8D61-B0F0-0E05-1B6B30E7AD01"/>
+<colUsage columnID="1C4C81A5-D917-D6E2-A213-177B313C0354"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="424FF7AA-CCFE-4FA7-D9E1-605EBA59BE55" name="Spotkania_Placowki_FK">
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1C4C81A5-D917-D6E2-A213-177B313C0354"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="835BD8BC-02D3-B112-BBA1-C9F83F6B4E7D" name="Spotkania_Sekcje_FK">
+<createdBy>anna</createdBy>
+<createdTime>2021-12-11 18:49:34 UTC</createdTime>
+<ownerDesignName>KlubGierPlanszowychDiagram</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="45791F1B-8D61-B0F0-0E05-1B6B30E7AD01"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
