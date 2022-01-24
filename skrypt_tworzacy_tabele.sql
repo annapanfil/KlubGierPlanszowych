@@ -148,7 +148,7 @@ CREATE TABLE IF NOT EXISTS Gry_uzywanie(
 -- FUNKCJE
 
  -- zwraca sumę kwot od sponsorów
-CREATE OR REPLACE FUNCTION kwota_na_event(
+CREATE FUNCTION kwota_na_event(
   vid_eventu INT
 ) RETURNS INT
 BEGIN
