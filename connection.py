@@ -11,6 +11,7 @@ class MyConnection():
 
         self.connection = mysql.connector.connect(user=login, password=passwd, database=db_name) # default host is localhost
 
+
     def select(self, table: str, cols='*', condition=None):
         # cols -- list or tuple
         # condition -- string
@@ -26,6 +27,7 @@ class MyConnection():
         cursor.close()
         print(data)
         return data
+
 
     def insert(self, table: str, values: list, cols=None):
         # values -- list  of values to insert
@@ -50,6 +52,7 @@ class MyConnection():
         cursor.execute(query)
         cursor.close()
 
+
     def delete(self, table: str, condition: str):
         # eg. conn.select("Gry", ("nazwa", "cena"))
 
@@ -60,6 +63,7 @@ class MyConnection():
         cursor = self.connection.cursor()
         cursor.execute(query)
         cursor.close()
+
 
     def __del__(self):
         logging.debug("Closing connection...")
@@ -74,14 +78,3 @@ if __name__ == '__main__':
     conn.select("Gry", ("nazwa", "cena"))
     conn.delete("Gry", 'nazwa="Carcassone"')
     conn.select("Gry", ("nazwa", "cena"))
-
-
-#-------------------------------------
-
-# print("items")
-# for item in cursor:
-#     print(item)
-#
-# print("columns")
-# for column in cursor.description:
-#     print(column)
