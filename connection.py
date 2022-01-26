@@ -92,6 +92,20 @@ class MyConnection():
 
         cursor.close()
 
+    def update(self, table: str, result: str, condition: str):
+        query = f"UPDATE {table} SET {result} WHERE {condition}"
+
+        logging.info(query)
+
+        cursor = self.connection.cursor()
+        try:
+            cursor.execute(query)
+        except mysql.connector.errors.ProgrammingError as err:
+            logging.error(err)
+
+        cursor.close()
+
+
 
     def __del__(self):
         logging.debug("Closing connection...")

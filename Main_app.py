@@ -405,111 +405,73 @@ class Ui_MainWindow(object):
         self.pushButton_turnieje_dodaj_gre.clicked.connect(self.button_gra_turniej_dodaj_fun)
         self.pushButton_turnieje_usun_gre.clicked.connect(self.button_gra_turniej_usun_fun)
 
+    def button_base(self, ui, tab: int):
+        self.ChangedObject = QtWidgets.QDialog()
+        ui.setupUi(self.ChangedObject, self.connection)
+        self.ChangedObject.exec_()
+        self.ChangedObject.show()
+        self.on_tab_change(tab)
+
 
     def button_sekcje_dodaj_fun(self):
-        self.CreateSekcja = QtWidgets.QDialog()
         ui = Ui_CreateSekcja()
-        ui.setupUi(self.CreateSekcja, self.connection)
-        self.CreateSekcja.exec_()
-        self.on_tab_change(0)
+        self.button_base(ui, 0)
 
     def button_czlonkowie_dodaj_fun(self):
-        self.AddCzlonek = QtWidgets.QDialog()
         ui = Ui_AddCzlonek()
-        ui.setupUi(self.AddCzlonek, self.connection)
-        self.AddCzlonek.exec_()
-        self.on_tab_change(1)
+        self.button_base(ui, 1)
 
     def button_spotkania_dodaj_fun(self):
-        self.AddSpotkanie = QtWidgets.QDialog()
         ui = Ui_AddSpotkanie()
-        ui.setupUi(self.AddSpotkanie, self.connection)
-        self.AddSpotkanie.exec_()
-        self.on_tab_change(2)
+        self.button_base(ui, 2)
 
     def button_placowki_dodaj_fun(self):
-        self.AddPlacowka = QtWidgets.QDialog()
         ui = Ui_AddPlacowka()
-        ui.setupUi(self.AddPlacowka, self.connection)
-        self.AddPlacowka.exec_()
-        self.on_tab_change(3)
+        self.button_base(ui, 3)
 
     def button_egzemplarze_gier_dodaj_fun(self):
-        self.AddEgzemplarz = QtWidgets.QDialog()
         ui = Ui_AddEgzemplarz()
-        ui.setupUi(self.AddEgzemplarz, self.connection)
-        self.AddEgzemplarz.exec_()
-        self.on_tab_change(4)
+        self.button_base(ui, 4)
 
     def button_gry_komputerowe_dodaj_fun(self):
-        self.AddGraKomputerowa = QtWidgets.QDialog()
         ui = Ui_AddGraKomputerowa()
-        ui.setupUi(self.AddGraKomputerowa, self.connection)
-        self.AddGraKomputerowa.exec_()
-        self.on_tab_change(5)
+        self.button_base(ui, 5)
 
     def button_gry_planszowe_dodaj_fun(self):
-        self.AddGraPlanszowa = QtWidgets.QDialog()
         ui = Ui_AddGraPlanszowa()
-        ui.setupUi(self.AddGraPlanszowa, self.connection)
-        self.AddGraPlanszowa.exec_()
-        self.on_tab_change(6)
+        self.button_base(ui, 6)
 
     def button_platformy_dodaj_fun(self):
-        self.AddPlatforma = QtWidgets.QDialog()
         ui = Ui_AddPlatforma()
-        ui.setupUi(self.AddPlatforma, self.connection)
-        self.AddPlatforma.exec_()
-        self.on_tab_change(7)
+        self.button_base(ui, 7)
 
     def button_wydawcy_dodaj_fun(self):
-        self.AddWydawca = QtWidgets.QDialog()
         ui = Ui_AddWydawca()
-        ui.setupUi(self.AddWydawca, self.connection)
-        self.AddWydawca.exec_()
-        self.on_tab_change(8)
+        self.button_base(ui, 8)
 
     def button_eventy_dodaj_fun(self):
-        self.AddEvent = QtWidgets.QDialog()
         ui = Ui_AddEvent()
-        ui.setupUi(self.AddEvent, self.connection)
-        self.AddEvent.exec_()
-        self.on_tab_change(9)
+        self.button_base(ui, 9)
 
     def button_miejsce_dodaj_fun(self):
-        self.AddMiejsce = QtWidgets.QDialog()
         ui = Ui_AddMiejsce()
-        ui.setupUi(self.AddMiejsce, self.connection)
-        self.AddMiejsce.exec_()
-        self.on_tab_change(10)
+        self.button_base(ui, 10)
 
     def button_sponsorzy_dodaj_fun(self):
-        self.AddSponsor = QtWidgets.QDialog()
         ui = Ui_AddSponsor()
-        ui.setupUi(self.AddSponsor, self.connection)
-        self.AddSponsor.exec_()
-        self.on_tab_change(11)
+        self.button_base(ui, 11)
 
     def button_turnieje_dodaj_fun(self):
-        self.AddTurniej = QtWidgets.QDialog()
         ui = Ui_AddTurniej()
-        ui.setupUi(self.AddTurniej, self.connection)
-        self.AddTurniej.exec_()
-        self.on_tab_change(12)
+        self.button_base(ui, 12)
 
     def button_uczestnicy_turniejow_dodaj_fun(self):
-        self.AddUczestnik = QtWidgets.QDialog()
         ui = Ui_AddUczestnik()
-        ui.setupUi(self.AddUczestnik, self.connection)
-        self.AddUczestnik.exec_()
-        self.on_tab_change(13)
+        self.button_base(ui, 13)
 
     def button_miejsca_w_turniejach_dodaj_fun(self):
-        self.AddWygrany = QtWidgets.QDialog()
         ui = Ui_AddWygrany()
-        ui.setupUi(self.AddWygrany, self.connection)
-        self.AddWygrany.show()
-        self.on_tab_change(14)
+        self.button_base(ui, 14)
 
 
     def button_sekcje_usun_fun(self):
@@ -562,78 +524,68 @@ class Ui_MainWindow(object):
         self.on_tab_change(14)
 
     def button_spotkania_usun_fun(self):
-        self.DeleteSpotkanie = QtWidgets.QDialog()
         ui = Ui_DeleteSpotkanie()
-        ui.setupUi(self.DeleteSpotkanie, self.connection)
-        self.DeleteSpotkanie.exec_()
-        self.on_tab_change(2)
+        self.button_base(ui, 2)
 
     def button_gry_komputerowe_usun_fun(self):
-        self.DeleteGraKomputerowa = QtWidgets.QDialog()
         ui = Ui_DeleteGraKomputerowa()
-        ui.setupUi(self.DeleteGraKomputerowa, self.connection)
-        self.DeleteGraKomputerowa.exec_()
-        self.on_tab_change(5)
+        self.button_base(ui, 5)
 
     def button_gry_planszowe_usun_fun(self):
-        self.DeleteGraPlanszowa = QtWidgets.QDialog()
         ui = Ui_DeleteGraPlanszowa()
-        ui.setupUi(self.DeleteGraPlanszowa, self.connection)
-        self.DeleteGraPlanszowa.exec_()
-        self.on_tab_change(6)
+        self.button_base(ui, 6)
 
     def button_turnieje_usun_fun(self):
-        self.DeleteTurniej = QtWidgets.QDialog()
         ui = Ui_DeleteTurniej()
-        ui.setupUi(self.DeleteTurniej, self.connection)
-        self.DeleteTurniej.exec_()
-        self.on_tab_change(12)
-
-
+        self.button_base(ui, 12)
 
 
     def button_sekcje_edytuj_fun(self):
-        self.UpdateSekcja = QtWidgets.QDialog()
-        ui = Ui_UpdateSekcja()
-        ui.setupUi(self.UpdateSekcja)
-        self.UpdateSekcja.exec_()
-        self.UpdateSekcja.show()
+        self.ChangedObject = QtWidgets.QDialog()
+        ui = Ui_UpdateNameName()
+        ui.setupUi(self.ChangedObject, 0, "sekcji", self.connection)
+        self.ChangedObject.exec_()
+        self.ChangedObject.show()
+        self.on_tab_change(0)
+
+    def button_platformy_edytuj_fun(self):
+        self.ChangedObject = QtWidgets.QDialog()
+        ui = Ui_UpdateNameName()
+        ui.setupUi(self.ChangedObject, 7, "platformy", self.connection)
+        self.ChangedObject.exec_()
+        self.ChangedObject.show()
+        self.on_tab_change(7)
+
+    def button_wydawcy_edytuj_fun(self):
+        self.ChangedObject = QtWidgets.QDialog()
+        ui = Ui_UpdateNameName()
+        ui.setupUi(self.ChangedObject, 8, "wydawcy", self.connection)
+        self.ChangedObject.exec_()
+        self.ChangedObject.show()
+        self.on_tab_change(8)
+
+    def button_miejsce_edytuj_fun(self):
+        self.UpdateMiejsceCena = QtWidgets.QDialog()
+        ui = Ui_UpdateAdrCost()
+        ui.setupUi(self.UpdateMiejsceCena, 10, "cenę wynajmu", "nowa cena", self.connection)
+        self.UpdateMiejsceCena.exec_()
+        self.UpdateMiejsceCena.show()
+        self.on_tab_change(10)
+
+    def button_placowki_edytuj_fun(self):
+        self.UpdatePlacowka = QtWidgets.QDialog()
+        ui = Ui_UpdateAdrCost()
+        ui.setupUi(self.UpdatePlacowka, 3, "czynsz placówki", "nowy czynsz", self.connection)
+        self.UpdatePlacowka.exec_()
+        self.UpdatePlacowka.show()
+        self.on_tab_change(3)
+
 
     def button_czlonkowie_przypisz_fun(self):
         self.AssignCzlonekSekcja = QtWidgets.QDialog()
         ui = Ui_AssignCzlonekSekcja()
         ui.setupUi(self.AssignCzlonekSekcja)
         self.AssignCzlonekSekcja.exec_()
-
-    def button_placowki_edytuj_fun(self):
-        self.UpdatePlacowka = QtWidgets.QDialog()
-        ui = Ui_UpdatePlacowka()
-        ui.setupUi(self.UpdatePlacowka)
-        self.UpdatePlacowka.exec_()
-
-    def button_platformy_edytuj_fun(self):
-        self.UpdatePlatforma = QtWidgets.QDialog()
-        ui = Ui_UpdatePlatforma()
-        ui.setupUi(self.UpdatePlatforma)
-        self.UpdatePlatforma.exec_()
-
-    def button_wydawcy_edytuj_fun(self):
-        self.UpdateWydawca = QtWidgets.QDialog()
-        ui = Ui_UpdateWydawca()
-        ui.setupUi(self.UpdateWydawca)
-        self.UpdateWydawca.exec_()
-
-    def button_eventy_edytuj_fun(self):
-        self.UpdateEventSekcja = QtWidgets.QDialog()
-        ui = Ui_UpdateEventSekcja()
-        ui.setupUi(self.UpdateEventSekcja)
-        self.UpdateEventSekcja.exec_()
-
-    def button_miejsce_edytuj_fun(self):
-        self.UpdateMiejsceCena = QtWidgets.QDialog()
-        ui = Ui_UpdateMiejsceCena()
-        ui.setupUi(self.UpdateMiejsceCena)
-        self.UpdateMiejsceCena.exec_()
 
     def button_sponsorzy_dodaj_sponsoring_fun(self):
         self.AddSponsoring = QtWidgets.QDialog()
@@ -647,6 +599,17 @@ class Ui_MainWindow(object):
         ui.setupUi(self.AddGraTurniej)
         self.AddGraTurniej.show()
 
+
+
+
+    def button_eventy_edytuj_fun(self):
+        self.UpdateEventSekcja = QtWidgets.QDialog()
+        ui = Ui_UpdateEventSekcja()
+        ui.setupUi(self.UpdateEventSekcja, self.connection)
+        self.UpdateEventSekcja.show()
+        self.UpdateEventSekcja.exec_()
+        self.on_tab_change(9)
+
     def button_gra_turniej_usun_fun(self):
         self.DeleteGraTurniej = QtWidgets.QDialog()
         ui = Ui_DeleteGraTurniej()
@@ -654,10 +617,10 @@ class Ui_MainWindow(object):
         self.DeleteGraTurniej.show()
 
 
+
     def on_tab_change(self, tab_nr):
         table, headers = get_table(tab_nr, self.connection)
         self.show_table(tab_nr, table, headers)
-
 
     def show_table(self, tab, table: list, headers: list):
         # table - list of rows
