@@ -870,9 +870,6 @@ class Ui_UpdateMiejsceCena(object):
         self.label_2 = QtWidgets.QLabel(UpdateMiejsceCena)
         self.label_2.setGeometry(QtCore.QRect(140, 10, 161, 20))
         self.label_2.setObjectName("label_2")
-        self.lineEdit_adres = QtWidgets.QLineEdit(UpdateMiejsceCena)
-        self.lineEdit_adres.setGeometry(QtCore.QRect(30, 60, 113, 20))
-        self.lineEdit_adres.setObjectName("lineEdit_adres")
         self.lineEdit_cena = QtWidgets.QLineEdit(UpdateMiejsceCena)
         self.lineEdit_cena.setGeometry(QtCore.QRect(240, 60, 113, 20))
         self.lineEdit_cena.setObjectName("lineEdit_cena")
@@ -885,6 +882,9 @@ class Ui_UpdateMiejsceCena(object):
         self.pushButton = QtWidgets.QPushButton(UpdateMiejsceCena)
         self.pushButton.setGeometry(QtCore.QRect(300, 100, 75, 23))
         self.pushButton.setObjectName("pushButton")
+        self.comboBox = QtWidgets.QComboBox(UpdateMiejsceCena)
+        self.comboBox.setGeometry(QtCore.QRect(30, 60, 111, 22))
+        self.comboBox.setObjectName("comboBox")
 
         self.retranslateUi(UpdateMiejsceCena)
         QtCore.QMetaObject.connectSlotsByName(UpdateMiejsceCena)
@@ -978,9 +978,6 @@ class Ui_AddSponsoring(object):
         self.pushButton = QtWidgets.QPushButton(AddSponsoring)
         self.pushButton.setGeometry(QtCore.QRect(300, 120, 75, 23))
         self.pushButton.setObjectName("pushButton")
-        self.lineEdit_nazwa = QtWidgets.QLineEdit(AddSponsoring)
-        self.lineEdit_nazwa.setGeometry(QtCore.QRect(20, 80, 113, 20))
-        self.lineEdit_nazwa.setObjectName("lineEdit_nazwa")
         self.comboBox_event = QtWidgets.QComboBox(AddSponsoring)
         self.comboBox_event.setGeometry(QtCore.QRect(150, 80, 101, 22))
         self.comboBox_event.setObjectName("comboBox_event")
@@ -993,6 +990,9 @@ class Ui_AddSponsoring(object):
         self.label_4 = QtWidgets.QLabel(AddSponsoring)
         self.label_4.setGeometry(QtCore.QRect(280, 60, 47, 13))
         self.label_4.setObjectName("label_4")
+        self.comboBox = QtWidgets.QComboBox(AddSponsoring)
+        self.comboBox.setGeometry(QtCore.QRect(18, 80, 111, 22))
+        self.comboBox.setObjectName("comboBox")
 
         self.retranslateUi(AddSponsoring)
         QtCore.QMetaObject.connectSlotsByName(AddSponsoring)
@@ -1251,3 +1251,159 @@ class Ui_DeleteWygrany(object):
         self.label_3.setText(_translate("DeleteWygrany", "Event:"))
         self.label_4.setText(_translate("DeleteWygrany", "Turniej:"))
         self.pushButton.setText(_translate("DeleteWygrany", "Usuń"))
+
+class Ui_UpdateSekcja(object):
+    def setupUi(self, UpdateSekcja):
+        UpdateSekcja.setObjectName("UpdateSekcja")
+        UpdateSekcja.resize(431, 160)
+        self.label = QtWidgets.QLabel(UpdateSekcja)
+        self.label.setGeometry(QtCore.QRect(150, 10, 131, 20))
+        self.label.setObjectName("label")
+        self.label_2 = QtWidgets.QLabel(UpdateSekcja)
+        self.label_2.setGeometry(QtCore.QRect(30, 50, 101, 16))
+        self.label_2.setObjectName("label_2")
+        self.lineEdit_nowa_nazwa = QtWidgets.QLineEdit(UpdateSekcja)
+        self.lineEdit_nowa_nazwa.setGeometry(QtCore.QRect(260, 70, 113, 20))
+        self.lineEdit_nowa_nazwa.setObjectName("lineEdit_nowa_nazwa")
+        self.comboBox_stara_nazwa = QtWidgets.QComboBox(UpdateSekcja)
+        self.comboBox_stara_nazwa.setGeometry(QtCore.QRect(20, 70, 101, 22))
+        self.comboBox_stara_nazwa.setObjectName("comboBox_stara_nazwa")
+        self.label_3 = QtWidgets.QLabel(UpdateSekcja)
+        self.label_3.setGeometry(QtCore.QRect(270, 50, 91, 16))
+        self.label_3.setObjectName("label_3")
+        self.pushButton = QtWidgets.QPushButton(UpdateSekcja)
+        self.pushButton.setGeometry(QtCore.QRect(340, 110, 75, 23))
+        self.pushButton.setObjectName("pushButton")
+
+        self.retranslateUi(UpdateSekcja)
+        QtCore.QMetaObject.connectSlotsByName(UpdateSekcja)
+
+    def retranslateUi(self, UpdateSekcja):
+        _translate = QtCore.QCoreApplication.translate
+        UpdateSekcja.setWindowTitle(_translate("UpdateSekcja", "Dialog"))
+        self.label.setText(_translate("UpdateSekcja", "Zmieniasz nazwe Sekcji"))
+        self.label_2.setText(_translate("UpdateSekcja", "Stara nazwa:"))
+        self.label_3.setText(_translate("UpdateSekcja", "Nowa nazwa"))
+        self.pushButton.setText(_translate("UpdateSekcja", "Zmień"))
+
+class Ui_UpdateWydawca(object):
+    def setupUi(self, UpdateWydawca):
+        UpdateWydawca.setObjectName("UpdateWydawca")
+        UpdateWydawca.resize(400, 150)
+        self.label = QtWidgets.QLabel(UpdateWydawca)
+        self.label.setGeometry(QtCore.QRect(130, 10, 171, 16))
+        self.label.setObjectName("label")
+        self.comboBox_stara_nazwa = QtWidgets.QComboBox(UpdateWydawca)
+        self.comboBox_stara_nazwa.setGeometry(QtCore.QRect(30, 60, 101, 22))
+        self.comboBox_stara_nazwa.setObjectName("comboBox_stara_nazwa")
+        self.lineEdit_nowa_nazwa = QtWidgets.QLineEdit(UpdateWydawca)
+        self.lineEdit_nowa_nazwa.setGeometry(QtCore.QRect(260, 60, 113, 20))
+        self.lineEdit_nowa_nazwa.setObjectName("lineEdit_nowa_nazwa")
+        self.label_2 = QtWidgets.QLabel(UpdateWydawca)
+        self.label_2.setGeometry(QtCore.QRect(40, 40, 81, 16))
+        self.label_2.setObjectName("label_2")
+        self.label_3 = QtWidgets.QLabel(UpdateWydawca)
+        self.label_3.setGeometry(QtCore.QRect(270, 40, 71, 16))
+        self.label_3.setObjectName("label_3")
+        self.pushButton = QtWidgets.QPushButton(UpdateWydawca)
+        self.pushButton.setGeometry(QtCore.QRect(310, 100, 75, 23))
+        self.pushButton.setObjectName("pushButton")
+
+        self.retranslateUi(UpdateWydawca)
+        QtCore.QMetaObject.connectSlotsByName(UpdateWydawca)
+
+    def retranslateUi(self, UpdateWydawca):
+        _translate = QtCore.QCoreApplication.translate
+        UpdateWydawca.setWindowTitle(_translate("UpdateWydawca", "Dialog"))
+        self.label.setText(_translate("UpdateWydawca", "Zmieniasz nazwę wydawcy "))
+        self.label_2.setText(_translate("UpdateWydawca", "Stara nazwa:"))
+        self.label_3.setText(_translate("UpdateWydawca", "Nowa nazwa:"))
+        self.pushButton.setText(_translate("UpdateWydawca", "Zmień"))
+
+class Ui_UpdatePlatforma(object):
+    def setupUi(self, UpdatePlatforma):
+        UpdatePlatforma.setObjectName("UpdatePlatforma")
+        UpdatePlatforma.resize(400, 150)
+        self.label = QtWidgets.QLabel(UpdatePlatforma)
+        self.label.setGeometry(QtCore.QRect(130, 10, 171, 16))
+        self.label.setObjectName("label")
+        self.comboBox_stara_nazwa = QtWidgets.QComboBox(UpdatePlatforma)
+        self.comboBox_stara_nazwa.setGeometry(QtCore.QRect(30, 60, 101, 22))
+        self.comboBox_stara_nazwa.setObjectName("comboBox_stara_nazwa")
+        self.lineEdit_nowa_nazwa = QtWidgets.QLineEdit(UpdatePlatforma)
+        self.lineEdit_nowa_nazwa.setGeometry(QtCore.QRect(260, 60, 113, 20))
+        self.lineEdit_nowa_nazwa.setObjectName("lineEdit_nowa_nazwa")
+        self.label_2 = QtWidgets.QLabel(UpdatePlatforma)
+        self.label_2.setGeometry(QtCore.QRect(40, 40, 81, 16))
+        self.label_2.setObjectName("label_2")
+        self.label_3 = QtWidgets.QLabel(UpdatePlatforma)
+        self.label_3.setGeometry(QtCore.QRect(270, 40, 71, 16))
+        self.label_3.setObjectName("label_3")
+        self.pushButton = QtWidgets.QPushButton(UpdatePlatforma)
+        self.pushButton.setGeometry(QtCore.QRect(310, 100, 75, 23))
+        self.pushButton.setObjectName("pushButton")
+
+        self.retranslateUi(UpdatePlatforma)
+        QtCore.QMetaObject.connectSlotsByName(UpdatePlatforma)
+
+    def retranslateUi(self, UpdatePlatforma):
+        _translate = QtCore.QCoreApplication.translate
+        UpdatePlatforma.setWindowTitle(_translate("UpdatePlatforma", "Dialog"))
+        self.label.setText(_translate("UpdatePlatforma", "Zmieniasz nazwę platformy "))
+        self.label_2.setText(_translate("UpdatePlatforma", "Stara nazwa:"))
+        self.label_3.setText(_translate("UpdatePlatforma", "Nowa nazwa:"))
+        self.pushButton.setText(_translate("UpdatePlatforma", "Zmień"))
+
+class Ui_AddGraTurniej(object):
+    def setupUi(self, AddGraTurniej):
+        AddGraTurniej.setObjectName("AddGraTurniej")
+        AddGraTurniej.resize(400, 136)
+        self.lineEdit_id_gra = QtWidgets.QLineEdit(AddGraTurniej)
+        self.lineEdit_id_gra.setGeometry(QtCore.QRect(30, 60, 113, 20))
+        self.lineEdit_id_gra.setObjectName("lineEdit_id_gra")
+        self.label = QtWidgets.QLabel(AddGraTurniej)
+        self.label.setGeometry(QtCore.QRect(40, 40, 101, 16))
+        self.label.setObjectName("label")
+        self.label_2 = QtWidgets.QLabel(AddGraTurniej)
+        self.label_2.setGeometry(QtCore.QRect(140, 10, 131, 20))
+        self.label_2.setObjectName("label_2")
+        self.pushButton = QtWidgets.QPushButton(AddGraTurniej)
+        self.pushButton.setGeometry(QtCore.QRect(300, 90, 75, 23))
+        self.pushButton.setObjectName("pushButton")
+
+        self.retranslateUi(AddGraTurniej)
+        QtCore.QMetaObject.connectSlotsByName(AddGraTurniej)
+
+    def retranslateUi(self, AddGraTurniej):
+        _translate = QtCore.QCoreApplication.translate
+        AddGraTurniej.setWindowTitle(_translate("AddGraTurniej", "Dialog"))
+        self.label.setText(_translate("AddGraTurniej", "ID egzemplarza"))
+        self.label_2.setText(_translate("AddGraTurniej", "Dodajesz gre do turnieju"))
+        self.pushButton.setText(_translate("AddGraTurniej", "Dodaj"))
+
+class Ui_DeleteGraTurniej(object):
+    def setupUi(self, DeleteGraTurniej):
+        DeleteGraTurniej.setObjectName("DeleteGraTurniej")
+        DeleteGraTurniej.resize(400, 136)
+        self.lineEdit_id_gra = QtWidgets.QLineEdit(DeleteGraTurniej)
+        self.lineEdit_id_gra.setGeometry(QtCore.QRect(30, 60, 113, 20))
+        self.lineEdit_id_gra.setObjectName("lineEdit_id_gra")
+        self.label = QtWidgets.QLabel(DeleteGraTurniej)
+        self.label.setGeometry(QtCore.QRect(40, 40, 101, 16))
+        self.label.setObjectName("label")
+        self.label_2 = QtWidgets.QLabel(DeleteGraTurniej)
+        self.label_2.setGeometry(QtCore.QRect(140, 10, 131, 20))
+        self.label_2.setObjectName("label_2")
+        self.pushButton = QtWidgets.QPushButton(DeleteGraTurniej)
+        self.pushButton.setGeometry(QtCore.QRect(300, 90, 75, 23))
+        self.pushButton.setObjectName("pushButton")
+
+        self.retranslateUi(DeleteGraTurniej)
+        QtCore.QMetaObject.connectSlotsByName(DeleteGraTurniej)
+
+    def retranslateUi(self, DeleteGraTurniej):
+        _translate = QtCore.QCoreApplication.translate
+        DeleteGraTurniej.setWindowTitle(_translate("DeleteGraTurniej", "Dialog"))
+        self.label.setText(_translate("DeleteGraTurniej", "ID egzemplarza"))
+        self.label_2.setText(_translate("DeleteGraTurniej", "Usuwasz gre z turnieju"))
+        self.pushButton.setText(_translate("DeleteGraTurniej", "Usuń"))
