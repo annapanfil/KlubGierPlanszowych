@@ -24,9 +24,10 @@ class MyConnection():
 
         cursor.execute(query)
         data = cursor.fetchall() # fetchone(), fetchmany(n)
+        headers = [col[0] for col in cursor.description]
         cursor.close()
-        print(data)
-        return data
+
+        return (data, headers)
 
 
     def insert(self, table: str, values: list, cols=None):

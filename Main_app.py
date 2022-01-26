@@ -10,7 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PopUps import *
-
+from tables import *
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -538,6 +538,7 @@ class Ui_MainWindow(object):
 
         self.setupUi_my(MainWindow)
 
+
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
@@ -811,8 +812,17 @@ class Ui_MainWindow(object):
         self.pushButton_miejsca_w_turniejach_usun.setText(_translate("MainWindow", "Usuń wygranego"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_miejsca_w_turniejach), _translate("MainWindow", "Miejsca w Turniejach"))
 
+
     def setupUi_my(self,MainWindow):
         self.setup_buttons()
+
+        self.tabs_objects = [self.tab_sekcje, self.tab_czlonkowie, self.tab_spotkania, self.tab_placowki, self.tab_egzemplarze_gier, self.tab_gry_komputerowe, self.tab_gry_planszowe, self.tab_platformy, self.tab_wydawcy, self.tab_eventy, self.tab_miejsce_na_event, self.tab_sponsorzy, self.tab_turnieje, self.tab_uczestnicy_turniejow, self.tab_miejsca_w_turniejach]
+
+        self.tabWidget.currentChanged.connect(self.on_tab_change)
+
+
+    def addConnection(self, connection):
+        self.connection = connection
 
 
     def setup_buttons(self):
@@ -1084,20 +1094,43 @@ class Ui_MainWindow(object):
         self.DeleteGraTurniej.show()
 
 
-    def show_table(self,  tab, table: list):
-    # table - list of rows
-        self.tableWidget_new = QtWidgets.QTableWidget(tab)
+    def on_tab_change(self, tab_nr):
+        table, headers = get_table(tab_nr, self.connection)
+        self.show_table(tab_nr, table, headers)
+
+
+    def show_table(self, tab, table: list, headers: list):
+        # table - list of rows
+
+        width = len(table[0])
+        heigth = len(table)
+
+        self.tableWidget_new = QtWidgets.QTableWidget(self.tabs_objects[tab])
         self.tableWidget_new.setGeometry(QtCore.QRect(10, 60, 771, 461))
         self.tableWidget_new.setObjectName("tableWidget_new")
-        self.tableWidget_new.setColumnCount(len(table[0]))
-        self.tableWidget_new.setRowCount(len(table))
+        self.tableWidget_new.setColumnCount(width)
+        self.tableWidget_new.setRowCount(heigth)
 
         __sortingEnabled = self.tableWidget_new.isSortingEnabled()
         self.tableWidget_new.setSortingEnabled(False)
         _translate = QtCore.QCoreApplication.translate
 
+        # headers
+        for i in range(heigth):
+            item = QtWidgets.QTableWidgetItem()
+            self.tableWidget_new.setVerticalHeaderItem(i, item)
+            item = self.tableWidget_new.verticalHeaderItem(i)
+            item.setText(_translate("MainWindow", str(i)))
+
+
+        for i in range(width):
+            item = QtWidgets.QTableWidgetItem()
+            self.tableWidget_new.setHorizontalHeaderItem(i, item)
+            item = self.tableWidget_new.horizontalHeaderItem(i)
+            item.setText(_translate("MainWindow", headers[i]))
+
+        # data
         for i, row in enumerate(table):
-            # tu ewentualnie headery, jeżeli ich nie będzie
             for j, value in enumerate(row):
                 item = QtWidgets.QTableWidgetItem()
                 self.tableWidget_new.setItem(i,j, item)
@@ -1105,6 +1138,7 @@ class Ui_MainWindow(object):
                 item.setText(_translate("MainWindow", value))
 
         self.tableWidget_new.setSortingEnabled(__sortingEnabled)
+        self.tableWidget_new.show()
 
 if __name__ == "__main__":
     import sys
@@ -1112,6 +1146,5 @@ if __name__ == "__main__":
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
-    ui.show_table(ui.tab_sekcje, [["jeden", "dwa"], ["trzy", "cztery"]])
     MainWindow.show()
     sys.exit(app.exec_())
