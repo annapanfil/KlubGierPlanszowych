@@ -6,8 +6,8 @@ import logging
 
 class MyConnection():
     def __init__(self, db_name="KlubGierPlanszowych"):
-        login = input("nazwa użytkownika: ")
-        passwd = getpass.getpass("Hasło: ")
+        # login = input("nazwa użytkownika: ")
+        # passwd = getpass.getpass("Hasło: ")
         self.connection = None
 
         try:
@@ -18,8 +18,6 @@ class MyConnection():
             else:
                 logging.error(err)
             exit(1)
-
-
 
 
     def select(self, table: str, cols='*', condition=None):
@@ -67,7 +65,15 @@ class MyConnection():
         logging.info(query)
 
         cursor = self.connection.cursor()
-        cursor.execute(query)
+        try:
+            cursor.execute(query)
+            cursor.execute(f"select * from {table}")
+            data = cursor.fetchall()
+            logging.info(data)
+        except mysql.connector.errors.DatabaseError as err:
+            logging.error(err)
+        except mysql.connector.errors.ProgrammingError as err:
+            logging.error(err)
         cursor.close()
 
 
@@ -79,7 +85,11 @@ class MyConnection():
         logging.info(query)
 
         cursor = self.connection.cursor()
-        cursor.execute(query)
+        try:
+            cursor.execute(query)
+        except mysql.connector.errors.ProgrammingError as err:
+            logging.error(err)
+
         cursor.close()
 
 
