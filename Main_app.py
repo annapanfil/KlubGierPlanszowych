@@ -15,11 +15,22 @@ from tables import *
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(799, 600)
+        MainWindow.resize(828, 619)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
+        MainWindow.setSizePolicy(sizePolicy)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.centralwidget)
+        self.verticalLayout_4.setObjectName("verticalLayout_4")
         self.tabWidget = QtWidgets.QTabWidget(self.centralwidget)
-        self.tabWidget.setGeometry(QtCore.QRect(1, 0, 801, 571))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.tabWidget.sizePolicy().hasHeightForWidth())
+        self.tabWidget.setSizePolicy(sizePolicy)
         self.tabWidget.setObjectName("tabWidget")
         self.tab_sekcje = QtWidgets.QWidget()
         self.tab_sekcje.setObjectName("tab_sekcje")
@@ -523,9 +534,10 @@ class Ui_MainWindow(object):
         self.pushButton_miejsca_w_turniejach_usun.setGeometry(QtCore.QRect(140, 20, 101, 23))
         self.pushButton_miejsca_w_turniejach_usun.setObjectName("pushButton_miejsca_w_turniejach_usun")
         self.tabWidget.addTab(self.tab_miejsca_w_turniejach, "")
+        self.verticalLayout_4.addWidget(self.tabWidget)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 799, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 828, 21))
         self.menubar.setObjectName("menubar")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
@@ -533,7 +545,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(12)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
         self.setupUi_my(MainWindow)
@@ -815,10 +827,27 @@ class Ui_MainWindow(object):
 
     def setupUi_my(self,MainWindow):
         self.setup_buttons()
-
+        # setup tabs
         self.tabs_objects = [self.tab_sekcje, self.tab_czlonkowie, self.tab_spotkania, self.tab_placowki, self.tab_egzemplarze_gier, self.tab_gry_komputerowe, self.tab_gry_planszowe, self.tab_platformy, self.tab_wydawcy, self.tab_eventy, self.tab_miejsce_na_event, self.tab_sponsorzy, self.tab_turnieje, self.tab_uczestnicy_turniejow, self.tab_miejsca_w_turniejach]
 
         self.tabWidget.currentChanged.connect(self.on_tab_change)
+
+        # blokada wpisywania
+        self.tableWidget_czlonkowie.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget_egzemplarze_gier.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget_eventy.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget_gry_komputerowe.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget_gry_planszowe.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget_miejsca_w_turniejach.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget_placowki.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget_platformy.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget_sekcje.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget_sponsorzy.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget_spotkania.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget_miejsce_na_event.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget_wydawcy.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget_turnieje.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
+        self.tableWidget_uczestnicy_turniejow.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)
 
 
     def addConnection(self, connection):
