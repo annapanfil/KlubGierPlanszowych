@@ -6,7 +6,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
 
 if __name__ == '__main__':
-    logging.basicConfig(level=logging.INFO, format='%(message)s')
+    logging.basicConfig(level=logging.ERROR, format='%(message)s')
     connection = MyConnection()
 
     app = QtWidgets.QApplication(sys.argv)

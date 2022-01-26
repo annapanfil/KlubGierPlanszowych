@@ -8,8 +8,18 @@ class MyConnection():
     def __init__(self, db_name="KlubGierPlanszowych"):
         login = input("nazwa użytkownika: ")
         passwd = getpass.getpass("Hasło: ")
+        self.connection = None
 
-        self.connection = mysql.connector.connect(user=login, password=passwd, database=db_name) # default host is localhost
+        try:
+            self.connection = mysql.connector.connect(user=login, password=passwd, database=db_name) # default host is localhost
+        except mysql.connector.Error as err:
+            if err.errno == mysql.connector.errorcode.ER_ACCESS_DENIED_ERROR:
+                logging.error("Wrong credentials")
+            else:
+                logging.error(err)
+            exit(1)
+
+
 
 
     def select(self, table: str, cols='*', condition=None):
@@ -22,10 +32,17 @@ class MyConnection():
         if condition: query += f" WHERE {condition}"
         logging.info(query)
 
-        cursor.execute(query)
-        data = cursor.fetchall() # fetchone(), fetchmany(n)
-        headers = [col[0] for col in cursor.description]
-        cursor.close()
+        try:
+            cursor.execute(query)
+            data = cursor.fetchall() # fetchone(), fetchmany(n)
+            headers = [col[0] for col in cursor.description]
+        except mysql.connector.errors.ProgrammingError as err:
+            logging.error(f"Table {table} does not exist")
+            data = [["Tabela nie istnieje"]]
+            headers = [""]
+        finally:
+            cursor.close()
+
 
         return (data, headers)
 
@@ -68,7 +85,8 @@ class MyConnection():
 
     def __del__(self):
         logging.debug("Closing connection...")
-        self.connection.close()
+        if self.connection is not None:
+            self.connection.close()
 
 
 if __name__ == '__main__':

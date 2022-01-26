@@ -2,6 +2,10 @@ relations = ["Sekcje_view", "Czlonkowie", "Spotkania", "Placowki_view", "Egzempl
 
 def get_table(i, connection):
     data, headers = connection.select(relations[i])
+
+    if data == []:
+        data = [["Brak danych"]]
+
     for i in range(len(data)):
         data[i] = [str(val) for val in data[i]]
 
