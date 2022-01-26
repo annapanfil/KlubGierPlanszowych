@@ -860,7 +860,7 @@ class Ui_MainWindow(object):
         ui = Ui_CreateSekcja()
         ui.setupUi(self.CreateSekcja)
         self.CreateSekcja.exec_()
-    
+
     def button_sekcje_edytuj_fun(self):
         self.UpdateSekcja = QtWidgets.QDialog()
         ui = Ui_UpdateSekcja()
@@ -872,7 +872,7 @@ class Ui_MainWindow(object):
         ui = Ui_DeleteSekcja()
         ui.setupUi(self.DeleteSekcja)
         self.DeleteSekcja.exec_()
-    
+
     def button_czlonkowie_dodaj_fun(self):
         self.AddCzlonek = QtWidgets.QDialog()
         ui = Ui_AddCzlonek()
@@ -884,7 +884,7 @@ class Ui_MainWindow(object):
         ui = Ui_DeleteCzlonek()
         ui.setupUi(self.DeleteCzlonek)
         self.DeleteCzlonek.exec_()
-    
+
     def button_czlonkowie_przypisz_fun(self):
         self.AssignCzlonekSekcja = QtWidgets.QDialog()
         ui = Ui_AssignCzlonekSekcja()
@@ -896,7 +896,7 @@ class Ui_MainWindow(object):
         ui = Ui_AddSpotkanie()
         ui.setupUi(self.AddSpotkanie)
         self.AddSpotkanie.exec_()
-    
+
     def button_spotkania_usun_fun(self):
         self.DeleteSpotkanie = QtWidgets.QDialog()
         ui = Ui_DeleteSpotkanie()
@@ -920,7 +920,7 @@ class Ui_MainWindow(object):
         ui = Ui_UpdatePlacowka()
         ui.setupUi(self.UpdatePlacowka)
         self.UpdatePlacowka.exec_()
-    
+
     def button_egzemplarze_gier_dodaj_fun(self):
         self.AddEgzemplarz = QtWidgets.QDialog()
         ui = Ui_AddEgzemplarz()
@@ -968,7 +968,7 @@ class Ui_MainWindow(object):
         ui = Ui_DeletePlatforma()
         ui.setupUi(self.DeletePlatforma)
         self.DeletePlatforma.exec_()
-    
+
     def button_platformy_edytuj_fun(self):
         self.UpdatePlatforma = QtWidgets.QDialog()
         ui = Ui_UpdatePlatforma()
@@ -997,7 +997,7 @@ class Ui_MainWindow(object):
         self.AddEvent = QtWidgets.QDialog()
         ui = Ui_AddEvent()
         ui.setupUi(self.AddEvent)
-        self.AddEvent.exec_()  
+        self.AddEvent.exec_()
 
     def button_eventy_usun_fun(self):
         self.DeleteEvent = QtWidgets.QDialog()
@@ -1010,7 +1010,7 @@ class Ui_MainWindow(object):
         ui = Ui_UpdateEventSekcja()
         ui.setupUi(self.UpdateEventSekcja)
         self.UpdateEventSekcja.exec_()
-    
+
     def button_miejsce_dodaj_fun(self):
         self.AddMiejsce = QtWidgets.QDialog()
         ui = Ui_AddMiejsce()
@@ -1028,7 +1028,7 @@ class Ui_MainWindow(object):
         ui = Ui_AddSponsor()
         ui.setupUi(self.AddSponsor)
         self.AddSponsor.exec_()
-        
+
     def button_sponsorzy_dodaj_sponsoring_fun(self):
         self.AddSponsoring = QtWidgets.QDialog()
         ui = Ui_AddSponsoring()
@@ -1040,13 +1040,13 @@ class Ui_MainWindow(object):
         ui = Ui_AddTurniej()
         ui.setupUi(self.AddTurniej)
         self.AddTurniej.exec_()
-    
+
     def button_turnieje_usun_fun(self):
         self.DeleteTurniej = QtWidgets.QDialog()
         ui = Ui_DeleteTurniej()
         ui.setupUi(self.DeleteTurniej)
         self.DeleteTurniej.exec_()
-    
+
     def button_uczestnicy_turniejow_dodaj_fun(self):
         self.AddUczestnik = QtWidgets.QDialog()
         ui = Ui_AddUczestnik()
@@ -1083,12 +1083,35 @@ class Ui_MainWindow(object):
         ui.setupUi(self.DeleteGraTurniej)
         self.DeleteGraTurniej.show()
 
-        
+
+    def show_table(self,  tab, table: list):
+    # table - list of rows
+        self.tableWidget_new = QtWidgets.QTableWidget(tab)
+        self.tableWidget_new.setGeometry(QtCore.QRect(10, 60, 771, 461))
+        self.tableWidget_new.setObjectName("tableWidget_new")
+        self.tableWidget_new.setColumnCount(len(table[0]))
+        self.tableWidget_new.setRowCount(len(table))
+
+        __sortingEnabled = self.tableWidget_new.isSortingEnabled()
+        self.tableWidget_new.setSortingEnabled(False)
+        _translate = QtCore.QCoreApplication.translate
+
+        for i, row in enumerate(table):
+            # tu ewentualnie headery, jeżeli ich nie będzie
+            for j, value in enumerate(row):
+                item = QtWidgets.QTableWidgetItem()
+                self.tableWidget_new.setItem(i,j, item)
+                item = self.tableWidget_new.item(i, j)
+                item.setText(_translate("MainWindow", value))
+
+        self.tableWidget_new.setSortingEnabled(__sortingEnabled)
+
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
+    ui.show_table(ui.tab_sekcje, [["jeden", "dwa"], ["trzy", "cztery"]])
     MainWindow.show()
     sys.exit(app.exec_())
