@@ -1,7 +1,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
+from tables import *
 
 class Ui_CreateSekcja(object):
-    def setupUi(self, CreateSekcja):
+    def setupUi(self, CreateSekcja, connetion):
         CreateSekcja.setObjectName("CreateSekcja")
         CreateSekcja.resize(419, 174)
         self.lineEdit_nazwa = QtWidgets.QLineEdit(CreateSekcja)
@@ -20,14 +21,15 @@ class Ui_CreateSekcja(object):
         self.retranslateUi(CreateSekcja)
         QtCore.QMetaObject.connectSlotsByName(CreateSekcja)
 
-        self.setupUi_my()
+        self.setupUi_my(connection)
 
-    def setupUi_my(self):
-        print("create")
+    def setupUi_my(self, connection):
         self.pushButton.clicked.connect(self.button_fun)
-    
+        self.connection = connection
+
     def button_fun(self):
-        print(f"dodaje sekcje {self.lineEdit_nazwa.text()}")
+        record = [self.lineEdit_nazwa.text()]
+        add_record(self.connection, 0, record)
 
     def retranslateUi(self, CreateSekcja):
         _translate = QtCore.QCoreApplication.translate
@@ -35,6 +37,7 @@ class Ui_CreateSekcja(object):
         self.label.setText(_translate("CreateSekcja", "Nazwa"))
         self.pushButton.setText(_translate("CreateSekcja", "Utwórz"))
         self.label_2.setText(_translate("CreateSekcja", "Tworzysz nową sekcję"))
+
 
 class Ui_DeleteSekcja(object):
     def setupUi(self, DeleteSekcja):
@@ -63,8 +66,8 @@ class Ui_DeleteSekcja(object):
         self.pushButton.setText(_translate("DeleteSekcja", "Usuń"))
         self.label_2.setText(_translate("DeleteSekcja", "Usuwasz sekcję"))
 
-class Ui_AddCzlonek(object):
-    def setupUi(self, AddCzlonek):
+class Ui_AddCzlonek(QtWidgets.QDialog):
+    def setupUi(self, AddCzlonek, connection):
         AddCzlonek.setObjectName("AddCzlonek")
         AddCzlonek.resize(574, 177)
         self.lineEdit_imie = QtWidgets.QLineEdit(AddCzlonek)
@@ -100,6 +103,8 @@ class Ui_AddCzlonek(object):
 
         self.retranslateUi(AddCzlonek)
         QtCore.QMetaObject.connectSlotsByName(AddCzlonek)
+        self.AddCzlonek = AddCzlonek
+        self.setupUi_my(connection)
 
     def retranslateUi(self, AddCzlonek):
         _translate = QtCore.QCoreApplication.translate
@@ -110,6 +115,16 @@ class Ui_AddCzlonek(object):
         self.label_4.setText(_translate("AddCzlonek", "PESEL"))
         self.label_5.setText(_translate("AddCzlonek", "Dodajesz Nowego członka"))
         self.pushButton.setText(_translate("AddCzlonek", "Dodaj"))
+
+    def setupUi_my(self, connection):
+        self.pushButton.clicked.connect(self.button_fun)
+        self.connection = connection
+
+    def button_fun(self):
+        record = [self.lineEdit_PESEL.text(), self.lineEdit_imie.text(), self.lineEdit_nazwisko.text(), self.lineEdit_data_urodzenia.text()]
+        add_record(self.connection, 1, record)
+        self.AddCzlonek.close()
+
 
 class Ui_DeleteCzlonek(object):
     def setupUi(self, DeleteCzlonek):
@@ -167,7 +182,7 @@ class Ui_AssignCzlonekSekcja(object):
 
         self.retranslateUi(AssignCzlonekSekcja)
         QtCore.QMetaObject.connectSlotsByName(AssignCzlonekSekcja)
-        
+
         self.setupUI_my()
 
     def setupUI_my(self):
@@ -175,7 +190,7 @@ class Ui_AssignCzlonekSekcja(object):
         self.comboBox.addItem("komputerowe")
 
         self.pushButton.clicked.connect(self.button_fun)
-    
+
     def button_fun(self):
         print(f'Przypisano do {self.comboBox.currentText()}')
 

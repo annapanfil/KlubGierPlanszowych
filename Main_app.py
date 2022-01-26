@@ -357,8 +357,10 @@ class Ui_MainWindow(object):
 
         self.tabWidget.currentChanged.connect(self.on_tab_change)
 
+
     def addConnection(self, connection):
         self.connection = connection
+        self.on_tab_change(0)
 
 
     def setup_buttons(self):
@@ -401,17 +403,21 @@ class Ui_MainWindow(object):
         self.pushButton_turnieje_dodaj_gre.clicked.connect(self.button_gra_turniej_dodaj_fun)
         self.pushButton_turnieje_usun_gre.clicked.connect(self.button_gra_turniej_usun_fun)
 
+
     def button_sekcje_dodaj_fun(self):
         self.CreateSekcja = QtWidgets.QDialog()
         ui = Ui_CreateSekcja()
-        ui.setupUi(self.CreateSekcja)
+        ui.setupUi(self.CreateSekcja, self.connection)
         self.CreateSekcja.exec_()
+        self.on_tab_change(0)
+
 
     def button_sekcje_edytuj_fun(self):
         self.UpdateSekcja = QtWidgets.QDialog()
         ui = Ui_UpdateSekcja()
         ui.setupUi(self.UpdateSekcja)
         self.UpdateSekcja.exec_()
+        self.UpdateSekcja.show()
 
     def button_sekcje_usun_fun(self):
         self.DeleteSekcja = QtWidgets.QDialog()
@@ -422,8 +428,9 @@ class Ui_MainWindow(object):
     def button_czlonkowie_dodaj_fun(self):
         self.AddCzlonek = QtWidgets.QDialog()
         ui = Ui_AddCzlonek()
-        ui.setupUi(self.AddCzlonek)
+        ui.setupUi(self.AddCzlonek, self.connection)
         self.AddCzlonek.exec_()
+        self.on_tab_change(1)
 
     def button_czlonkowie_usun_fun(self):
         self.DeleteCzlonek = QtWidgets.QDialog()

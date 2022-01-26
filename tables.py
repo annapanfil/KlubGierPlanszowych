@@ -10,3 +10,7 @@ def get_table(i, connection):
         data[i] = [str(val) for val in data[i]]
 
     return (data, headers)
+
+def add_record(connection, i, record):
+    #QUESTION: what if already exists?
+    connection.insert(relations[i], record)
