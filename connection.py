@@ -6,8 +6,9 @@ import logging
 
 class MyConnection():
     def __init__(self, db_name="KlubGierPlanszowych"):
-        # login = input("nazwa użytkownika: ")
-        # passwd = getpass.getpass("Hasło: ")
+
+        login = input("nazwa użytkownika: ")
+        passwd = getpass.getpass("Hasło: ")
         self.connection = None
 
         try:

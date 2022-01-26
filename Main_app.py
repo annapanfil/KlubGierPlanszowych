@@ -581,17 +581,11 @@ class Ui_MainWindow(object):
         self.on_tab_change(3)
 
 
-    def button_czlonkowie_przypisz_fun(self):
-        self.AssignCzlonekSekcja = QtWidgets.QDialog()
-        ui = Ui_AssignCzlonekSekcja()
-        ui.setupUi(self.AssignCzlonekSekcja)
-        self.AssignCzlonekSekcja.exec_()
-
     def button_sponsorzy_dodaj_sponsoring_fun(self):
-        self.AddSponsoring = QtWidgets.QDialog()
         ui = Ui_AddSponsoring()
-        ui.setupUi(self.AddSponsoring)
-        self.AddSponsoring.exec_()
+        self.button_base(ui, 11)
+
+# -------------------------------
 
     def button_gra_turniej_dodaj_fun(self):
         self.AddGraTurniej = QtWidgets.QDialog()
@@ -599,7 +593,11 @@ class Ui_MainWindow(object):
         ui.setupUi(self.AddGraTurniej)
         self.AddGraTurniej.show()
 
-
+    def button_czlonkowie_przypisz_fun(self):
+        self.AssignCzlonekSekcja = QtWidgets.QDialog()
+        ui = Ui_AssignCzlonekSekcja()
+        ui.setupUi(self.AssignCzlonekSekcja)
+        self.AssignCzlonekSekcja.exec_()
 
 
     def button_eventy_edytuj_fun(self):
