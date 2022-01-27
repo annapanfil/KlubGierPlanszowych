@@ -23,6 +23,13 @@ class Ui_CreateSekcja(object):
 
         self.setupUi_my(connection)
 
+    def retranslateUi(self, CreateSekcja):
+        _translate = QtCore.QCoreApplication.translate
+        CreateSekcja.setWindowTitle(_translate("CreateSekcja", "Dialog"))
+        self.label.setText(_translate("CreateSekcja", "Nazwa"))
+        self.pushButton.setText(_translate("CreateSekcja", "Utwórz"))
+        self.label_2.setText(_translate("CreateSekcja", "Tworzysz nową sekcję"))
+
     def setupUi_my(self, connection):
         self.pushButton.clicked.connect(self.button_fun)
         self.connection = connection
@@ -30,13 +37,6 @@ class Ui_CreateSekcja(object):
     def button_fun(self):
         record = [self.lineEdit_nazwa.text()]
         add_record(self.connection, 0, record)
-
-    def retranslateUi(self, CreateSekcja):
-        _translate = QtCore.QCoreApplication.translate
-        CreateSekcja.setWindowTitle(_translate("CreateSekcja", "Dialog"))
-        self.label.setText(_translate("CreateSekcja", "Nazwa"))
-        self.pushButton.setText(_translate("CreateSekcja", "Utwórz"))
-        self.label_2.setText(_translate("CreateSekcja", "Tworzysz nową sekcję"))
 
 class Ui_AddCzlonek(object):
     def setupUi(self, AddCzlonek, connection):
@@ -93,9 +93,13 @@ class Ui_AddCzlonek(object):
         self.connection = connection
 
     def button_fun(self):
-        record = [self.lineEdit_PESEL.text(), self.lineEdit_imie.text(), self.lineEdit_nazwisko.text(), self.lineEdit_data_urodzenia.text()]
-        add_record(self.connection, 1, record)
-        self.AddCzlonek.close()
+        date = validate_date(self.lineEdit_data_urodzenia.text())
+        pesel = validate_number(self.lineEdit_PESEL.text())
+
+        if date is not None and pesel != None:
+            record = [pesel, self.lineEdit_imie.text(), self.lineEdit_nazwisko.text(), date]
+            add_record(self.connection, 1, record)
+            self.AddCzlonek.close()
 
 class Ui_AddSpotkanie(object):
     def setupUi(self, AddSpotkanie, connection):
@@ -150,9 +154,14 @@ class Ui_AddSpotkanie(object):
         self.comboBox_miejsce.addItems(miejsca)
 
     def button_fun(self):
-        record = [self.comboBox_sekcja.currentText(), self.lineEdit_termin.text(), self.comboBox_miejsce.currentText()]
-        add_record(self.connection, 2, record)
-        self.window.close()
+        termin = validate_date(self.lineEdit_termin.text())
+
+        if termin is not None:
+            record = [self.comboBox_sekcja.currentText(),
+                    termin,
+                    self.comboBox_miejsce.currentText()]
+            add_record(self.connection, 2, record)
+            self.window.close()
 
 class Ui_AddPlacowka(object):
     def setupUi(self, AddPlacowka, connection):
@@ -164,9 +173,9 @@ class Ui_AddPlacowka(object):
         self.lineEdit_adres = QtWidgets.QLineEdit(AddPlacowka)
         self.lineEdit_adres.setGeometry(QtCore.QRect(20, 70, 113, 20))
         self.lineEdit_adres.setObjectName("lineEdit_adres")
-        self.lineEdit_koszt = QtWidgets.QLineEdit(AddPlacowka)
-        self.lineEdit_koszt.setGeometry(QtCore.QRect(150, 70, 113, 20))
-        self.lineEdit_koszt.setObjectName("lineEdit_koszt")
+        self.lineEdit_czynsz = QtWidgets.QLineEdit(AddPlacowka)
+        self.lineEdit_czynsz.setGeometry(QtCore.QRect(150, 70, 113, 20))
+        self.lineEdit_czynsz.setObjectName("lineEdit_czynsz")
         self.label_2 = QtWidgets.QLabel(AddPlacowka)
         self.label_2.setGeometry(QtCore.QRect(30, 50, 47, 13))
         self.label_2.setObjectName("label_2")
@@ -196,9 +205,13 @@ class Ui_AddPlacowka(object):
         self.connection = connection
 
     def button_fun(self):
-        record = [self.lineEdit_adres.text(), self.lineEdit_czynsz.text()]
-        add_record(self.connection, 3, record)
-        self.window.close()
+        czynsz = validate_number(self.lineEdit_czynsz.text())
+
+        if czynsz is not None:
+            record = [self.lineEdit_adres.text(),
+                    czynsz]
+            add_record(self.connection, 3, record)
+            self.window.close()
 
 class Ui_AddEgzemplarz(object):
     def setupUi(self, AddEgzemplarz, connection):
@@ -312,9 +325,15 @@ class Ui_AddGraKomputerowa(object):
         self.comboBox_wydawca.addItems(wydawcy)
 
     def button_fun(self):
-        record = [self.lineEdit_nazwa.text(), self.lineEdit_cena.text(), self.comboBox_platforma.currentText(), self.comboBox_wydawca.currentText()]
-        add_record(self.connection, 5, record)
-        self.window.close()
+        cena = validate_number(self.lineEdit_cena.text())
+
+        if cena is not None:
+            record = [self.lineEdit_nazwa.text(),
+                    cena,
+                    self.comboBox_platforma.currentText(),
+                    self.comboBox_wydawca.currentText()]
+            add_record(self.connection, 5, record)
+            self.window.close()
 
 class Ui_AddGraPlanszowa(object):
     def setupUi(self, AddGraPlanszowa, connection):
@@ -391,9 +410,20 @@ class Ui_AddGraPlanszowa(object):
         wydawcy = get_names(connection, 8, "nazwa")
 
     def button_fun(self):
-        record = [self.lineEdit_nazwa.text(), self.lineEdit_cena.text(), self.comboBox_wydawca.currentText(), self.lineEdit_waga.text(), self.lineEdit_maks_graczy.text(), self.lineEdit_min_graczy.text()]
-        add_record(self.connection, 6, record)
-        self.window.close()
+        cena = validate_number(self.lineEdit_cena.text())
+        waga = validate_number(self.lineEdit_waga.text())
+        max_graczy = validate_number(self.lineEdit_maks_graczy.text())
+        min_graczy = validate_number(self.lineEdit_min_graczy.text())
+
+        if None not in [cena, waga, max_graczy, min_graczy]:
+            record = [self.lineEdit_nazwa.text(),
+                     cena,
+                     self.comboBox_wydawca.currentText(),
+                     waga,
+                     max_graczy,
+                     min_graczy]
+            add_record(self.connection, 6, record)
+            self.window.close()
 
 class Ui_AddPlatforma(object):
     def setupUi(self, AddPlatforma, connection):
@@ -529,11 +559,14 @@ class Ui_AddEvent(object):
         sekcje = get_names(connection, 0, "nazwa")
 
     def button_fun(self):
-        record = [self.lineEdit_nazwa.text(),
-                 self.lineEdit_data.text(),
-                 self.comboBox_sekcja.currentText()]
-        add_record(self.connection, 9, record)
-        self.window.close()
+        date = validate_date(self.lineEdit_data.text())
+
+        if date is not None:
+            record = [self.lineEdit_nazwa.text(),
+                     date,
+                     self.comboBox_sekcja.currentText()]
+            add_record(self.connection, 9, record)
+            self.window.close()
 
 class Ui_AddMiejsce(object):
     def setupUi(self, AddMiejsce, connection):
@@ -584,9 +617,15 @@ class Ui_AddMiejsce(object):
         self.connection = connection
 
     def button_fun(self):
-        record = [self.lineEdit_adres.text(), self.lineEdit_cena.text(), self.lineEdit_max_osob.text()]
-        add_record(self.connection, 10, record)
-        self.window.close()
+        cena = validate_number(self.lineEdit_cena.text())
+        max_osob = validate_number(self.lineEdit_max_osob.text())
+
+        if None not in [cena, max_osob]:
+            record = [self.lineEdit_adres.text(),
+            cena,
+            max_osob]
+            add_record(self.connection, 10, record)
+            self.window.close()
 
 class Ui_AddSponsor(object):
     def setupUi(self, AddSponsor, connection):
@@ -678,11 +717,14 @@ class Ui_AddTurniej(object):
         self.comboBox.addItems(eventy)
 
     def button_fun(self):
-        record = [self.lineEdit_nazwa.text(),
-                self.lineEdit_godzina.text(),
-                self.comboBox.currentText()]
-        add_record(self.connection, 12, record)
-        self.window.close()
+        hour = validate_hour(self.lineEdit_godzina.text())
+
+        if None not in [hour]:
+            record = [self.lineEdit_nazwa.text(),
+                    hour,
+                    self.comboBox.currentText()]
+            add_record(self.connection, 12, record)
+            self.window.close()
 
 class Ui_AddUczestnik(object):
     def setupUi(self, AddUczestnik, connection):
@@ -864,10 +906,15 @@ class Ui_DeleteWithLineEdit(object):
 
     def button_fun(self):
         record = self.lineEdit.text()
-        if self.field[:2] != "ID":
+
+        if self.field[:2] == "ID":
+            record = validate_number(record)
+        else:
             record = "'" + record + "'" #pass as string string
-        remove_record(self.connection, self.table_nr, f"{self.field} = {record}")
-        self.window.close()
+
+        if record is not None:
+            remove_record(self.connection, self.table_nr, f"{self.field} = {record}")
+            self.window.close()
 
 class Ui_DeleteSpotkanie(object):
     def setupUi(self, DeleteSpotkanie, connection):
@@ -1189,9 +1236,9 @@ class Ui_UpdateAdrCost(object):
 
     def button_fun(self):
         cond = f"adres = '{self.comboBox_adres.currentText()}'"
-        cost = self.lineEdit_koszt.text()
+        cost = validate_number(self.lineEdit_koszt.text())
 
-        if validate_number(cost) is not None:
+        if cost is not None:
             new = f"{self.costname} = {cost}"
             update_record(self.connection, self.tab_nr, new, cond)
             self.window.close()
