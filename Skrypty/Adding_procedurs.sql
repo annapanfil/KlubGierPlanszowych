@@ -146,8 +146,6 @@ create procedure Gry_komputerowe_add(IN c_nazwa varchar(50),IN c_cena float(4),I
         end//
 delimiter ;
 
-drop procedure Gry_komputerowe_add;
-
 delimiter //
 create procedure Gry_planszowe_add(IN c_nazwa_gry varchar(50),IN c_cena float(4),IN c_nazwa_wydawcy varchar(50),IN c_waga FLOAT(3),IN c_min int(2),IN c_max int(2)) 
 		begin 
