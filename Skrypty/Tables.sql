@@ -11,6 +11,8 @@ CREATE TABLE  Sekcje(
   data_utworzenia DATE
 );
 
+
+
 CREATE TABLE Czlonkowie_w_sekcjach(
   pesel_czlonka VARCHAR(11) NOT NULL,
   id_sekcji INT(7) NOT NULL,

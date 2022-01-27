@@ -13,7 +13,7 @@ INSERT into Placowki values('Polna 46',700);
 INSERT into Placowki values('Wiejska 80',400);
 INSERT INTO Spotkania(termin,id_sekcji,adres) values('2022-01-19',1,'Polna 46');
 INSERT INTO Spotkania(termin,id_sekcji,adres) values('2022-01-25',2,'Polna 46');
-INSERT INTO spotkania(termin,id_sekcji,adres) values('2021-12-17',1,'Wiejska 80');
+INSERT INTO Spotkania(termin,id_sekcji,adres) values('2021-12-17',1,'Wiejska 80');
 INSERT into Miejsca values('Polna 46',700,50);
 INSERT into Miejsca values('Głowna 17',2000,500);
 insert into Eventy(nazwa,data,sekcja,adres) values ('Kokon 2077','2077-02-15',2,'Polna 46');
