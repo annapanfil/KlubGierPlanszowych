@@ -46,7 +46,7 @@ create procedure Miejsca_add(IN c_adres varchar(100), IN c_czynsz float(7),IN c_
 delimiter ;
 
 delimiter //
-create procedure Eventy_add(IN c_nazwa varchar(50),IN c_data date,IN c_nazwa_sekcji int(7),IN c_adres varchar(100)) 
+create procedure Eventy_add(IN c_nazwa varchar(50),IN c_data date,IN c_nazwa_sekcji varchar(50),IN c_adres varchar(100)) 
 		begin 
 		DECLARE c_id_sekcji int(7);
         SELECT id_sekcji into c_id_sekcji from Sekcje where nazwa=c_nazwa_sekcji;
@@ -95,7 +95,7 @@ delimiter //
 create procedure Miejsce_w_turnieju_add(IN c_numer_miejsca int(7),IN c_nazwa_turnieju varchar(50),IN c_id_uczestnika int(7),IN c_nagroda varchar(100)) 
 		begin
         DECLARE c_id_turnieju INT(7);
-		select id_turnieju into c_id_turnieju from Turnieje where nazwa = c_nazwa_eventu;
+		select id_turnieju into c_id_turnieju from Turnieje where nazwa = c_nazwa_turnieju;
         insert into Miejsce_w_turnieju values (c_numer_miejsca,c_id_turnieju,c_id_uczestnika,c_nagroda);
         end//
 delimiter ;
