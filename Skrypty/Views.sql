@@ -71,7 +71,7 @@ group by Turnieje.nazwa;
 
 
 Create view Uczestnicy_turniejow_view as 
-SELECT imie, nazwisko , id_uczestnika , eventy.nazwa as event , Turnieje.nazwa as turniej
+SELECT imie, nazwisko , id_uczestnika , Eventy.nazwa as event , Turnieje.nazwa as turniej
 from Uczestnicy_turniejow
 inner join Turnieje on Uczestnicy_turniejow.turniej = Turnieje.id_turnieju
 inner join Eventy on Turnieje.event = Eventy.id_eventu;
