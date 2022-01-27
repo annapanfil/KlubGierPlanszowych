@@ -16,7 +16,7 @@ delimiter //
 create procedure Czlonkowie_w_sekcjach_add(IN c_pesel INT(11), IN c_nazwa_sekcji varchar(50)) 
 		begin 
         DECLARE c_id_sekcji int(7);
-        SELECT id_sekcji into c_id_sekcji from sekcje where nazwa=c_nazwa_sekcji;
+        SELECT id_sekcji into c_id_sekcji from Sekcje where nazwa=c_nazwa_sekcji;
         INSERT into Czlonkowie_w_sekcjach values (c_pesel, c_id_sekcji, current_date());
         end//
 delimiter ;
@@ -32,7 +32,7 @@ delimiter //
 create procedure Spotkania_add(IN c_data date,IN c_nazwa_sekcji varchar(50),IN c_adres varchar(100)) 
 		begin 
         DECLARE c_id_sekcji int(7);
-        SELECT id_sekcji into c_id_sekcji from sekcje where nazwa=c_nazwa_sekcji;
+        SELECT id_sekcji into c_id_sekcji from Sekcje where nazwa=c_nazwa_sekcji;
         INSERT INTO Spotkania(termin,id_sekcji,adres) values(c_data,c_id_sekcji,c_adres);
         end//
 delimiter ;
@@ -49,7 +49,7 @@ delimiter //
 create procedure Eventy_add(IN c_nazwa varchar(50),IN c_data date,IN c_nazwa_sekcji int(7),IN c_adres varchar(100)) 
 		begin 
 		DECLARE c_id_sekcji int(7);
-        SELECT id_sekcji into c_id_sekcji from sekcje where nazwa=c_nazwa_sekcji;
+        SELECT id_sekcji into c_id_sekcji from Sekcje where nazwa=c_nazwa_sekcji;
         insert into Eventy(nazwa,data,sekcja,adres) values (c_nazwa,c_data,c_id_sekcji,c_adres);
         end//
 delimiter ;
@@ -126,7 +126,7 @@ delimiter ;
 delimiter //
 create procedure Egzemplarz_add(IN c_nazwa_gry varchar(50),IN c_nazwa_sekcji varchar(50)) 
 		begin 
-		DECLARE c_id_sekcji int(7);
+	DECLARE c_id_sekcji int(7);
         DECLARE c_id_gry int(7);
         SELECT id_gry into c_id_gry from Gry where nazwa = c_nazwa_gry; 
         SELECT id_sekcji into c_id_sekcji from Sekcje where nazwa=c_nazwa_sekcji;
@@ -151,8 +151,8 @@ drop procedure Gry_komputerowe_add;
 delimiter //
 create procedure Gry_planszowe_add(IN c_nazwa_gry varchar(50),IN c_cena float(4),IN c_nazwa_wydawcy varchar(50),IN c_waga FLOAT(3),IN c_min int(2),IN c_max int(2)) 
 		begin 
-		DECLARE c_id_gry int(7);
-        call Gry_add(c_nazwa,c_cena,c_nazwa_wydawcy);
+	DECLARE c_id_gry int(7);
+        call Gry_add(c_nazwa_gry,c_cena,c_nazwa_wydawcy);
         SELECT id_gry into c_id_gry from Gry natural join Wydawcy where Gry.nazwa=c_nazwa; 
         insert into Gry_planszowe values (c_id_gry,c_waga,c_min,c_max);
         end//
