@@ -8,7 +8,7 @@ SELECT * FROM Czlonkowie;
 
 CREATE VIEW Spotkanie_view AS
 SELECT Nazwa,termin AS data , adres
-FROM Spotkania Natural join sekcje;
+FROM Spotkania Natural join Sekcje;
 
 CREATE VIEW Placowki_view AS
 SELECT adres,czynsz,count(id_spotkania) AS ilosc_spotkan
@@ -18,7 +18,7 @@ group by adres;
 CREATE VIEW Egzemplarz_view AS
 SELECT id_egzemplarza,Gry.nazwa as tytul , Sekcje.nazwa as sekcja from Egzemplarz 
 Inner join Sekcje on Egzemplarz.id_sekcji = Sekcje.id_sekcji 
-Inner join Gry on Egzemplarz.id_gry = gry.id_gry;
+Inner join Gry on Egzemplarz.id_gry = Gry.id_gry;
 
 create view Gry_komputerowe_view as
 SELECT Gry.nazwa as tytul , Gry.cena , Platformy.nazwa as platforma , Wydawcy.nazwa as wydawca
@@ -63,7 +63,7 @@ Inner join Sponsorowanie on Sponsorzy.id_sponsora = Sponsorowanie.sponsor
 group by id_sponsora;
 
 Create view Turnieje_view as 
-SELECT Turnieje.nazwa as turniej , godzina_rozpoczecia , Eventy.nazwa , count(distinct uczestnicy_turniejow.id_uczestnika) as 'ilosc uczestnikow',  GROUP_CONCAT(distinct gry_uzywanie.id_egzemplarza SEPARATOR ', ') as 'id uzywanych gier'
+SELECT Turnieje.nazwa as turniej , godzina_rozpoczecia , Eventy.nazwa , count(distinct Uczestnicy_turniejow.id_uczestnika) as 'ilosc uczestnikow',  GROUP_CONCAT(distinct gry_uzywanie.id_egzemplarza SEPARATOR ', ') as 'id uzywanych gier'
 From Turnieje 
 inner join Eventy on Turnieje.event = Eventy.id_eventu
 Inner join Uczestnicy_turniejow on Turnieje.id_turnieju = Uczestnicy_turniejow.turniej
@@ -72,7 +72,7 @@ group by Turnieje.nazwa;
 
 
 Create view Uczestnicy_turniejow_view as 
-SELECT imie, nazwisko , id_uczestnika , eventy.nazwa as event , turnieje.nazwa as turniej
+SELECT imie, nazwisko , id_uczestnika , Eventy.nazwa as event , turnieje.nazwa as turniej
 from Uczestnicy_turniejow
 inner join Turnieje on Uczestnicy_turniejow.turniej = Turnieje.id_turnieju
 inner join Eventy on Turnieje.event = Eventy.id_eventu;
