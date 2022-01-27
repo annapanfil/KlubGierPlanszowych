@@ -1307,10 +1307,10 @@ class Ui_AddSponsoring(object):
             self.window.close()
 
 
-# ----------------------------------
+# -----------------------------------
 
 class Ui_AddGraTurniej(object):
-    def setupUi(self, AddGraTurniej):
+    def setupUi(self, AddGraTurniej, connection):
         AddGraTurniej.setObjectName("AddGraTurniej")
         AddGraTurniej.resize(400, 136)
         self.lineEdit_id_gra = QtWidgets.QLineEdit(AddGraTurniej)
@@ -1325,9 +1325,17 @@ class Ui_AddGraTurniej(object):
         self.pushButton = QtWidgets.QPushButton(AddGraTurniej)
         self.pushButton.setGeometry(QtCore.QRect(300, 90, 75, 23))
         self.pushButton.setObjectName("pushButton")
+        self.comboBox_turniej = QtWidgets.QComboBox(AddGraTurniej)
+        self.comboBox_turniej.setGeometry(QtCore.QRect(160, 60, 101, 22))
+        self.comboBox_turniej.setObjectName("comboBox_turniej")
+        self.label_3 = QtWidgets.QLabel(AddGraTurniej)
+        self.label_3.setGeometry(QtCore.QRect(170, 40, 51, 16))
+        self.label_3.setObjectName("label_3")
 
         self.retranslateUi(AddGraTurniej)
         QtCore.QMetaObject.connectSlotsByName(AddGraTurniej)
+        self.window = AddGraTurniej
+        self.setupUi_my(connection)
 
     def retranslateUi(self, AddGraTurniej):
         _translate = QtCore.QCoreApplication.translate
@@ -1335,32 +1343,50 @@ class Ui_AddGraTurniej(object):
         self.label.setText(_translate("AddGraTurniej", "ID egzemplarza"))
         self.label_2.setText(_translate("AddGraTurniej", "Dodajesz gre do turnieju"))
         self.pushButton.setText(_translate("AddGraTurniej", "Dodaj"))
+        self.label_3.setText(_translate("AddGraTurniej", "Turniej"))
+
+    def setupUi_my(self, connection):
+        self.pushButton.clicked.connect(self.button_fun)
+        self.connection = connection
+        turnieje = get_names(connection, 12, "nazwa")
+        self.comboBox_turniej.addItems(turnieje)
+
+    def button_fun(self):
+        print("button pushed")
+        turniej = validate_number(self.lineEdit_id_gra.text())
+
+        if turniej is not None:
+            record = [turniej,
+                    self.comboBox_turniej.currentText()
+                    ]
+            add_record(self.connection, 17, record)
+            self.window.close()
 
 class Ui_AssignCzlonekSekcja(object):
-    def setupUi(self, AssignCzlonekSekcja):
+    def setupUi(self, AssignCzlonekSekcja, connection):
         AssignCzlonekSekcja.setObjectName("AssignCzlonekSekcja")
         AssignCzlonekSekcja.resize(432, 174)
         self.label = QtWidgets.QLabel(AssignCzlonekSekcja)
         self.label.setGeometry(QtCore.QRect(130, 20, 161, 16))
         self.label.setObjectName("label")
-        self.lineEdit_PESEL = QtWidgets.QLineEdit(AssignCzlonekSekcja)
-        self.lineEdit_PESEL.setGeometry(QtCore.QRect(30, 90, 113, 20))
-        self.lineEdit_PESEL.setObjectName("lineEdit_PESEL")
         self.label_2 = QtWidgets.QLabel(AssignCzlonekSekcja)
         self.label_2.setGeometry(QtCore.QRect(40, 70, 47, 13))
         self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(AssignCzlonekSekcja)
         self.label_3.setGeometry(QtCore.QRect(210, 90, 47, 13))
         self.label_3.setObjectName("label_3")
-        self.comboBox = QtWidgets.QComboBox(AssignCzlonekSekcja)
-        self.comboBox.setGeometry(QtCore.QRect(290, 90, 101, 22))
-        self.comboBox.setObjectName("comboBox")
+        self.comboBox_sekcja = QtWidgets.QComboBox(AssignCzlonekSekcja)
+        self.comboBox_sekcja.setGeometry(QtCore.QRect(290, 90, 101, 22))
+        self.comboBox_sekcja.setObjectName("comboBox_sekcja")
         self.label_4 = QtWidgets.QLabel(AssignCzlonekSekcja)
         self.label_4.setGeometry(QtCore.QRect(300, 70, 47, 13))
         self.label_4.setObjectName("label_4")
         self.pushButton = QtWidgets.QPushButton(AssignCzlonekSekcja)
         self.pushButton.setGeometry(QtCore.QRect(340, 140, 75, 23))
         self.pushButton.setObjectName("pushButton")
+        self.comboBox_PESEL = QtWidgets.QComboBox(AssignCzlonekSekcja)
+        self.comboBox_PESEL.setGeometry(QtCore.QRect(30, 90, 111, 22))
+        self.comboBox_PESEL.setObjectName("comboBox_PESEL")
 
         self.retranslateUi(AssignCzlonekSekcja)
         QtCore.QMetaObject.connectSlotsByName(AssignCzlonekSekcja)
@@ -1371,18 +1397,15 @@ class Ui_AssignCzlonekSekcja(object):
     def setupUi_my(self, connection):
         self.pushButton.clicked.connect(self.button_fun)
         self.connection = connection
-        # eventy = get_names(connection, 9, "nazwa")
-        # turnieje = get_names(connection, 12, "nazwa")
-        # self.comboBox_event.addItems(eventy)
-        # self.comboBox_turniej.addItems(turnieje)
+        pesele = get_names(connection, 1, "pesel")
+        sekcje = get_names(connection, 0, "nazwa")
+        self.comboBox_PESEL.addItems(pesele)
+        self.comboBox_sekcja.addItems(sekcje)
 
     def button_fun(self):
-        # record = [self.comboBox_event.currentText(),
-        #         self.comboBox_turniej.currentText(),
-        #         self.lineEdit_miejsce.text(),
-        #         self.lineEdit_nagroda.text()]
-        # add_record(self.connection, 14, record)
-        print(f'Przypisano do {self.comboBox.currentText()}')
+        record = [self.comboBox_sekcja.currentText(),
+                self.comboBox_PESEL.currentText()]
+        add_record(self.connection, 18, record)
         self.window.close()
 
 
@@ -1396,7 +1419,7 @@ class Ui_AssignCzlonekSekcja(object):
         self.pushButton.setText(_translate("AssignCzlonekSekcja", "Przypisz"))
 
 class Ui_DeleteGraTurniej(object):
-    def setupUi(self, DeleteGraTurniej):
+    def setupUi(self, DeleteGraTurniej, connection):
         DeleteGraTurniej.setObjectName("DeleteGraTurniej")
         DeleteGraTurniej.resize(400, 136)
         self.lineEdit_id_gra = QtWidgets.QLineEdit(DeleteGraTurniej)
@@ -1411,9 +1434,33 @@ class Ui_DeleteGraTurniej(object):
         self.pushButton = QtWidgets.QPushButton(DeleteGraTurniej)
         self.pushButton.setGeometry(QtCore.QRect(300, 90, 75, 23))
         self.pushButton.setObjectName("pushButton")
+        self.label_3 = QtWidgets.QLabel(DeleteGraTurniej)
+        self.label_3.setGeometry(QtCore.QRect(170, 40, 51, 16))
+        self.label_3.setObjectName("label_3")
+        self.comboBox_turniej = QtWidgets.QComboBox(DeleteGraTurniej)
+        self.comboBox_turniej.setGeometry(QtCore.QRect(160, 60, 101, 22))
+        self.comboBox_turniej.setObjectName("comboBox_turniej")
 
         self.retranslateUi(DeleteGraTurniej)
         QtCore.QMetaObject.connectSlotsByName(DeleteGraTurniej)
+
+        self.window = DeleteGraTurniej
+        self.setupUi_my(connection)
+
+    def setupUi_my(self, connection):
+        self.pushButton.clicked.connect(self.button_fun)
+        self.connection = connection
+        turnieje = get_names(connection, 12, "nazwa")
+        self.comboBox_turniej.addItems(turnieje)
+
+    def button_fun(self):
+        gra = validate_number(self.lineEdit_id_gra.text())
+
+        if gra is not None:
+            cond1 = f"gra = '{gra}'"
+            cond2 = f"turniej = '{self.comboBox_turniej.currentText()}'"
+            remove_record(self.connection, 17, f"{cond1} AND {cond2}")
+            self.window.close()
 
     def retranslateUi(self, DeleteGraTurniej):
         _translate = QtCore.QCoreApplication.translate
@@ -1421,6 +1468,7 @@ class Ui_DeleteGraTurniej(object):
         self.label.setText(_translate("DeleteGraTurniej", "ID egzemplarza"))
         self.label_2.setText(_translate("DeleteGraTurniej", "Usuwasz gre z turnieju"))
         self.pushButton.setText(_translate("DeleteGraTurniej", "Usuń"))
+        self.label_3.setText(_translate("DeleteGraTurniej", "Turniej"))
 
 class Ui_UpdateEventSekcja(object):
     def setupUi(self, UpdateEventSekcja, connection):
@@ -1429,9 +1477,6 @@ class Ui_UpdateEventSekcja(object):
         self.label = QtWidgets.QLabel(UpdateEventSekcja)
         self.label.setGeometry(QtCore.QRect(120, 10, 241, 20))
         self.label.setObjectName("label")
-        self.lineEdit_nazwa = QtWidgets.QLineEdit(UpdateEventSekcja)
-        self.lineEdit_nazwa.setGeometry(QtCore.QRect(20, 60, 113, 20))
-        self.lineEdit_nazwa.setObjectName("lineEdit_nazwa")
         self.comboBox_sekcja = QtWidgets.QComboBox(UpdateEventSekcja)
         self.comboBox_sekcja.setGeometry(QtCore.QRect(280, 60, 141, 22))
         self.comboBox_sekcja.setObjectName("comboBox_sekcja")
@@ -1444,12 +1489,33 @@ class Ui_UpdateEventSekcja(object):
         self.pushButton = QtWidgets.QPushButton(UpdateEventSekcja)
         self.pushButton.setGeometry(QtCore.QRect(350, 100, 75, 23))
         self.pushButton.setObjectName("pushButton")
+        self.comboBox_nazwa = QtWidgets.QComboBox(UpdateEventSekcja)
+        self.comboBox_nazwa.setGeometry(QtCore.QRect(20, 60, 121, 22))
+        self.comboBox_nazwa.setObjectName("comboBox_nazwa")
 
         self.retranslateUi(UpdateEventSekcja)
         QtCore.QMetaObject.connectSlotsByName(UpdateEventSekcja)
 
-        # self.window = UpdateEventSekcja
-        # self.setupUi_my(connection)
+        self.window = UpdateEventSekcja
+        self.setupUi_my(connection)
+
+    def setupUi_my(self, connection):
+        self.pushButton.clicked.connect(self.button_fun)
+        self.connection = connection
+        eventy = get_names(connection, 9, "nazwa")
+        sekcje = get_names(connection, 0, "nazwa")
+        self.comboBox_nazwa.addItems(eventy)
+        self.comboBox_sekcja.addItems(sekcje)
+
+    def button_fun(self):
+        # cond1 = f"nazwa = '{gra}'"
+        # cond2 = f"turniej = '{self.comboBox_turniej.currentText()}'"
+
+
+        # record = [self.comboBox_sekcja.currentText(),
+        #         self.comboBox_nazwa.currentText()]
+        # update_record(self.connection, 17, record)
+        self.window.close()
 
     def retranslateUi(self, UpdateEventSekcja):
         _translate = QtCore.QCoreApplication.translate

@@ -5,14 +5,14 @@ import getpass
 import logging
 
 class MyConnection():
-    def __init__(self, db_name="KlubGierPlanszowych"):
+    def __init__(self, login:str, passwd:str, host:str, db_name="KlubGierPlanszowych"):
 
-        login = input("nazwa użytkownika: ")
-        passwd = getpass.getpass("Hasło: ")
+        # login = input("nazwa użytkownika: ")
+        # passwd = getpass.getpass("Hasło: ")
         self.connection = None
 
         try:
-            self.connection = mysql.connector.connect(user=login, password=passwd, database=db_name) # default host is localhost
+            self.connection = mysql.connector.connect(user=login, password=passwd, database=db_name, host = host) # default host is localhost
         except mysql.connector.Error as err:
             if err.errno == mysql.connector.errorcode.ER_ACCESS_DENIED_ERROR:
                 logging.error("Wrong credentials")
@@ -76,6 +76,7 @@ class MyConnection():
         except mysql.connector.errors.ProgrammingError as err:
             logging.error(err)
         cursor.close()
+        self.connection.commit()
 
 
     def delete(self, table: str, condition: str):
@@ -92,6 +93,7 @@ class MyConnection():
             logging.error(err)
 
         cursor.close()
+        self.connection.commit()
 
     def update(self, table: str, result: str, condition: str):
         query = f"UPDATE {table} SET {result} WHERE {condition}"
@@ -105,6 +107,7 @@ class MyConnection():
             logging.error(err)
 
         cursor.close()
+        self.connection.commit()
 
 
 
