@@ -85,13 +85,12 @@ delimiter //
 create procedure Uczestnicy_turniejow_add(IN c_imie varchar(50),IN c_nazwisko varchar(50),IN c_nazwa_turnieju varchar(50)) 
 		begin
         DECLARE c_id_turnieju INT(7);
-		select id_turnieju into c_id_turnieju from Turnieje where nazwa = c_nazwa_eventu;
+		select id_turnieju into c_id_turnieju from Turnieje where nazwa = c_nazwa_turnieju;
         insert into Uczestnicy_turniejow(imie,nazwisko,turniej) values (c_imie,c_nazwisko,c_id_turnieju);
         end//
 delimiter ;
 
 delimiter //
-#
 create procedure Miejsce_w_turnieju_add(IN c_numer_miejsca int(7),IN c_nazwa_turnieju varchar(50),IN c_id_uczestnika int(7),IN c_nagroda varchar(100)) 
 		begin
         DECLARE c_id_turnieju INT(7);
@@ -123,6 +122,8 @@ create procedure Gry_add(IN c_nazwa varchar(50),IN c_cena int(7),IN c_nazwa_wyda
         end//
 delimiter ;
 
+
+
 delimiter //
 create procedure Egzemplarz_add(IN c_nazwa_gry varchar(50),IN c_nazwa_sekcji varchar(50)) 
 		begin 
@@ -140,11 +141,12 @@ create procedure Gry_komputerowe_add(IN c_nazwa varchar(50),IN c_cena float(4),I
         DECLARE c_id_gry int(7);
         DECLARE c_id_platformy int(7);
         call Gry_add(c_nazwa,c_cena,c_nazwa_wydawcy);
-        SELECT id_gry into c_id_gry from Gry natural join Wydawcy where Gry.nazwa=c_nazwa; 
+        SELECT id_gry into c_id_gry from Gry where Gry.nazwa=c_nazwa; 
         SELECT id_platformy into c_id_platformy from Platformy where nazwa = c_nazwa_platformy;
         insert into Gry_komputerowe values (c_id_gry,c_id_platformy);
         end//
 delimiter ;
+
 
 delimiter //
 create procedure Gry_planszowe_add(IN c_nazwa_gry varchar(50),IN c_cena float(4),IN c_nazwa_wydawcy varchar(50),IN c_waga FLOAT(3),IN c_min int(2),IN c_max int(2)) 
