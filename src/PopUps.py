@@ -148,8 +148,8 @@ class Ui_AddSpotkanie(object):
     def setupUi_my(self, connection):
         self.pushButton.clicked.connect(self.button_fun)
         self.connection = connection
-        sekcje = get_names(self.connection, 2, "sekcja")
-        miejsca = get_names(self.connection, 2, "miejsce")
+        sekcje = get_names(self.connection, 2, "nazwa")
+        miejsca = get_names(self.connection, 2, "adres")
         self.comboBox_sekcja.addItems(sekcje)
         self.comboBox_miejsce.addItems(miejsca)
 
@@ -157,8 +157,8 @@ class Ui_AddSpotkanie(object):
         termin = validate_date(self.lineEdit_termin.text())
 
         if termin is not None:
-            record = [self.comboBox_sekcja.currentText(),
-                    termin,
+            record = [termin,
+                    self.comboBox_sekcja.currentText(),
                     self.comboBox_miejsce.currentText()]
             add_record(self.connection, 2, record)
             self.window.close()
@@ -319,8 +319,8 @@ class Ui_AddGraKomputerowa(object):
     def setupUi_my(self, connection):
         self.pushButton.clicked.connect(self.button_fun)
         self.connection = connection
-        wydawcy = get_names(connection, 8, "nazwa")
-        platformy = get_names(connection, 7, "nazwa")
+        wydawcy = get_names(connection, 8, "wydawca")
+        platformy = get_names(connection, 7, "platforma")
         self.comboBox_platforma.addItems(platformy)
         self.comboBox_wydawca.addItems(wydawcy)
 
@@ -557,6 +557,9 @@ class Ui_AddEvent(object):
         self.pushButton.clicked.connect(self.button_fun)
         self.connection = connection
         sekcje = get_names(connection, 0, "nazwa")
+        self.comboBox_sekcja.addItems(sekcje)
+        miejsca = get_names(connection, 10, "adres")
+        self.comboBox_adres.addItems(miejsca)
 
     def button_fun(self):
         date = validate_date(self.lineEdit_data.text())
@@ -564,7 +567,8 @@ class Ui_AddEvent(object):
         if date is not None:
             record = [self.lineEdit_nazwa.text(),
                      date,
-                     self.comboBox_sekcja.currentText()]
+                     self.comboBox_sekcja.currentText(),
+                     self.comboBox_adres.currentText()]
             add_record(self.connection, 9, record)
             self.window.close()
 
@@ -663,7 +667,7 @@ class Ui_AddSponsor(object):
 
     def button_fun(self):
         record = [self.lineEdit_nazwa.text()]
-        add_record(self.connection, 3, record)
+        add_record(self.connection, 11, record)
         self.window.close()
 
 class Ui_AddTurniej(object):
@@ -713,7 +717,7 @@ class Ui_AddTurniej(object):
     def setupUi_my(self, connection):
         self.pushButton.clicked.connect(self.button_fun)
         self.connection = connection
-        eventy = get_names(connection, 9, "nazwa")
+        eventy = get_names(connection, 9, "event")
         self.comboBox.addItems(eventy)
 
     def button_fun(self):
@@ -780,8 +784,8 @@ class Ui_AddUczestnik(object):
     def setupUi_my(self, connection):
         self.pushButton.clicked.connect(self.button_fun)
         self.connection = connection
-        turnieje = get_names(connection, 12, "nazwa")
-        eventy = get_names(connection, 9, "nazwa")
+        turnieje = get_names(connection, 12, "turniej")
+        eventy = get_names(connection, 9, "event")
         self.comboBox_event.addItems(eventy)
         self.comboBox_turniej.addItems(turnieje)
 
@@ -790,7 +794,7 @@ class Ui_AddUczestnik(object):
                 self.lineEdit_nazwisko.text(),
                 self.comboBox_event.currentText(),
                 self.comboBox_turniej.currentText()]
-        add_record(self.connection, 12, record)
+        add_record(self.connection, 13, record)
         self.window.close()
 
 class Ui_AddWygrany(object):
@@ -803,9 +807,9 @@ class Ui_AddWygrany(object):
         self.lineEdit_id_uczestnika = QtWidgets.QLineEdit(AddWygrany)
         self.lineEdit_id_uczestnika.setGeometry(QtCore.QRect(20, 70, 113, 20))
         self.lineEdit_id_uczestnika.setObjectName("lineEdit_id_uczestnika")
-        self.comboBox_event = QtWidgets.QComboBox(AddWygrany)
-        self.comboBox_event.setGeometry(QtCore.QRect(150, 70, 101, 22))
-        self.comboBox_event.setObjectName("comboBox_event")
+        # self.comboBox_event = QtWidgets.QComboBox(AddWygrany)
+        # self.comboBox_event.setGeometry(QtCore.QRect(150, 70, 101, 22))
+        # self.comboBox_event.setObjectName("comboBox_event")
         self.comboBox_turniej = QtWidgets.QComboBox(AddWygrany)
         self.comboBox_turniej.setGeometry(QtCore.QRect(270, 70, 101, 22))
         self.comboBox_turniej.setObjectName("comboBox_turniej")
@@ -854,15 +858,20 @@ class Ui_AddWygrany(object):
     def setupUi_my(self, connection):
         self.pushButton.clicked.connect(self.button_fun)
         self.connection = connection
-        eventy = get_names(connection, 9, "nazwa")
-        turnieje = get_names(connection, 12, "nazwa")
-        self.comboBox_event.addItems(eventy)
+        # eventy = get_names(connection, 9, "event")
+        turnieje = get_names(connection, 12, "turniej")
+        # self.comboBox_event.addItems(eventy)
         self.comboBox_turniej.addItems(turnieje)
 
     def button_fun(self):
-        record = [self.comboBox_event.currentText(),
+        numer_miejsca = validate_number(self.lineEdit_miejsce.text())
+        id_uczestnika = validate_number(self.lineEdit_id_uczestnika.text())
+
+        if None not in [numer_miejsca, id_uczestnika]:
+            record = [
+                numer_miejsca,
                 self.comboBox_turniej.currentText(),
-                self.lineEdit_miejsce.text(),
+                id_uczestnika,
                 self.lineEdit_nagroda.text()]
         add_record(self.connection, 14, record)
         self.window.close()
@@ -1291,7 +1300,7 @@ class Ui_AddSponsoring(object):
     def setupUi_my(self, connection):
         self.pushButton.clicked.connect(self.button_fun)
         self.connection = connection
-        eventy = get_names(connection, 9, "nazwa")
+        eventy = get_names(connection, 9, "event")
         sponsorzy = get_names(connection, 11, "nazwa")
         self.comboBox_event.addItems(eventy)
         self.comboBox_sponsor.addItems(sponsorzy)
@@ -1300,66 +1309,11 @@ class Ui_AddSponsoring(object):
         amount = self.lineEdit_kwota.text()
 
         if validate_number(amount) is not None:
-            record = [self.comboBox_sponsor.currentText(),
+            record = [amount,
+                    self.comboBox_sponsor.currentText(),
                     self.comboBox_event.currentText(),
-                    amount]
-            add_record(self.connection, 16, record)
-            self.window.close()
-
-
-# -----------------------------------
-
-class Ui_AddGraTurniej(object):
-    def setupUi(self, AddGraTurniej, connection):
-        AddGraTurniej.setObjectName("AddGraTurniej")
-        AddGraTurniej.resize(400, 136)
-        self.lineEdit_id_gra = QtWidgets.QLineEdit(AddGraTurniej)
-        self.lineEdit_id_gra.setGeometry(QtCore.QRect(30, 60, 113, 20))
-        self.lineEdit_id_gra.setObjectName("lineEdit_id_gra")
-        self.label = QtWidgets.QLabel(AddGraTurniej)
-        self.label.setGeometry(QtCore.QRect(40, 40, 101, 16))
-        self.label.setObjectName("label")
-        self.label_2 = QtWidgets.QLabel(AddGraTurniej)
-        self.label_2.setGeometry(QtCore.QRect(140, 10, 131, 20))
-        self.label_2.setObjectName("label_2")
-        self.pushButton = QtWidgets.QPushButton(AddGraTurniej)
-        self.pushButton.setGeometry(QtCore.QRect(300, 90, 75, 23))
-        self.pushButton.setObjectName("pushButton")
-        self.comboBox_turniej = QtWidgets.QComboBox(AddGraTurniej)
-        self.comboBox_turniej.setGeometry(QtCore.QRect(160, 60, 101, 22))
-        self.comboBox_turniej.setObjectName("comboBox_turniej")
-        self.label_3 = QtWidgets.QLabel(AddGraTurniej)
-        self.label_3.setGeometry(QtCore.QRect(170, 40, 51, 16))
-        self.label_3.setObjectName("label_3")
-
-        self.retranslateUi(AddGraTurniej)
-        QtCore.QMetaObject.connectSlotsByName(AddGraTurniej)
-        self.window = AddGraTurniej
-        self.setupUi_my(connection)
-
-    def retranslateUi(self, AddGraTurniej):
-        _translate = QtCore.QCoreApplication.translate
-        AddGraTurniej.setWindowTitle(_translate("AddGraTurniej", "Dialog"))
-        self.label.setText(_translate("AddGraTurniej", "ID egzemplarza"))
-        self.label_2.setText(_translate("AddGraTurniej", "Dodajesz gre do turnieju"))
-        self.pushButton.setText(_translate("AddGraTurniej", "Dodaj"))
-        self.label_3.setText(_translate("AddGraTurniej", "Turniej"))
-
-    def setupUi_my(self, connection):
-        self.pushButton.clicked.connect(self.button_fun)
-        self.connection = connection
-        turnieje = get_names(connection, 12, "nazwa")
-        self.comboBox_turniej.addItems(turnieje)
-
-    def button_fun(self):
-        print("button pushed")
-        turniej = validate_number(self.lineEdit_id_gra.text())
-
-        if turniej is not None:
-            record = [turniej,
-                    self.comboBox_turniej.currentText()
                     ]
-            add_record(self.connection, 17, record)
+            add_record(self.connection, 16, record)
             self.window.close()
 
 class Ui_AssignCzlonekSekcja(object):
@@ -1403,8 +1357,8 @@ class Ui_AssignCzlonekSekcja(object):
         self.comboBox_sekcja.addItems(sekcje)
 
     def button_fun(self):
-        record = [self.comboBox_sekcja.currentText(),
-                self.comboBox_PESEL.currentText()]
+        record = [self.comboBox_PESEL.currentText(),
+                self.comboBox_sekcja.currentText()]
         add_record(self.connection, 18, record)
         self.window.close()
 
@@ -1417,6 +1371,62 @@ class Ui_AssignCzlonekSekcja(object):
         self.label_3.setText(_translate("AssignCzlonekSekcja", "do"))
         self.label_4.setText(_translate("AssignCzlonekSekcja", "Sekcja"))
         self.pushButton.setText(_translate("AssignCzlonekSekcja", "Przypisz"))
+# -----------------------------------
+
+class Ui_AddGraTurniej(object):
+    def setupUi(self, AddGraTurniej, connection):
+        AddGraTurniej.setObjectName("AddGraTurniej")
+        AddGraTurniej.resize(400, 136)
+        self.lineEdit_id_gra = QtWidgets.QLineEdit(AddGraTurniej)
+        self.lineEdit_id_gra.setGeometry(QtCore.QRect(30, 60, 113, 20))
+        self.lineEdit_id_gra.setObjectName("lineEdit_id_gra")
+        self.label = QtWidgets.QLabel(AddGraTurniej)
+        self.label.setGeometry(QtCore.QRect(40, 40, 101, 16))
+        self.label.setObjectName("label")
+        self.label_2 = QtWidgets.QLabel(AddGraTurniej)
+        self.label_2.setGeometry(QtCore.QRect(140, 10, 131, 20))
+        self.label_2.setObjectName("label_2")
+        self.pushButton = QtWidgets.QPushButton(AddGraTurniej)
+        self.pushButton.setGeometry(QtCore.QRect(300, 90, 75, 23))
+        self.pushButton.setObjectName("pushButton")
+        self.comboBox_turniej = QtWidgets.QComboBox(AddGraTurniej)
+        self.comboBox_turniej.setGeometry(QtCore.QRect(160, 60, 101, 22))
+        self.comboBox_turniej.setObjectName("comboBox_turniej")
+        self.label_3 = QtWidgets.QLabel(AddGraTurniej)
+        self.label_3.setGeometry(QtCore.QRect(170, 40, 51, 16))
+        self.label_3.setObjectName("label_3")
+
+        self.retranslateUi(AddGraTurniej)
+        QtCore.QMetaObject.connectSlotsByName(AddGraTurniej)
+        self.window = AddGraTurniej
+        self.setupUi_my(connection)
+
+    def retranslateUi(self, AddGraTurniej):
+        _translate = QtCore.QCoreApplication.translate
+        AddGraTurniej.setWindowTitle(_translate("AddGraTurniej", "Dialog"))
+        self.label.setText(_translate("AddGraTurniej", "ID egzemplarza"))
+        self.label_2.setText(_translate("AddGraTurniej", "Dodajesz gre do turnieju"))
+        self.pushButton.setText(_translate("AddGraTurniej", "Dodaj"))
+        self.label_3.setText(_translate("AddGraTurniej", "Turniej"))
+
+    def setupUi_my(self, connection):
+        self.pushButton.clicked.connect(self.button_fun)
+        self.connection = connection
+        turnieje = get_names(connection, 12, "turniej")
+        self.comboBox_turniej.addItems(turnieje)
+
+    def button_fun(self):
+        print("button pushed")
+        turniej = validate_number(self.lineEdit_id_gra.text())
+
+        if turniej is not None:
+            record = [turniej,
+                    self.comboBox_turniej.currentText()
+                    ]
+            add_record(self.connection, 17, record)
+            self.window.close()
+
+
 
 class Ui_DeleteGraTurniej(object):
     def setupUi(self, DeleteGraTurniej, connection):
@@ -1450,7 +1460,7 @@ class Ui_DeleteGraTurniej(object):
     def setupUi_my(self, connection):
         self.pushButton.clicked.connect(self.button_fun)
         self.connection = connection
-        turnieje = get_names(connection, 12, "nazwa")
+        turnieje = get_names(connection, 12, "turniej")
         self.comboBox_turniej.addItems(turnieje)
 
     def button_fun(self):

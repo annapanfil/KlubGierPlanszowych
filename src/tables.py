@@ -1,11 +1,13 @@
 import datetime
 from PyQt5.QtWidgets import QMessageBox
 
-relations = ["Sekcje_view", "Czlonkowie", "Spotkania", "Placowki_view", "Egzemplarze_view", 
-            "Gry_komputerowe", "Gry_planszowe", "Platformy_view", "Wydawcy_view", 
-            "Eventy_view", "Miejsca", "Sponsorzy_view", "Turnieje_view", 
-            "Uczestnicy_turniejow_view", "Miejsca_w_turniejach_view", "Gry", "Sponsorowanie", 
-            "Gry_uzywanie", "Czlonkowie_w_sekcjach"]
+relations = ["Sekcje_view", "Czlonkowie", "Spotkanie_view", "Placowki_view",
+            "Egzemplarz_view", "Gry_komputerowe_view", "Gry_planszowe_view",
+            "Platformy_view", "Wydawcy_view",
+            "Event_view", "Miejsca", "Sponsorzy_view", "Turnieje_view",
+            "Uczestnicy_turniejow_view", "Miejsce_w_turnieju_view", "Gry", "Sponsorowanie", "Gry_uzywanie", "Czlonkowie_w_sekcjach"]
+
+basic_relations = ["Sekcje", "Czlonkowie", "Spotkania", "Placowki", "Egzemplarz", "Gry_komputerowe", "Gry_planszowe", "Platformy", "Wydawcy", "Eventy", "Miejsca", "Sponsorzy", "Turnieje", "Uczestnicy_turniejow", "Miejsce_w_turnieju", "Gry", "Sponsorowanie", "Gry_uzywanie", "Czlonkowie_w_sekcjach"]
 
 def get_table(i, connection):
     data, headers = connection.select(relations[i])
@@ -21,22 +23,28 @@ def get_table(i, connection):
 
 def add_record(connection, i:int , record: list):
     #QUESTION: what if already exists?
-    connection.insert(relations[i], record)
+    proc_name = basic_relations[i] + "_add"
+    connection.exec_procedure(proc_name, record)
+    # connection.insert(relations[i], record)
 
 
 def get_names(connection, i: int, colname: str):
     data, _ = connection.select(relations[i], [colname])
     if data != []:
-        data = data[0]
+        data = [d[0] for d in data]
     return data
 
 
 def remove_record(connection, i: int, condition: str):
-    connection.delete(relations[i], condition)
+    proc_name = basic_relations[i] + "_delete"
+    connection.exec_procedure(proc_name, record)
+    # connection.delete(relations[i], condition)
 
 
 def update_record(connection, i: int, new: str, condition: str):
-    connection.update(relations[i], new, condition)
+    # connection.update(relations[i], new, condition)
+    proc_name = basic_relations[i] + "_update"
+    connection.exec_procedure(proc_name, record)
 
 
 
@@ -49,7 +57,7 @@ def show_popup(text):
 
 def validate_number(promised_number):
     #TODO: przecinki
-    if promised_number.isdigit():
+    if promised_number.isdigit() or promised_number == "":
         return promised_number
     else:
         show_popup(f"Niepoprawna liczba: '{promised_number}'")

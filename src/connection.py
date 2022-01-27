@@ -91,6 +91,8 @@ class MyConnection():
             cursor.execute(query)
         except mysql.connector.errors.ProgrammingError as err:
             logging.error(err)
+        except mysql.connector.errors.DatabaseError as err:
+            logging.error(err)
 
         cursor.close()
         self.connection.commit()
@@ -105,10 +107,28 @@ class MyConnection():
             cursor.execute(query)
         except mysql.connector.errors.ProgrammingError as err:
             logging.error(err)
+        except mysql.connector.errors.DatabaseError as err:
+            logging.error(err)
+
 
         cursor.close()
         self.connection.commit()
 
+
+    def exec_procedure(self, proc_name, args):
+        logging.info(f"Execute procedure {proc_name} ({args})")
+
+        cursor = self.connection.cursor()
+        try:
+            cursor.callproc(proc_name, args=args)
+        except mysql.connector.errors.ProgrammingError as err:
+            logging.error(err)
+        except mysql.connector.errors.DatabaseError as err:
+            logging.error(err)
+
+
+        cursor.close()
+        self.connection.commit()
 
 
     def __del__(self):

@@ -622,7 +622,7 @@ class Ui_MainWindow(object):
         self.tableWidget_new.setColumnCount(width)
         self.tableWidget_new.setRowCount(heigth)
 
-        self.tableWidget_new.setSortingEnabled(False)
+        self.tableWidget_new.setSortingEnabled(True)
         _translate = QtCore.QCoreApplication.translate
 
         # headers
