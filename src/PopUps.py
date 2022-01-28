@@ -21,6 +21,7 @@ class Ui_CreateSekcja(object):
         self.retranslateUi(CreateSekcja)
         QtCore.QMetaObject.connectSlotsByName(CreateSekcja)
 
+        self.window = CreateSekcja
         self.setupUi_my(connection)
 
     def retranslateUi(self, CreateSekcja):
@@ -37,6 +38,7 @@ class Ui_CreateSekcja(object):
     def button_fun(self):
         record = [self.lineEdit_nazwa.text()]
         add_record(self.connection, 0, record)
+        self.window.close()
 
 class Ui_AddCzlonek(object):
     def setupUi(self, AddCzlonek, connection):
@@ -330,8 +332,8 @@ class Ui_AddGraKomputerowa(object):
         if cena is not None:
             record = [self.lineEdit_nazwa.text(),
                     cena,
-                    self.comboBox_platforma.currentText(),
-                    self.comboBox_wydawca.currentText()]
+                    self.comboBox_wydawca.currentText(),
+                    self.comboBox_platforma.currentText()]
             add_record(self.connection, 5, record)
             self.window.close()
 
@@ -407,7 +409,8 @@ class Ui_AddGraPlanszowa(object):
     def setupUi_my(self, connection):
         self.pushButton.clicked.connect(self.button_fun)
         self.connection = connection
-        wydawcy = get_names(connection, 8, "nazwa")
+        wydawcy = get_names(connection, 8, "wydawca")
+        self.comboBox_wydawca.addItems(wydawcy)
 
     def button_fun(self):
         cena = validate_number(self.lineEdit_cena.text())
@@ -420,8 +423,8 @@ class Ui_AddGraPlanszowa(object):
                      cena,
                      self.comboBox_wydawca.currentText(),
                      waga,
-                     max_graczy,
-                     min_graczy]
+                     min_graczy,
+                     max_graczy]
             add_record(self.connection, 6, record)
             self.window.close()
 
@@ -725,8 +728,8 @@ class Ui_AddTurniej(object):
 
         if None not in [hour]:
             record = [self.lineEdit_nazwa.text(),
-                    hour,
-                    self.comboBox.currentText()]
+                    self.comboBox.currentText(),
+                    hour]
             add_record(self.connection, 12, record)
             self.window.close()
 
@@ -785,14 +788,13 @@ class Ui_AddUczestnik(object):
         self.pushButton.clicked.connect(self.button_fun)
         self.connection = connection
         turnieje = get_names(connection, 12, "turniej")
-        eventy = get_names(connection, 9, "event")
-        self.comboBox_event.addItems(eventy)
+        # eventy = get_names(connection, 9, "event")
+        # self.comboBox_event.addItems(eventy)
         self.comboBox_turniej.addItems(turnieje)
 
     def button_fun(self):
         record = [self.lineEdit_imie.text(),
                 self.lineEdit_nazwisko.text(),
-                self.comboBox_event.currentText(),
                 self.comboBox_turniej.currentText()]
         add_record(self.connection, 13, record)
         self.window.close()
@@ -1085,7 +1087,7 @@ class Ui_DeleteGraPlanszowa(object):
     def setupUi_my(self, connection):
         self.pushButton.clicked.connect(self.button_fun)
         self.connection = connection
-        wydawcy = get_names(connection, 8, "nazwa")
+        wydawcy = get_names(connection, 8, "wydawca")
         self.comboBox_wydawca.addItems(wydawcy)
 
     def button_fun(self):
@@ -1425,8 +1427,6 @@ class Ui_AddGraTurniej(object):
                     ]
             add_record(self.connection, 17, record)
             self.window.close()
-
-
 
 class Ui_DeleteGraTurniej(object):
     def setupUi(self, DeleteGraTurniej, connection):

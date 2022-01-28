@@ -37,7 +37,7 @@ def get_names(connection, i: int, colname: str):
 
 def remove_record(connection, i: int, condition: str):
     proc_name = basic_relations[i] + "_delete"
-    connection.exec_procedure(proc_name, record)
+    connection.exec_procedure(proc_name, condition)
     # connection.delete(relations[i], condition)
 
 
@@ -45,7 +45,6 @@ def update_record(connection, i: int, new: str, condition: str):
     # connection.update(relations[i], new, condition)
     proc_name = basic_relations[i] + "_update"
     connection.exec_procedure(proc_name, record)
-
 
 
 def show_popup(text):
@@ -56,7 +55,6 @@ def show_popup(text):
     x = msg.exec_()
 
 def validate_number(promised_number):
-    #TODO: przecinki
     if promised_number.isdigit() or promised_number == "":
         return promised_number
     else:
@@ -72,8 +70,12 @@ def validate_date(promised_date):
         return None
 
 def validate_hour(promised_hour):
-    #TODO
-    return promised_hour
+    try:
+        datetime.datetime.strptime(promised_hour, '%H:%M')
+        return promised_hour + ":00"
+    except ValueError:
+        show_popup("Niepoprawny format godziny, spodziewany format to GG:MM")
+        return None
 
 def validate_text(promised_text):
     #TODO: not sql injection

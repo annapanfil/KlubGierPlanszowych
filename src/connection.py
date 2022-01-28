@@ -3,12 +3,15 @@
 import mysql.connector
 import getpass
 import logging
+from tables import show_popup
 
 class MyConnection():
     def __init__(self, login:str, passwd:str, host:str, db_name="KlubGierPlanszowych"):
 
         # login = input("nazwa użytkownika: ")
         # passwd = getpass.getpass("Hasło: ")
+
+        passwd = "DB12345"
         self.connection = None
 
         try:
@@ -16,7 +19,9 @@ class MyConnection():
         except mysql.connector.Error as err:
             if err.errno == mysql.connector.errorcode.ER_ACCESS_DENIED_ERROR:
                 logging.error("Wrong credentials")
+                show_popup("Niepoprawne dane logowania")
             else:
+                show_popup("Nie można połączyć z bazą danych")
                 logging.error(err)
             exit(1)
 
@@ -37,6 +42,7 @@ class MyConnection():
             headers = [col[0] for col in cursor.description]
         except mysql.connector.errors.ProgrammingError as err:
             logging.error(f"Table {table} does not exist")
+            show_popup("Tabela nie istnieje lub nie ma takiej kolumny")
             data = [["Tabela nie istnieje"]]
             headers = [""]
         finally:
@@ -45,86 +51,16 @@ class MyConnection():
 
         return (data, headers)
 
-
-    def insert(self, table: str, values: list, cols=None):
-        # values -- list  of values to insert
-        # cols -- list of columns to which values refer
-        # eg. connection.insert("Gry", ("Carcassone", 200, "xyz"), ("nazwa", "cena", "wydawca"))
-
-        query = f"INSERT INTO {table}"
-        if cols: query += f" ({', '.join(cols)})"
-
-        # surround strings with ""
-        for i, val in enumerate(values):
-            if isinstance(val, str):
-                values[i] = '"' + val + '"'
-            else:
-                values[i] = str(val)
-
-        query += f""" VALUES ({', '.join(values)})"""
-
-        logging.info(query)
-
-        cursor = self.connection.cursor()
-        try:
-            cursor.execute(query)
-            cursor.execute(f"select * from {table}")
-            data = cursor.fetchall()
-            logging.info(data)
-        except mysql.connector.errors.DatabaseError as err:
-            logging.error(err)
-        except mysql.connector.errors.ProgrammingError as err:
-            logging.error(err)
-        cursor.close()
-        self.connection.commit()
-
-
-    def delete(self, table: str, condition: str):
-        # eg. conn.select("Gry", ("nazwa", "cena"))
-
-        query = f"DELETE FROM {table} WHERE {condition}"
-
-        logging.info(query)
-
-        cursor = self.connection.cursor()
-        try:
-            cursor.execute(query)
-        except mysql.connector.errors.ProgrammingError as err:
-            logging.error(err)
-        except mysql.connector.errors.DatabaseError as err:
-            logging.error(err)
-
-        cursor.close()
-        self.connection.commit()
-
-    def update(self, table: str, result: str, condition: str):
-        query = f"UPDATE {table} SET {result} WHERE {condition}"
-
-        logging.info(query)
-
-        cursor = self.connection.cursor()
-        try:
-            cursor.execute(query)
-        except mysql.connector.errors.ProgrammingError as err:
-            logging.error(err)
-        except mysql.connector.errors.DatabaseError as err:
-            logging.error(err)
-
-
-        cursor.close()
-        self.connection.commit()
-
-
     def exec_procedure(self, proc_name, args):
         logging.info(f"Execute procedure {proc_name} ({args})")
 
         cursor = self.connection.cursor()
-        try:
-            cursor.callproc(proc_name, args=args)
-        except mysql.connector.errors.ProgrammingError as err:
-            logging.error(err)
-        except mysql.connector.errors.DatabaseError as err:
-            logging.error(err)
+        # try:
+        cursor.callproc(proc_name, args=args)
+        # except mysql.connector.errors.ProgrammingError as err:
+        #     logging.error(err)
+        # except mysql.connector.errors.DatabaseError as err:
+        #     logging.error(err)
 
 
         cursor.close()
