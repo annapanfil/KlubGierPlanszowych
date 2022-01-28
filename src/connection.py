@@ -55,12 +55,46 @@ class MyConnection():
         logging.info(f"Execute procedure {proc_name} ({args})")
 
         cursor = self.connection.cursor()
-        # try:
-        cursor.callproc(proc_name, args=args)
-        # except mysql.connector.errors.ProgrammingError as err:
-        #     logging.error(err)
-        # except mysql.connector.errors.DatabaseError as err:
-        #     logging.error(err)
+        try:
+            cursor.callproc(proc_name, args=args)
+        except mysql.connector.errors.ProgrammingError as err:
+            logging.error(err)
+        except mysql.connector.errors.DatabaseError as err:
+            logging.error(err)
+
+
+        cursor.close()
+        self.connection.commit()
+
+    def delete(self, table: str, condition: str):
+
+        query = f"DELETE FROM {table} WHERE {condition}"
+
+        logging.info(query)
+
+        cursor = self.connection.cursor()
+        try:
+            cursor.execute(query)
+        except mysql.connector.errors.ProgrammingError as err:
+            logging.error(err)
+        except mysql.connector.errors.DatabaseError as err:
+            logging.error(err)
+
+        cursor.close()
+        self.connection.commit()
+
+    def update(self, table: str, result: str, condition: str):
+        query = f"UPDATE {table} SET {result} WHERE {condition}"
+
+        logging.info(query)
+
+        cursor = self.connection.cursor()
+        try:
+            cursor.execute(query)
+        except mysql.connector.errors.ProgrammingError as err:
+            logging.error(err)
+        except mysql.connector.errors.DatabaseError as err:
+            logging.error(err)
 
 
         cursor.close()

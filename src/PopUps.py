@@ -99,7 +99,7 @@ class Ui_AddCzlonek(object):
         pesel = validate_number(self.lineEdit_PESEL.text())
 
         if date is not None and pesel != None:
-            record = [pesel, self.lineEdit_imie.text(), self.lineEdit_nazwisko.text(), date]
+            record = [pesel, self.lineEdit_imie.text(), self.lineEdit_nazwisko.text()] #date
             add_record(self.connection, 1, record)
             self.AddCzlonek.close()
 
@@ -980,8 +980,9 @@ class Ui_DeleteSpotkanie(object):
         self.comboBox_miejsce.addItems(miejsca)
 
     def button_fun(self):
-        cond1 = f"sekcja = '{self.comboBox_sekcja.currentText()}'"
-        cond2 = f"placowka = '{self.comboBox_miejsce.currentText()}'"
+        id = get_id_by_name(self.connection, 0, self.comboBox_sekcja.currentText())
+        cond1 = f"id_sekcji = {id}"
+        cond2 = f"adres = '{self.comboBox_miejsce.currentText()}'"
         cond3 = f"termin = '{self.lineEdit_termin.text()}'"
 
         remove_record(self.connection, 2, f"{cond1} AND {cond2} AND {cond3}")
@@ -1034,8 +1035,8 @@ class Ui_DeleteGraKomputerowa(object):
     def setupUi_my(self, connection):
         self.pushButton.clicked.connect(self.button_fun)
         self.connection = connection
-        platformy = get_names(connection, 7, "nazwa")
-        wydawcy = get_names(connection, 8, "nazwa")
+        platformy = get_names(connection, 7, "platforma")
+        wydawcy = get_names(connection, 8, "wydawca")
         self.comboBox_platforma.addItems(platformy)
         self.comboBox_wydawca.addItems(wydawcy)
 
@@ -1091,10 +1092,11 @@ class Ui_DeleteGraPlanszowa(object):
         self.comboBox_wydawca.addItems(wydawcy)
 
     def button_fun(self):
-        cond1 = f"wydawca = '{self.comboBox_wydawca.currentText()}'"
+        id = get_id_by_name(self.connection, 8, self.comboBox_wydawca.currentText())
+        cond1 = f"wydawca = '{id}'"
         cond2 = f"nazwa = '{self.lineEdit_nazwa.text()}'"
 
-        remove_record(self.connection, 6, f"{cond1} AND {cond2}")
+        remove_record(self.connection, 15, f"{cond1} AND {cond2}")
         self.window.close()
 
 class Ui_DeleteTurniej(object):
@@ -1138,7 +1140,7 @@ class Ui_DeleteTurniej(object):
     def setupUi_my(self, connection):
         self.pushButton.clicked.connect(self.button_fun)
         self.connection = connection
-        eventy = get_names(connection, 9, "nazwa")
+        eventy = get_names(connection, 9, "event")
         self.comboBox_event.addItems(eventy)
 
     def button_fun(self):
@@ -1177,7 +1179,7 @@ class Ui_UpdateNameName(object):
 
         self.tab_nr = tab_nr
         self.window = UpdateObject
-        self.setupUi_my(connection, tab_nr)
+        self.setupUi_my(connection, tab_nr, what)
 
     def retranslateUi(self, UpdateObject, what: str):
         _translate = QtCore.QCoreApplication.translate
@@ -1187,10 +1189,12 @@ class Ui_UpdateNameName(object):
         self.label_3.setText(_translate("UpdateObject", "Nowa nazwa"))
         self.pushButton.setText(_translate("UpdateObject", "Zmień"))
 
-    def setupUi_my(self, connection, tab_nr):
+    def setupUi_my(self, connection, tab_nr, what):
         self.pushButton.clicked.connect(self.button_fun)
         self.connection = connection
-        old = get_names(connection, tab_nr, "nazwa")
+        nazwa = what[:-1]+"a"
+        if nazwa == "sekcja": nazwa = "nazwa"
+        old = get_names(connection, tab_nr, nazwa)
         self.comboBox_stara_nazwa.addItems(old)
 
     def button_fun(self):
@@ -1467,8 +1471,9 @@ class Ui_DeleteGraTurniej(object):
         gra = validate_number(self.lineEdit_id_gra.text())
 
         if gra is not None:
-            cond1 = f"gra = '{gra}'"
-            cond2 = f"turniej = '{self.comboBox_turniej.currentText()}'"
+            id_turnieju = get_id_by_name(self.connection, 12, self.comboBox_turniej.currentText())
+            cond1 = f"id_egzemplarza = '{gra}'"
+            cond2 = f"turniej = '{id_turnieju}'"
             remove_record(self.connection, 17, f"{cond1} AND {cond2}")
             self.window.close()
 
@@ -1512,7 +1517,7 @@ class Ui_UpdateEventSekcja(object):
     def setupUi_my(self, connection):
         self.pushButton.clicked.connect(self.button_fun)
         self.connection = connection
-        eventy = get_names(connection, 9, "nazwa")
+        eventy = get_names(connection, 9, "event")
         sekcje = get_names(connection, 0, "nazwa")
         self.comboBox_nazwa.addItems(eventy)
         self.comboBox_sekcja.addItems(sekcje)

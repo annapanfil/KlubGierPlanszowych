@@ -4,9 +4,9 @@ create function pesel_to_date (vPesel varchar(11))
 		BEGIN
         IF CAST(substr(vPesel,3,2) AS UNSIGNED) < 20 THEN
 			RETURN str_to_date(CONCAT('19',substr(vPesel, 1, 6)), '%Y%m%d');
-		ELSE 
+		ELSE
             RETURN str_to_date(CONCAT('20',substr(vPesel, 1, 2),substr(vPesel, 3, 1)-2,substr(vPesel, 4, 1),substr(vPesel, 5, 2)), '%Y%m%d');
-        END IF;    
+        END IF;
         END//
 delimiter ;
 
@@ -68,7 +68,7 @@ CREATE TABLE Eventy(
 
 CREATE TABLE Sponsorzy(
   id_sponsora INT(7) PRIMARY KEY AUTO_INCREMENT,
-  nazwa VARCHAR(100) 
+  nazwa VARCHAR(100)
 );
 
 CREATE TABLE Sponsorowanie(
@@ -84,7 +84,7 @@ CREATE TABLE Turnieje(
   id_turnieju INT(7) PRIMARY KEY AUTO_INCREMENT,
   nazwa VARCHAR(100) NOT NULL,
   event INT(7) NOT NULL,
-  godzina_rozpoczecia TIME NOT NULL, 
+  godzina_rozpoczecia TIME NOT NULL,
   FOREIGN KEY (event) REFERENCES Eventy(id_eventu)
 );
 
@@ -108,12 +108,12 @@ CREATE TABLE Miejsce_w_turnieju(
 
 CREATE TABLE Wydawcy(
   id_wydawcy INT(7) PRIMARY KEY AUTO_INCREMENT,
-  nazwa VARCHAR(100) 
+  nazwa VARCHAR(100)
 );
 
 CREATE TABLE Platformy(
   id_platformy INT(7) PRIMARY KEY AUTO_INCREMENT,
-  nazwa VARCHAR(50) 
+  nazwa VARCHAR(50)
 );
 
 CREATE TABLE Gry(
@@ -121,7 +121,7 @@ CREATE TABLE Gry(
   nazwa VARCHAR(100) NOT NULL,
   cena FLOAT(4),
   wydawca int(7) NOT NULL,
-  FOREIGN KEY (wydawca) REFERENCES Wydawcy(id_wydawcy) 
+  FOREIGN KEY (wydawca) REFERENCES Wydawcy(id_wydawcy)
 );
 
 CREATE TABLE Egzemplarz(
@@ -152,11 +152,11 @@ CREATE TABLE Gry_uzywanie(
   turniej INT(7) NOT NULL,
   PRIMARY KEY(id_egzemplarza, turniej),
   FOREIGN KEY (id_egzemplarza) REFERENCES Egzemplarz(id_egzemplarza),
-  FOREIGN KEY (turniej) REFERENCES Turnieje(id_turnieju) 
+  FOREIGN KEY (turniej) REFERENCES Turnieje(id_turnieju)
 );
 
 CREATE VIEW Sekcje_view AS
-SELECT nazwa,data_utworzenia AS data , count(pesel_czlonka) as liczba_czlonkow 
+SELECT nazwa,data_utworzenia AS data , count(pesel_czlonka) as liczba_czlonkow
 FROM Sekcje left join Czlonkowie_w_sekcjach on Sekcje.id_sekcji = Czlonkowie_w_sekcjach.id_sekcji
 group by nazwa;
 
@@ -173,13 +173,13 @@ FROM Placowki left join Spotkania on Placowki.adres = Spotkania.adres
 group by adres;
 
 CREATE VIEW Egzemplarz_view AS
-SELECT id_egzemplarza,Gry.nazwa as tytul , Sekcje.nazwa as Sekcja from Egzemplarz 
-Inner join Sekcje on Egzemplarz.id_sekcji = Sekcje.id_sekcji 
+SELECT id_egzemplarza,Gry.nazwa as tytul , Sekcje.nazwa as Sekcja from Egzemplarz
+Inner join Sekcje on Egzemplarz.id_sekcji = Sekcje.id_sekcji
 Inner join Gry on Egzemplarz.id_gry = Gry.id_gry;
 
 create view Gry_komputerowe_view as
 SELECT Gry.nazwa as tytul , Gry.cena , Platformy.nazwa as platforma , Wydawcy.nazwa as wydawca
-from Gry_komputerowe 
+from Gry_komputerowe
 inner join Platformy on Gry_komputerowe.platforma = Platformy.id_platformy
 inner join Gry on Gry_komputerowe.id_gry = Gry.id_gry
 inner join Wydawcy on Gry.wydawca=Wydawcy.id_wydawcy;
@@ -209,25 +209,25 @@ left join Sponsorowanie on Eventy.id_eventu = Sponsorowanie.event
 inner join Sekcje on Eventy.sekcja= Sekcje.id_sekcji
 left join Sponsorzy on Sponsorzy.id_sponsora=Sponsorowanie.sponsor
 Group by Eventy.id_eventu;
-CREATE view Miejsce_view as 
+CREATE view Miejsce_view as
 SELECT * from Miejsca;
 
-Create view Sponsorzy_view as 
+Create view Sponsorzy_view as
 SELECT nazwa, count(distinct Sponsorowanie.event) 'ilosc sponsorowanych eventow', sum(Sponsorowanie.kwota) as 'suma sonsorowania'
 from Sponsorzy
 left join Sponsorowanie on Sponsorzy.id_sponsora = Sponsorowanie.sponsor
 group by id_sponsora;
 
-Create view Turnieje_view as 
+Create view Turnieje_view as
 SELECT Turnieje.nazwa as turniej , godzina_rozpoczecia , Eventy.nazwa , count(distinct Uczestnicy_turniejow.id_uczestnika) as 'ilosc uczestnikow',  GROUP_CONCAT(distinct Gry_uzywanie.id_egzemplarza SEPARATOR ', ') as 'id uzywanych gier'
-From Turnieje 
+From Turnieje
 inner join Eventy on Turnieje.event = Eventy.id_eventu
 left join Uczestnicy_turniejow on Turnieje.id_turnieju = Uczestnicy_turniejow.turniej
 left join Gry_uzywanie on Turnieje.id_turnieju = Gry_uzywanie.turniej
 group by Turnieje.nazwa;
 
 
-Create view Uczestnicy_turniejow_view as 
+Create view Uczestnicy_turniejow_view as
 SELECT imie, nazwisko , id_uczestnika , Eventy.nazwa as event , Turnieje.nazwa as turniej
 from Uczestnicy_turniejow
 inner join Turnieje on Uczestnicy_turniejow.turniej = Turnieje.id_turnieju
@@ -245,7 +245,7 @@ CREATE TRIGGER Usuwanie_czlonkow
 	BEFORE DELETE ON Czlonkowie FOR EACH ROW
 			DELETE from Czlonkowie_w_sekcjach WHERE pesel_czlonka = old.pesel;
 
-DELIMITER //            
+DELIMITER //
 CREATE TRIGGER Usuwanie_eventow
 	BEFORE DELETE ON Eventy FOR EACH ROW
 		BEGIN
@@ -262,15 +262,15 @@ CREATE TRIGGER Usuwanie_uczestnikow_z_turnieju
         DELETE FROM Gry_uzywanie where turniej = old.id_turnieju;
 	END//
 DELIMITER ;
-    
+
 CREATE TRIGGER Usuwanie_miejsc_z_turnieju
 	BEFORE DELETE ON Uczestnicy_turniejow FOR EACH ROW
-		DELETE FROM Miejsce_w_turnieju where uczestnik = old.id_uczestnika;        
-        
+		DELETE FROM Miejsce_w_turnieju where uczestnik = old.id_uczestnika;
+
 CREATE TRIGGER Usuwanie_gier_z_egzemplarzem
 	BEFORE DELETE ON Egzemplarz FOR EACH ROW
 		DELETE FROM Gry_uzywanie where id_egzemplarza = old.id_egzemplarza;
-        
+
 INSERT into Sekcje(nazwa,data_utworzenia) values ('Gry strategiczne',CURRENT_DATE);
 INSERT into Sekcje(nazwa,data_utworzenia) values ('Gry karciane',CURRENT_DATE);
 INSERT into Czlonkowie(pesel,imie,nazwisko,data_urodzenia) values('00111450469','Maria','Nowak','2000-11-14');
@@ -336,11 +336,11 @@ insert into Gry_planszowe values (3,3.1,1,5);
 insert into Gry_planszowe values (4,0.6,2,2);
 insert into Gry_uzywanie values(4,2);
 insert into Gry_uzywanie values(6,2);
-insert into Gry_uzywanie values(7,1);        
+insert into Gry_uzywanie values(7,1);
 
 delimiter //
 create procedure Sekcje_add(IN c_nazwa varchar(50))
-		begin 
+		begin
         INSERT into Sekcje(nazwa,data_utworzenia) values (c_nazwa,CURRENT_DATE);
         end//
 delimiter ;
@@ -353,8 +353,8 @@ create procedure Czlonkowie_add(IN c_pesel varchar(11), IN c_imie varchar(50), I
 delimiter ;
 
 delimiter //
-create procedure Czlonkowie_w_sekcjach_add(IN c_pesel INT(11), IN c_nazwa_sekcji varchar(50)) 
-		begin 
+create procedure Czlonkowie_w_sekcjach_add(IN c_pesel INT(11), IN c_nazwa_sekcji varchar(50))
+		begin
         DECLARE c_id_sekcji int(7);
         SELECT id_sekcji into c_id_sekcji from Sekcje where nazwa=c_nazwa_sekcji;
         INSERT into Czlonkowie_w_sekcjach values (c_pesel, c_id_sekcji, current_date());
@@ -362,15 +362,15 @@ create procedure Czlonkowie_w_sekcjach_add(IN c_pesel INT(11), IN c_nazwa_sekcji
 delimiter ;
 
 delimiter //
-create procedure Placowki_add(IN c_adres varchar(100), IN c_czynsz float(7)) 
-		begin 
+create procedure Placowki_add(IN c_adres varchar(100), IN c_czynsz float(7))
+		begin
         INSERT into Placowki values(c_adres,c_czynsz);
         end//
 delimiter ;
 
 delimiter //
-create procedure Spotkania_add(IN c_data date,IN c_nazwa_sekcji varchar(50),IN c_adres varchar(100)) 
-		begin 
+create procedure Spotkania_add(IN c_data date,IN c_nazwa_sekcji varchar(50),IN c_adres varchar(100))
+		begin
         DECLARE c_id_sekcji int(7);
         SELECT id_sekcji into c_id_sekcji from Sekcje where nazwa=c_nazwa_sekcji;
         INSERT INTO Spotkania(termin,id_sekcji,adres) values(c_data,c_id_sekcji,c_adres);
@@ -379,15 +379,15 @@ delimiter ;
 
 
 delimiter //
-create procedure Miejsca_add(IN c_adres varchar(100), IN c_czynsz float(7),IN c_capacity INT(7)) 
-		begin 
+create procedure Miejsca_add(IN c_adres varchar(100), IN c_czynsz float(7),IN c_capacity INT(7))
+		begin
         INSERT into Miejsca values(c_adres,c_czynsz,c_capacity);
         end//
 delimiter ;
 
 delimiter //
-create procedure Eventy_add(IN c_nazwa varchar(50),IN c_data date,IN c_nazwa_sekcji varchar(50),IN c_adres varchar(100)) 
-		begin 
+create procedure Eventy_add(IN c_nazwa varchar(50),IN c_data date,IN c_nazwa_sekcji varchar(50),IN c_adres varchar(100))
+		begin
 		DECLARE c_id_sekcji int(7);
         SELECT id_sekcji into c_id_sekcji from Sekcje where nazwa=c_nazwa_sekcji;
         insert into Eventy(nazwa,data,sekcja,adres) values (c_nazwa,c_data,c_id_sekcji,c_adres);
@@ -395,15 +395,15 @@ create procedure Eventy_add(IN c_nazwa varchar(50),IN c_data date,IN c_nazwa_sek
 delimiter ;
 
 delimiter //
-create procedure Sponsorzy_add(IN c_nazwa varchar(50)) 
-		begin 
+create procedure Sponsorzy_add(IN c_nazwa varchar(50))
+		begin
        insert into Sponsorzy(nazwa) values (c_nazwa);
         end//
 delimiter ;
 
 delimiter //
 create procedure Sponsorowanie_add(IN c_kwota FLOAT(7),IN c_nazwa_sponsora varchar(50),IN c_nazwa_eventu varchar(50))
-		begin 
+		begin
         DECLARE c_id_sponsora INT(7);
         DECLARE c_id_eventu INT(7);
         select id_eventu into c_id_eventu from Eventy where nazwa = c_nazwa_eventu;
@@ -413,8 +413,8 @@ create procedure Sponsorowanie_add(IN c_kwota FLOAT(7),IN c_nazwa_sponsora varch
 delimiter ;
 
 delimiter //
-create procedure Turnieje_add(IN c_nazwa varchar(50),IN c_nazwa_eventu varchar(50),IN c_godzina time) 
-		begin 
+create procedure Turnieje_add(IN c_nazwa varchar(50),IN c_nazwa_eventu varchar(50),IN c_godzina time)
+		begin
 		DECLARE c_id_eventu INT(7);
 		select id_eventu into c_id_eventu from Eventy where nazwa = c_nazwa_eventu;
         insert into Turnieje(nazwa,event,godzina_rozpoczecia) values (c_nazwa,c_id_eventu,c_godzina);
@@ -422,7 +422,7 @@ create procedure Turnieje_add(IN c_nazwa varchar(50),IN c_nazwa_eventu varchar(5
 delimiter ;
 
 delimiter //
-create procedure Uczestnicy_turniejow_add(IN c_imie varchar(50),IN c_nazwisko varchar(50),IN c_nazwa_turnieju varchar(50)) 
+create procedure Uczestnicy_turniejow_add(IN c_imie varchar(50),IN c_nazwisko varchar(50),IN c_nazwa_turnieju varchar(50))
 		begin
         DECLARE c_id_turnieju INT(7);
 		select id_turnieju into c_id_turnieju from Turnieje where nazwa = c_nazwa_turnieju;
@@ -431,7 +431,7 @@ create procedure Uczestnicy_turniejow_add(IN c_imie varchar(50),IN c_nazwisko va
 delimiter ;
 
 delimiter //
-create procedure Miejsce_w_turnieju_add(IN c_numer_miejsca int(7),IN c_nazwa_turnieju varchar(50),IN c_id_uczestnika int(7),IN c_nagroda varchar(100)) 
+create procedure Miejsce_w_turnieju_add(IN c_numer_miejsca int(7),IN c_nazwa_turnieju varchar(50),IN c_id_uczestnika int(7),IN c_nagroda varchar(100))
 		begin
         DECLARE c_id_turnieju INT(7);
 		select id_turnieju into c_id_turnieju from Turnieje where nazwa = c_nazwa_turnieju;
@@ -440,22 +440,22 @@ create procedure Miejsce_w_turnieju_add(IN c_numer_miejsca int(7),IN c_nazwa_tur
 delimiter ;
 
 delimiter //
-create procedure Wydawcy_add(IN c_nazwa varchar(50)) 
-		begin 
+create procedure Wydawcy_add(IN c_nazwa varchar(50))
+		begin
         insert into Wydawcy(nazwa) values (c_nazwa);
         end//
 delimiter ;
 
 delimiter //
-create procedure Platformy_add(IN c_nazwa varchar(50)) 
-		begin 
+create procedure Platformy_add(IN c_nazwa varchar(50))
+		begin
        insert into Platformy(nazwa) values (c_nazwa);
         end//
 delimiter ;
 
 delimiter //
 create procedure Gry_add(IN c_nazwa varchar(50),IN c_cena int(7),IN c_nazwa_wydawcy varchar(50))
-		begin 
+		begin
         DECLARE c_id_wydawcy int(7);
         select id_wydawcy into c_id_wydawcy from Wydawcy where nazwa = c_nazwa_wydawcy;
         insert into Gry(nazwa,cena,wydawca) values (c_nazwa,c_cena,c_id_wydawcy);
@@ -465,23 +465,23 @@ delimiter ;
 
 
 delimiter //
-create procedure Egzemplarz_add(IN c_nazwa_gry varchar(50),IN c_nazwa_sekcji varchar(50)) 
-		begin 
+create procedure Egzemplarz_add(IN c_nazwa_gry varchar(50),IN c_nazwa_sekcji varchar(50))
+		begin
 	DECLARE c_id_sekcji int(7);
         DECLARE c_id_gry int(7);
-        SELECT id_gry into c_id_gry from Gry where nazwa = c_nazwa_gry; 
+        SELECT id_gry into c_id_gry from Gry where nazwa = c_nazwa_gry;
         SELECT id_sekcji into c_id_sekcji from Sekcje where nazwa=c_nazwa_sekcji;
         insert into Egzemplarz(id_gry,id_sekcji) values (c_id_gry,c_id_sekcji);
         end//
 delimiter ;
 
 delimiter //
-create procedure Gry_komputerowe_add(IN c_nazwa varchar(50),IN c_cena float(4),IN c_nazwa_wydawcy varchar(50),IN c_nazwa_platformy varchar(50)) 
-		begin 
+create procedure Gry_komputerowe_add(IN c_nazwa varchar(50),IN c_cena float(4),IN c_nazwa_wydawcy varchar(50),IN c_nazwa_platformy varchar(50))
+		begin
         DECLARE c_id_gry int(7);
         DECLARE c_id_platformy int(7);
         call Gry_add(c_nazwa,c_cena,c_nazwa_wydawcy);
-        SELECT id_gry into c_id_gry from Gry where Gry.nazwa=c_nazwa; 
+        SELECT id_gry into c_id_gry from Gry where Gry.nazwa=c_nazwa;
         SELECT id_platformy into c_id_platformy from Platformy where nazwa = c_nazwa_platformy;
         insert into Gry_komputerowe values (c_id_gry,c_id_platformy);
         end//
@@ -489,18 +489,18 @@ delimiter ;
 
 
 delimiter //
-create procedure Gry_planszowe_add(IN c_nazwa_gry varchar(50),IN c_cena float(4),IN c_nazwa_wydawcy varchar(50),IN c_waga FLOAT(3),IN c_min int(2),IN c_max int(2)) 
-		begin 
+create procedure Gry_planszowe_add(IN c_nazwa_gry varchar(50),IN c_cena float(4),IN c_nazwa_wydawcy varchar(50),IN c_waga FLOAT(3),IN c_min int(2),IN c_max int(2))
+		begin
 	DECLARE c_id_gry int(7);
         call Gry_add(c_nazwa_gry,c_cena,c_nazwa_wydawcy);
-        SELECT id_gry into c_id_gry from Gry natural join Wydawcy where Gry.nazwa=c_nazwa; 
+        SELECT id_gry into c_id_gry from Gry natural join Wydawcy where Gry.nazwa=c_nazwa;
         insert into Gry_planszowe values (c_id_gry,c_waga,c_min,c_max);
         end//
 delimiter ;
 
 delimiter //
-create procedure Gry_uzywanie_add(IN c_id_egzemplarza int(7),IN c_nazwa_turnieju varchar(50)) 
-		begin 
+create procedure Gry_uzywanie_add(IN c_id_egzemplarza int(7),IN c_nazwa_turnieju varchar(50))
+		begin
         DECLARE c_id_turnieju int(7);
         SELECT id_turnieju into c_id_turnieju from Turnieje where nazwa = c_nazwa_turnieju;
         insert into Gry_uzywanie values(c_id_egzemplarza,c_id_turnieju);

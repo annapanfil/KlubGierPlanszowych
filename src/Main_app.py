@@ -462,7 +462,7 @@ class Ui_MainWindow(object):
     def button_egzemplarze_gier_usun_fun(self):
         self.DeleteEgzemplarz = QtWidgets.QDialog()
         ui = Ui_DeleteWithLineEdit()
-        ui.setupUi(self.DeleteEgzemplarz, 4, "egzemplarz gry", "ID", self.connection)
+        ui.setupUi(self.DeleteEgzemplarz, 4, "egzemplarz gry", "id_egzemplarza", self.connection)
         self.DeleteEgzemplarz.exec_()
         self.on_tab_change(4)
 
@@ -476,7 +476,7 @@ class Ui_MainWindow(object):
     def button_uczestnicy_turniejow_usun_fun(self):
         self.DeleteUczestnik = QtWidgets.QDialog()
         ui = Ui_DeleteWithLineEdit()
-        ui.setupUi(self.DeleteUczestnik, 13, "uczestnika", "ID uczestnika", self.connection)
+        ui.setupUi(self.DeleteUczestnik, 13, "uczestnika", "id_uczestnika", self.connection)
         self.DeleteUczestnik.exec_()
         self.on_tab_change(13)
 
@@ -531,7 +531,7 @@ class Ui_MainWindow(object):
     def button_miejsce_edytuj_fun(self):
         self.UpdateMiejsceCena = QtWidgets.QDialog()
         ui = Ui_UpdateAdrCost()
-        ui.setupUi(self.UpdateMiejsceCena, 10, "cenę wynajmu", "nowa cena", self.connection)
+        ui.setupUi(self.UpdateMiejsceCena, 10, "cenę wynajmu", "cena_wynajmu", self.connection)
         self.UpdateMiejsceCena.exec_()
         self.UpdateMiejsceCena.show()
         self.on_tab_change(10)
@@ -539,7 +539,7 @@ class Ui_MainWindow(object):
     def button_placowki_edytuj_fun(self):
         self.UpdatePlacowka = QtWidgets.QDialog()
         ui = Ui_UpdateAdrCost()
-        ui.setupUi(self.UpdatePlacowka, 3, "czynsz placówki", "nowy czynsz", self.connection)
+        ui.setupUi(self.UpdatePlacowka, 3, "czynsz placówki", "czynsz", self.connection)
         self.UpdatePlacowka.exec_()
         self.UpdatePlacowka.show()
         self.on_tab_change(3)

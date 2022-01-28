@@ -35,16 +35,29 @@ def get_names(connection, i: int, colname: str):
     return data
 
 
+def get_id_by_name(connection, i:int, name:str):
+    field_name = basic_relations[i].lower()
+    if field_name == "sekcje":
+        field_name = "sekcji"
+    if field_name == "turnieje":
+        field_name = "turnieju"
+    id = f"id_{field_name}"
+    data, _= connection.select(basic_relations[i], (id, ), f"nazwa = '{name}'")
+    if data != []:
+        data = data[0][0]
+    return data
+
+
 def remove_record(connection, i: int, condition: str):
-    proc_name = basic_relations[i] + "_delete"
-    connection.exec_procedure(proc_name, condition)
-    # connection.delete(relations[i], condition)
+    # proc_name = basic_relations[i] + "_delete"
+    # connection.exec_procedure(proc_name, condition)
+    connection.delete(basic_relations[i], condition)
 
 
 def update_record(connection, i: int, new: str, condition: str):
-    # connection.update(relations[i], new, condition)
-    proc_name = basic_relations[i] + "_update"
-    connection.exec_procedure(proc_name, record)
+    connection.update(basic_relations[i], new, condition)
+    # proc_name = basic_relations[i] + "_update"
+    # connection.exec_procedure(proc_name, record)
 
 
 def show_popup(text):
